@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31605.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daily-Newspaper-Tools", "Daily-Newspaper-Tools\Daily-Newspaper-Tools.csproj", "{F1108E26-494E-4009-8104-37F0D708A61A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1108E26-494E-4009-8104-37F0D708A61A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1108E26-494E-4009-8104-37F0D708A61A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1108E26-494E-4009-8104-37F0D708A61A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1108E26-494E-4009-8104-37F0D708A61A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {69FA82D1-6954-435B-A600-13480FFD5307}
+	EndGlobalSection
+EndGlobal
