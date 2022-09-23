@@ -34,47 +34,53 @@ namespace Daily_Newspaper_Tools
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
+        private void uiNavBar1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
         #endregion
 
-        #region Placeholder or WaterMark
-        //private void txtuser_Enter(object sender, EventArgs e)
-        //{
-        //    if (txtuser.Text == "用户名")
-        //    {
-        //        txtuser.Text = "";
-        //        txtuser.ForeColor = Color.LightGray;
-        //    }
-        //}
+        #region 文本事件
 
-        //private void txtuser_Leave(object sender, EventArgs e)
-        //{
-        //    if (txtuser.Text == "")
-        //    {
-        //        txtuser.Text = "用户名";
-        //        txtuser.ForeColor = Color.Silver;
-        //    }
-        //}
+        private void uiTxtUser_Enter(object sender, EventArgs e)
+        {
+            if (uiTxtUser.Text == "用户名")
+            {
+                uiTxtUser.Text = "";
+                uiTxtUser.ForeColor = Color.LightGray;
+            }
+        }
 
-        //private void txtpass_Enter(object sender, EventArgs e)
-        //{
-        //    if (txtpass.Text == "密码")
-        //    {
-        //        txtpass.Text = "";
-        //        txtpass.ForeColor = Color.LightGray;
-        //        txtpass.UseSystemPasswordChar = true;
-        //    }
-        //}
+        private void uiTxtUser_Leave(object sender, EventArgs e)
+        {
+            if (uiTxtUser.Text == "")
+            {
+                uiTxtUser.Text = "用户名";
+                uiTxtUser.ForeColor = Color.Silver;
+            }
+        }
 
-        //private void txtpass_Leave(object sender, EventArgs e)
-        //{
-        //    if (txtpass.Text == "")
-        //    {
-        //        txtpass.Text = "密码";
-        //        txtpass.ForeColor = Color.Silver;
-        //        txtpass.UseSystemPasswordChar = false;
-        //    }
-        //}
+        private void uiTxtPassword_Enter(object sender, EventArgs e)
+        {
+            if (uiTxtPassword.Text == "密码")
+            {
+                uiTxtPassword.Text = "";
+                uiTxtPassword.ForeColor = Color.LightGray;
+                uiTxtPassword.TextBox.UseSystemPasswordChar =true;
+            }
+        }
 
+        private void uiTxtPassword_Leave(object sender, EventArgs e)
+        {
+            if (uiTxtPassword.Text == "")
+            {
+                uiTxtPassword.Text = "密码";
+                uiTxtPassword.ForeColor = Color.Silver;
+                uiTxtPassword.TextBox.UseSystemPasswordChar =false;
+            }
+        }
         #endregion 
 
         private void btncerrar_Click(object sender, EventArgs e)
@@ -112,5 +118,7 @@ namespace Daily_Newspaper_Tools
         {
 
         }
+
+        
     }
 }
