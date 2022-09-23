@@ -37,43 +37,43 @@ namespace Daily_Newspaper_Tools
         #endregion
 
         #region Placeholder or WaterMark
-        private void txtuser_Enter(object sender, EventArgs e)
-        {
-            if (txtuser.Text == "用户名")
-            {
-                txtuser.Text = "";
-                txtuser.ForeColor = Color.LightGray;
-            }
-        }
+        //private void txtuser_Enter(object sender, EventArgs e)
+        //{
+        //    if (txtuser.Text == "用户名")
+        //    {
+        //        txtuser.Text = "";
+        //        txtuser.ForeColor = Color.LightGray;
+        //    }
+        //}
 
-        private void txtuser_Leave(object sender, EventArgs e)
-        {
-            if (txtuser.Text == "")
-            {
-                txtuser.Text = "用户名";
-                txtuser.ForeColor = Color.Silver;
-            }
-        }
+        //private void txtuser_Leave(object sender, EventArgs e)
+        //{
+        //    if (txtuser.Text == "")
+        //    {
+        //        txtuser.Text = "用户名";
+        //        txtuser.ForeColor = Color.Silver;
+        //    }
+        //}
 
-        private void txtpass_Enter(object sender, EventArgs e)
-        {
-            if (txtpass.Text == "密码")
-            {
-                txtpass.Text = "";
-                txtpass.ForeColor = Color.LightGray;
-                txtpass.UseSystemPasswordChar = true;
-            }
-        }
+        //private void txtpass_Enter(object sender, EventArgs e)
+        //{
+        //    if (txtpass.Text == "密码")
+        //    {
+        //        txtpass.Text = "";
+        //        txtpass.ForeColor = Color.LightGray;
+        //        txtpass.UseSystemPasswordChar = true;
+        //    }
+        //}
 
-        private void txtpass_Leave(object sender, EventArgs e)
-        {
-            if (txtpass.Text == "")
-            {
-                txtpass.Text = "密码";
-                txtpass.ForeColor = Color.Silver;
-                txtpass.UseSystemPasswordChar = false;
-            }
-        }
+        //private void txtpass_Leave(object sender, EventArgs e)
+        //{
+        //    if (txtpass.Text == "")
+        //    {
+        //        txtpass.Text = "密码";
+        //        txtpass.ForeColor = Color.Silver;
+        //        txtpass.UseSystemPasswordChar = false;
+        //    }
+        //}
 
         #endregion 
 

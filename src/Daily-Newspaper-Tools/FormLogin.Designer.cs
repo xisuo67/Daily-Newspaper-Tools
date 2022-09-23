@@ -30,22 +30,22 @@ namespace Daily_Newspaper_Tools
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("登录");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("注册");
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.txtuser = new System.Windows.Forms.TextBox();
-            this.txtpass = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnlogin = new System.Windows.Forms.Button();
             this.btncerrar = new System.Windows.Forms.PictureBox();
             this.btnminimizar = new System.Windows.Forms.PictureBox();
-            this.btnregister = new System.Windows.Forms.Button();
+            this.uiNavBar1 = new Sunny.UI.UINavBar();
+            this.uiTxtPassword = new Sunny.UI.UITextBox();
+            this.uiTxtUser = new Sunny.UI.UITextBox();
+            this.btnlogin = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btncerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnminimizar)).BeginInit();
+            this.uiNavBar1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -69,92 +69,16 @@ namespace Daily_Newspaper_Tools
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             // 
-            // shapeContainer1
-            // 
-            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer1.Name = "shapeContainer1";
-            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape2,
-            this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(780, 305);
-            this.shapeContainer1.TabIndex = 1;
-            this.shapeContainer1.TabStop = false;
-            // 
-            // lineShape2
-            // 
-            this.lineShape2.BorderColor = System.Drawing.Color.Silver;
-            this.lineShape2.Enabled = false;
-            this.lineShape2.Name = "lineShape2";
-            this.lineShape2.X1 = 309;
-            this.lineShape2.X2 = 716;
-            this.lineShape2.Y1 = 165;
-            this.lineShape2.Y2 = 165;
-            // 
-            // lineShape1
-            // 
-            this.lineShape1.BorderColor = System.Drawing.Color.Silver;
-            this.lineShape1.Enabled = false;
-            this.lineShape1.Name = "lineShape1";
-            this.lineShape1.X1 = 310;
-            this.lineShape1.X2 = 717;
-            this.lineShape1.Y1 = 100;
-            this.lineShape1.Y2 = 100;
-            // 
-            // txtuser
-            // 
-            this.txtuser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
-            this.txtuser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtuser.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtuser.ForeColor = System.Drawing.Color.Silver;
-            this.txtuser.Location = new System.Drawing.Point(310, 71);
-            this.txtuser.Name = "txtuser";
-            this.txtuser.Size = new System.Drawing.Size(408, 20);
-            this.txtuser.TabIndex = 1;
-            this.txtuser.Text = "用户名";
-            this.txtuser.Enter += new System.EventHandler(this.txtuser_Enter);
-            this.txtuser.Leave += new System.EventHandler(this.txtuser_Leave);
-            // 
-            // txtpass
-            // 
-            this.txtpass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
-            this.txtpass.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtpass.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpass.ForeColor = System.Drawing.Color.Silver;
-            this.txtpass.Location = new System.Drawing.Point(310, 131);
-            this.txtpass.Name = "txtpass";
-            this.txtpass.Size = new System.Drawing.Size(408, 20);
-            this.txtpass.TabIndex = 2;
-            this.txtpass.Text = "密码";
-            this.txtpass.Enter += new System.EventHandler(this.txtpass_Enter);
-            this.txtpass.Leave += new System.EventHandler(this.txtpass_Leave);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(503, 0);
+            this.label1.Location = new System.Drawing.Point(223, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 32);
             this.label1.TabIndex = 4;
             this.label1.Text = "LOGIN";
-            // 
-            // btnlogin
-            // 
-            this.btnlogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
-            this.btnlogin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
-            this.btnlogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btnlogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
-            this.btnlogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnlogin.ForeColor = System.Drawing.Color.LightGray;
-            this.btnlogin.Location = new System.Drawing.Point(310, 218);
-            this.btnlogin.Name = "btnlogin";
-            this.btnlogin.Size = new System.Drawing.Size(199, 37);
-            this.btnlogin.TabIndex = 3;
-            this.btnlogin.Text = "登录";
-            this.btnlogin.UseVisualStyleBackColor = false;
-            this.btnlogin.Click += new System.EventHandler(this.btnlogin_Click);
             // 
             // btncerrar
             // 
@@ -180,21 +104,82 @@ namespace Daily_Newspaper_Tools
             this.btnminimizar.TabStop = false;
             this.btnminimizar.Click += new System.EventHandler(this.btnminimizar_Click);
             // 
-            // btnregister
+            // uiNavBar1
             // 
-            this.btnregister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
-            this.btnregister.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
-            this.btnregister.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btnregister.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
-            this.btnregister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnregister.ForeColor = System.Drawing.Color.LightGray;
-            this.btnregister.Location = new System.Drawing.Point(543, 218);
-            this.btnregister.Name = "btnregister";
-            this.btnregister.Size = new System.Drawing.Size(199, 37);
-            this.btnregister.TabIndex = 9;
-            this.btnregister.Text = "注册";
-            this.btnregister.UseVisualStyleBackColor = false;
-            this.btnregister.Click += new System.EventHandler(this.btnregister_Click);
+            this.uiNavBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.uiNavBar1.Controls.Add(this.label1);
+            this.uiNavBar1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uiNavBar1.DropMenuFont = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiNavBar1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiNavBar1.Location = new System.Drawing.Point(250, 0);
+            this.uiNavBar1.MenuStyle = Sunny.UI.UIMenuStyle.Custom;
+            this.uiNavBar1.Name = "uiNavBar1";
+            treeNode3.Name = "节点0";
+            treeNode3.Text = "登录";
+            treeNode4.Name = "节点1";
+            treeNode4.Text = "注册";
+            this.uiNavBar1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode3,
+            treeNode4});
+            this.uiNavBar1.SelectedIndex = 0;
+            this.uiNavBar1.Size = new System.Drawing.Size(530, 89);
+            this.uiNavBar1.TabIndex = 11;
+            this.uiNavBar1.Text = "uiNavBar1";
+            this.uiNavBar1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiTxtPassword
+            // 
+            this.uiTxtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTxtPassword.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.uiTxtPassword.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.uiTxtPassword.ForeColor = System.Drawing.Color.Silver;
+            this.uiTxtPassword.Location = new System.Drawing.Point(290, 159);
+            this.uiTxtPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTxtPassword.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTxtPassword.Name = "uiTxtPassword";
+            this.uiTxtPassword.ShowText = false;
+            this.uiTxtPassword.Size = new System.Drawing.Size(429, 37);
+            this.uiTxtPassword.Style = Sunny.UI.UIStyle.Custom;
+            this.uiTxtPassword.TabIndex = 14;
+            this.uiTxtPassword.Text = "密码";
+            this.uiTxtPassword.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiTxtPassword.Watermark = "";
+            this.uiTxtPassword.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiTxtUser
+            // 
+            this.uiTxtUser.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTxtUser.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.uiTxtUser.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.uiTxtUser.ForeColor = System.Drawing.Color.Silver;
+            this.uiTxtUser.ForeDisableColor = System.Drawing.Color.White;
+            this.uiTxtUser.Location = new System.Drawing.Point(290, 105);
+            this.uiTxtUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTxtUser.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTxtUser.Name = "uiTxtUser";
+            this.uiTxtUser.ShowText = false;
+            this.uiTxtUser.Size = new System.Drawing.Size(429, 35);
+            this.uiTxtUser.Style = Sunny.UI.UIStyle.Custom;
+            this.uiTxtUser.TabIndex = 13;
+            this.uiTxtUser.Text = "用户名";
+            this.uiTxtUser.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiTxtUser.Watermark = "";
+            this.uiTxtUser.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // btnlogin
+            // 
+            this.btnlogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
+            this.btnlogin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.btnlogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnlogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.btnlogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnlogin.ForeColor = System.Drawing.Color.LightGray;
+            this.btnlogin.Location = new System.Drawing.Point(393, 252);
+            this.btnlogin.Name = "btnlogin";
+            this.btnlogin.Size = new System.Drawing.Size(199, 37);
+            this.btnlogin.TabIndex = 12;
+            this.btnlogin.Text = "登录";
+            this.btnlogin.UseVisualStyleBackColor = false;
             // 
             // FormLogin
             // 
@@ -202,15 +187,13 @@ namespace Daily_Newspaper_Tools
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(780, 305);
-            this.Controls.Add(this.btnregister);
+            this.Controls.Add(this.uiTxtPassword);
+            this.Controls.Add(this.uiTxtUser);
+            this.Controls.Add(this.btnlogin);
+            this.Controls.Add(this.uiNavBar1);
             this.Controls.Add(this.btnminimizar);
             this.Controls.Add(this.btncerrar);
-            this.Controls.Add(this.btnlogin);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtpass);
-            this.Controls.Add(this.txtuser);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.shapeContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormLogin";
             this.Opacity = 0.9D;
@@ -222,25 +205,23 @@ namespace Daily_Newspaper_Tools
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btncerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnminimizar)).EndInit();
+            this.uiNavBar1.ResumeLayout(false);
+            this.uiNavBar1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
-        private System.Windows.Forms.TextBox txtuser;
-        private System.Windows.Forms.TextBox txtpass;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnlogin;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox btncerrar;
         private System.Windows.Forms.PictureBox btnminimizar;
-        private System.Windows.Forms.Button btnregister;
+        private Sunny.UI.UINavBar uiNavBar1;
+        private Sunny.UI.UITextBox uiTxtPassword;
+        private Sunny.UI.UITextBox uiTxtUser;
+        private System.Windows.Forms.Button btnlogin;
     }
 }
 
