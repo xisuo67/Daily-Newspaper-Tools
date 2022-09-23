@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sunny.UI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Daily_Newspaper_Tools
 {
-    public partial class MainForm : Form
+    public partial class MainForm : UIAsideHeaderMainFrame
     {
         public MainForm()
         {
@@ -26,6 +27,10 @@ namespace Daily_Newspaper_Tools
                 this.Close();
                 return;
             }
+        }
+        private void Aside_MenuItemClick(System.Windows.Forms.TreeNode node, NavMenuItem item, int pageIndex)
+        {
+            Header.Text = "PageIndex: " + pageIndex;
         }
     }
 }

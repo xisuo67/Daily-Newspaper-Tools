@@ -31,13 +31,26 @@ namespace Daily_Newspaper_Tools
         {
             this.SuspendLayout();
             // 
+            // Header
+            // 
+            this.Header.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.Header.ForeColor = System.Drawing.Color.White;
+            this.Header.Size = new System.Drawing.Size(774, 57);
+            this.Header.Style = Sunny.UI.UIStyle.Custom;
+            this.Header.StyleCustomMode = true;
+            // 
+            // Aside
+            // 
+            this.Aside.Size = new System.Drawing.Size(250, 685);
+            this.Aside.MenuItemClick += new Sunny.UI.UINavMenu.OnMenuItemClick(this.Aside_MenuItemClick);
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(1024, 720);
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Text = "FAsideHeaderMain";
+            this.ZoomScaleRect = new System.Drawing.Rectangle(-98, 15, 1024, 720);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
 
