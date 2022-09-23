@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Entity
+namespace DAL.DTO
 {
-    public class TodayWorkDetails
+    public class WeekWorksDTO
     {
         /// <summary>
         /// 主键
@@ -38,5 +38,10 @@ namespace DAL.Entity
         /// jira编号
         /// </summary>
         public string JIRANumber { get; set; }
+
+        /// <summary>
+        /// 日期
+        /// </summary>
+        public DateTime? WorkDate { get; set; }
     }
 }

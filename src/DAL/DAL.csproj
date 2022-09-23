@@ -51,6 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\WeekWorksDetailsDTO.cs" />
+    <Compile Include="DTO\WeekWorksDTO.cs" />
     <Compile Include="EntityContext.cs" />
     <Compile Include="Entity\Contacts.cs" />
     <Compile Include="Entity\EmailConfig.cs" />
@@ -67,9 +69,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DTO\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
