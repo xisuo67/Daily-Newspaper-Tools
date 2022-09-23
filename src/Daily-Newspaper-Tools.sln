@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.31605.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daily-Newspaper-Tools", "Daily-Newspaper-Tools\Daily-Newspaper-Tools.csproj", "{F1108E26-494E-4009-8104-37F0D708A61A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{465204CA-B5CC-479D-A8F3-12DEB42CD126}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daily-Newspaper-Tools-WPF", "Daily-Newspaper-Tools-WPF\Daily-Newspaper-Tools-WPF.csproj", "{375B602C-13D5-450C-9D8D-01ED89F935CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{F1108E26-494E-4009-8104-37F0D708A61A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1108E26-494E-4009-8104-37F0D708A61A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1108E26-494E-4009-8104-37F0D708A61A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{465204CA-B5CC-479D-A8F3-12DEB42CD126}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{465204CA-B5CC-479D-A8F3-12DEB42CD126}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{465204CA-B5CC-479D-A8F3-12DEB42CD126}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{465204CA-B5CC-479D-A8F3-12DEB42CD126}.Release|Any CPU.Build.0 = Release|Any CPU
+		{375B602C-13D5-450C-9D8D-01ED89F935CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{375B602C-13D5-450C-9D8D-01ED89F935CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{375B602C-13D5-450C-9D8D-01ED89F935CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{375B602C-13D5-450C-9D8D-01ED89F935CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
