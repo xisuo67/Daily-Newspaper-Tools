@@ -29,45 +29,48 @@ namespace Daily_Newspaper_Tools
         /// </summary>
         private void InitializeComponent()
         {
-            this.uiAvatar1 = new Sunny.UI.UIAvatar();
+            this.uiAvatar = new Sunny.UI.UIAvatar();
             this.Header.SuspendLayout();
             this.SuspendLayout();
             // 
             // Header
             // 
-            this.Header.BackColor = System.Drawing.Color.White;
-            this.Header.Controls.Add(this.uiAvatar1);
-            this.Header.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.Header.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Header.Controls.Add(this.uiAvatar);
+            this.Header.FillColor = System.Drawing.Color.WhiteSmoke;
             this.Header.ForeColor = System.Drawing.Color.White;
-            this.Header.Location = new System.Drawing.Point(320, 35);
-            this.Header.Size = new System.Drawing.Size(704, 72);
+            this.Header.Location = new System.Drawing.Point(204, 35);
+            this.Header.Size = new System.Drawing.Size(820, 72);
             this.Header.Style = Sunny.UI.UIStyle.Custom;
             this.Header.StyleCustomMode = true;
             // 
             // Aside
             // 
             this.Aside.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
+            this.Aside.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
             this.Aside.MenuStyle = Sunny.UI.UIMenuStyle.Custom;
-            this.Aside.Size = new System.Drawing.Size(320, 685);
+            this.Aside.Size = new System.Drawing.Size(204, 685);
             this.Aside.MenuItemClick += new Sunny.UI.UINavMenu.OnMenuItemClick(this.Aside_MenuItemClick);
             // 
-            // uiAvatar1
+            // uiAvatar
             // 
-            this.uiAvatar1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiAvatar1.Location = new System.Drawing.Point(699, 6);
-            this.uiAvatar1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiAvatar1.Name = "uiAvatar1";
-            this.uiAvatar1.Size = new System.Drawing.Size(60, 60);
-            this.uiAvatar1.Style = Sunny.UI.UIStyle.Custom;
-            this.uiAvatar1.TabIndex = 0;
-            this.uiAvatar1.Text = "uiAvatar1";
-            this.uiAvatar1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.uiAvatar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.uiAvatar.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiAvatar.Location = new System.Drawing.Point(739, 9);
+            this.uiAvatar.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiAvatar.Name = "uiAvatar";
+            this.uiAvatar.Size = new System.Drawing.Size(60, 60);
+            this.uiAvatar.Style = Sunny.UI.UIStyle.Custom;
+            this.uiAvatar.TabIndex = 0;
+            this.uiAvatar.Text = "uiAvatar1";
+            this.uiAvatar.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1024, 720);
             this.Name = "MainForm";
+            this.Opacity = 0.9D;
             this.Text = "FAsideHeaderMain";
             this.ZoomScaleRect = new System.Drawing.Rectangle(-98, 15, 1024, 720);
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -78,6 +81,6 @@ namespace Daily_Newspaper_Tools
 
         #endregion
 
-        private Sunny.UI.UIAvatar uiAvatar1;
+        private Sunny.UI.UIAvatar uiAvatar;
     }
 }
