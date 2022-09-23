@@ -16,7 +16,7 @@ namespace Daily_Newspaper_Tools
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormLogin());
+            Application.Run(new MainForm());
         }
     }
 }

@@ -41,7 +41,7 @@ namespace Daily_Newspaper_Tools
             this.btnlogin = new System.Windows.Forms.Button();
             this.btncerrar = new System.Windows.Forms.PictureBox();
             this.btnminimizar = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnregister = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btncerrar)).BeginInit();
@@ -180,20 +180,21 @@ namespace Daily_Newspaper_Tools
             this.btnminimizar.TabStop = false;
             this.btnminimizar.Click += new System.EventHandler(this.btnminimizar_Click);
             // 
-            // button1
+            // btnregister
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.LightGray;
-            this.button1.Location = new System.Drawing.Point(543, 218);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(199, 37);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "注册";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnregister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
+            this.btnregister.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(159)))), ((int)(((byte)(127)))));
+            this.btnregister.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnregister.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(118)))), ((int)(((byte)(126)))));
+            this.btnregister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnregister.ForeColor = System.Drawing.Color.LightGray;
+            this.btnregister.Location = new System.Drawing.Point(543, 218);
+            this.btnregister.Name = "btnregister";
+            this.btnregister.Size = new System.Drawing.Size(199, 37);
+            this.btnregister.TabIndex = 9;
+            this.btnregister.Text = "注册";
+            this.btnregister.UseVisualStyleBackColor = false;
+            this.btnregister.Click += new System.EventHandler(this.btnregister_Click);
             // 
             // FormLogin
             // 
@@ -201,7 +202,7 @@ namespace Daily_Newspaper_Tools
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(780, 305);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnregister);
             this.Controls.Add(this.btnminimizar);
             this.Controls.Add(this.btncerrar);
             this.Controls.Add(this.btnlogin);
@@ -239,7 +240,7 @@ namespace Daily_Newspaper_Tools
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox btncerrar;
         private System.Windows.Forms.PictureBox btnminimizar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnregister;
     }
 }
 
