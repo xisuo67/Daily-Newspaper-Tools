@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -163,15 +164,17 @@ namespace Daily_Newspaper_Tools
         /// <param name="e"></param>
         private void btnlogin_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            var userName = this.uiTxtUser.Text.Trim();
+            var password = this.uiTxtPassword.Text.Trim();
+            using (var ctx = new EntityContext())
+            {
+                //ctx.Users.FirstOrDefault(e=>e.UserName);
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+           
         }
-        /// <summary>
-        /// 注册
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnregister_Click(object sender, EventArgs e)
+        private void btnregistered_Click(object sender, EventArgs e)
         {
 
         }

@@ -296,6 +296,7 @@ namespace Daily_Newspaper_Tools
             this.btnregistered.TabIndex = 6;
             this.btnregistered.Text = "注册";
             this.btnregistered.UseVisualStyleBackColor = false;
+            this.btnregistered.Click += new System.EventHandler(this.btnregistered_Click);
             // 
             // FormLogin
             // 
