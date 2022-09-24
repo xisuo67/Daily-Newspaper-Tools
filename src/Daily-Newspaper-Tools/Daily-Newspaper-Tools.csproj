@@ -125,6 +125,10 @@
       <Project>{465204ca-b5cc-479d-a8f3-12deb42cd126}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ToolsHelper\ToolsHelper.csproj">
+      <Project>{e4d8607b-d75b-4824-a2ec-5b95b6736342}</Project>
+      <Name>ToolsHelper</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />

@@ -1,4 +1,5 @@
 ﻿using DAL;
+using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ToolsHelper.Extensions;
 
 namespace Daily_Newspaper_Tools
 {
@@ -17,6 +19,7 @@ namespace Daily_Newspaper_Tools
         public FormLogin()
         {
             InitializeComponent();
+            //this.FormLogin.Form.FormBorderStyle = FormBorderStyle.None;
         }
 
         #region Drag Form/ Mover Arrastrar Formulario
@@ -165,14 +168,23 @@ namespace Daily_Newspaper_Tools
         private void btnlogin_Click(object sender, EventArgs e)
         {
             var userName = this.uiTxtUser.Text.Trim();
-            var password = this.uiTxtPassword.Text.Trim();
+            //加密比对
+            var password = this.uiTxtPassword.Text.Trim().EncryptByRijndael();
+
             using (var ctx = new EntityContext())
             {
-                //ctx.Users.FirstOrDefault(e=>e.UserName);
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                var userEntity= ctx.Users.FirstOrDefault(d=>d.UserName==userName&& d.Password==password);
+                if (userEntity != null)
+                {
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    //ShowErrorTip("用户名或密码错误");
+                }
             }
-           
+
         }
         private void btnregistered_Click(object sender, EventArgs e)
         {
