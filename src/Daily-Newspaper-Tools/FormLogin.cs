@@ -81,6 +81,63 @@ namespace Daily_Newspaper_Tools
                 uiTxtPassword.TextBox.UseSystemPasswordChar =false;
             }
         }
+
+        private void uiTxtUserName_Enter(object sender, EventArgs e)
+        {
+            if (uiTxtUserName.Text == "用户名")
+            {
+                uiTxtUserName.Text = "";
+                uiTxtUserName.ForeColor = Color.LightGray;
+            }
+        }
+
+        private void uiTxtUserName_Leave(object sender, EventArgs e)
+        {
+            if (uiTxtUserName.Text == "")
+            {
+                uiTxtUserName.Text = "用户名";
+                uiTxtUserName.ForeColor = Color.Silver;
+            }
+        }
+        private void uiTxtPass_Enter(object sender, EventArgs e)
+        {
+            if (uiTxtPass.Text == "密码")
+            {
+                uiTxtPass.Text = "";
+                uiTxtPass.ForeColor = Color.LightGray;
+                uiTxtPass.TextBox.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void uiTxtPass_Leave(object sender, EventArgs e)
+        {
+            if (uiTxtPass.Text == "密码")
+            {
+                uiTxtPass.Text = "";
+                uiTxtPass.ForeColor = Color.LightGray;
+                uiTxtPass.TextBox.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void uiTxt_Enter(object sender, EventArgs e)
+        {
+            if (uiTxt.Text == "确认密码")
+            {
+                uiTxt.Text = "";
+                uiTxt.ForeColor = Color.LightGray;
+                uiTxt.TextBox.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void uiTxt_Leave(object sender, EventArgs e)
+        {
+            if (uiTxt.Text == "确认密码")
+            {
+                uiTxt.Text = "";
+                uiTxt.ForeColor = Color.LightGray;
+                uiTxt.TextBox.UseSystemPasswordChar = true;
+            }
+        }
         #endregion 
 
         private void btncerrar_Click(object sender, EventArgs e)
@@ -118,7 +175,5 @@ namespace Daily_Newspaper_Tools
         {
 
         }
-
-        
     }
 }
