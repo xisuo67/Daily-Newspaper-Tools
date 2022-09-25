@@ -71,7 +71,6 @@ namespace Daily_Newspaper_Tools
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1024, 720);
             this.Name = "MainForm";
-            this.Opacity = 0.9D;
             this.Text = "日报工具";
             this.ZoomScaleRect = new System.Drawing.Rectangle(-98, 15, 1024, 720);
             this.Load += new System.EventHandler(this.MainForm_Load);

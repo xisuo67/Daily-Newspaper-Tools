@@ -1,4 +1,5 @@
-﻿using Sunny.UI;
+﻿using Daily_Newspaper_Tools.Views;
+using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,11 @@ namespace Daily_Newspaper_Tools
         public MainForm()
         {
             InitializeComponent();
+            int pageIndex = 1000;
+            TreeNode parent = Aside.CreateNode("工作管理", 61451, 24, pageIndex);
+            //通过设置PageIndex关联，节点文字、图标由相应的Page的Text、Symbol提供
+            Aside.CreateChildNode(parent, AddPage(new WorkDetails(), ++pageIndex));
+
         }
 
         private void MainForm_Load(object sender, EventArgs e)
