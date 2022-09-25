@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Daily_Newspaper_Tools.Views
 {
-    public partial class WorkDetails : UIPage
+    public partial class WorkDetailsForm : UIPage
     {
-        public WorkDetails()
+        public WorkDetailsForm()
         {
             InitializeComponent();
         }

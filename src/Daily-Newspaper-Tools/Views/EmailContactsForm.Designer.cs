@@ -1,6 +1,6 @@
 ﻿namespace Daily_Newspaper_Tools.Views
 {
-    partial class EmailContacts
+    partial class EmailContactsForm
     {
         /// <summary>
         /// Required designer variable.

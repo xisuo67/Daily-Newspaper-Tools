@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Daily_Newspaper_Tools.Views
 {
-    public partial class EmailContacts : UIPage
+    public partial class EmailContactsForm : UIPage
     {
-        public EmailContacts()
+        public EmailContactsForm()
         {
             InitializeComponent();
             //SunnyUI封装的加列函数，也可以和原生的一样，从Columns里面添加列
