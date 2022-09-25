@@ -124,6 +124,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\EmailConfig.resx">
+      <DependentUpon>EmailConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EmailContacts.resx">
+      <DependentUpon>EmailContacts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\WorkDetails.resx">
       <DependentUpon>WorkDetails.cs</DependentUpon>
     </EmbeddedResource>

@@ -23,21 +23,27 @@ namespace Daily_Newspaper_Tools
             TreeNode parent = Aside.CreateNode("工作管理", 61451, 24, pageIndex);
             //通过设置PageIndex关联，节点文字、图标由相应的Page的Text、Symbol提供
             Aside.CreateChildNode(parent, AddPage(new WorkDetails(), ++pageIndex));
+            Aside.CreateChildNode(parent, AddPage(new EmailContacts(), ++pageIndex));
 
+            parent = Aside.CreateNode("系统设置", 61818, 24, ++pageIndex);
+            Aside.CreateChildNode(parent, AddPage(new EmailConfig(), ++pageIndex));
+
+            parent = Aside.CreateNode("个人设置", 61818, 24, ++pageIndex);
+            Aside.CreateChildNode(parent, AddPage(new EmailConfig(), ++pageIndex));
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            FormLogin formLogin = new FormLogin();
-            formLogin.ShowInTaskbar = true;
-            if (DialogResult.OK != formLogin.ShowDialog())
-            {
-                this.Close();
-                return;
-            }
-            this.UserGUID = formLogin.UserGUID;
-            this.UserName = formLogin.UserName;
-            this.uiAvatar.Text = this.UserName;
+            //FormLogin formLogin = new FormLogin();
+            //formLogin.ShowInTaskbar = true;
+            //if (DialogResult.OK != formLogin.ShowDialog())
+            //{
+            //    this.Close();
+            //    return;
+            //}
+            //this.UserGUID = formLogin.UserGUID;
+            //this.UserName = formLogin.UserName;
+            //this.uiAvatar.Text = this.UserName;
         }
         private void Aside_MenuItemClick(System.Windows.Forms.TreeNode node, NavMenuItem item, int pageIndex)
         {

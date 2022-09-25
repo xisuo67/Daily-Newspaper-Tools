@@ -28,10 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.SuspendLayout();
+            // 
+            // EmailContacts
+            // 
+            this.AllowShowTitle = true;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "EmailContacts";
+            this.Name = "EmailContacts";
+            this.Padding = new System.Windows.Forms.Padding(0, 35, 0, 0);
+            this.ShowTitle = true;
+            this.Symbol = 62004;
+            this.Text = "联系人邮箱";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

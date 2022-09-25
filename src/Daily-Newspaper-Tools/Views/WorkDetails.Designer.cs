@@ -38,6 +38,7 @@
             this.Name = "WorkDetails";
             this.Padding = new System.Windows.Forms.Padding(0, 35, 0, 0);
             this.ShowTitle = true;
+            this.Symbol = 261555;
             this.Text = "日报管理";
             this.ResumeLayout(false);
 
