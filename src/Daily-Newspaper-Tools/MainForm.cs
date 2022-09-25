@@ -45,9 +45,5 @@ namespace Daily_Newspaper_Tools
             //this.UserName = formLogin.UserName;
             //this.uiAvatar.Text = this.UserName;
         }
-        private void Aside_MenuItemClick(System.Windows.Forms.TreeNode node, NavMenuItem item, int pageIndex)
-        {
-            Header.Text = "PageIndex: " + pageIndex;
-        }
     }
 }

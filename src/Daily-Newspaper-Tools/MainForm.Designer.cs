@@ -51,10 +51,10 @@ namespace Daily_Newspaper_Tools
             this.Aside.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
             this.Aside.MenuStyle = Sunny.UI.UIMenuStyle.Custom;
             this.Aside.Size = new System.Drawing.Size(204, 685);
-            this.Aside.MenuItemClick += new Sunny.UI.UINavMenu.OnMenuItemClick(this.Aside_MenuItemClick);
             // 
             // uiAvatar
             // 
+            this.uiAvatar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.uiAvatar.AvatarSize = 55;
             this.uiAvatar.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiAvatar.Icon = Sunny.UI.UIAvatar.UIIcon.Text;

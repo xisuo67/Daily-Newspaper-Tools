@@ -72,12 +72,14 @@
             // 
             // uiButton1
             // 
+            this.uiButton1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiButton1.Location = new System.Drawing.Point(330, 353);
             this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton1.Name = "uiButton1";
-            this.uiButton1.Size = new System.Drawing.Size(100, 35);
+            this.uiButton1.Size = new System.Drawing.Size(133, 34);
             this.uiButton1.TabIndex = 4;
             this.uiButton1.Text = "保存";
             this.uiButton1.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -85,6 +87,9 @@
             // 
             // uiTextBox1
             // 
+            this.uiTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.uiTextBox1.AutoSize = true;
             this.uiTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.uiTextBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiTextBox1.Location = new System.Drawing.Point(183, 160);
@@ -94,13 +99,14 @@
             this.uiTextBox1.ShowText = false;
             this.uiTextBox1.Size = new System.Drawing.Size(533, 29);
             this.uiTextBox1.TabIndex = 6;
-            this.uiTextBox1.Text = "uiTextBox1";
             this.uiTextBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiTextBox1.Watermark = "";
+            this.uiTextBox1.Watermark = "请输入登录邮箱";
             this.uiTextBox1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // uiTextBox2
             // 
+            this.uiTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.uiTextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.uiTextBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiTextBox2.Location = new System.Drawing.Point(183, 254);
@@ -110,13 +116,15 @@
             this.uiTextBox2.ShowText = false;
             this.uiTextBox2.Size = new System.Drawing.Size(533, 29);
             this.uiTextBox2.TabIndex = 7;
-            this.uiTextBox2.Text = "uiTextBox2";
             this.uiTextBox2.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiTextBox2.Watermark = "";
+            this.uiTextBox2.Watermark = "请输入密码";
             this.uiTextBox2.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // uiTextBox3
             // 
+            this.uiTextBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.uiTextBox3.AutoSize = true;
             this.uiTextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.uiTextBox3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiTextBox3.Location = new System.Drawing.Point(188, 90);
@@ -126,9 +134,8 @@
             this.uiTextBox3.ShowText = false;
             this.uiTextBox3.Size = new System.Drawing.Size(528, 29);
             this.uiTextBox3.TabIndex = 8;
-            this.uiTextBox3.Text = "uiTextBox3";
             this.uiTextBox3.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiTextBox3.Watermark = "";
+            this.uiTextBox3.Watermark = "请输入发送服务器";
             this.uiTextBox3.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // EmailConfig
@@ -149,6 +156,7 @@
             this.Symbol = 61664;
             this.Text = "邮件设置";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
