@@ -168,7 +168,7 @@ namespace Daily_Newspaper_Tools
         private void btnlogin_Click(object sender, EventArgs e)
         {
             var userName = this.uiTxtUser.Text.Trim();
-            //加密比对
+            //加密
             var password = this.uiTxtPassword.Text.Trim().EncryptByRijndael();
 
             using (var ctx = new EntityContext())
@@ -188,7 +188,18 @@ namespace Daily_Newspaper_Tools
         }
         private void btnregistered_Click(object sender, EventArgs e)
         {
+            var userName = this.uiTxtUserName.Text.Trim();
+            //加密比对
+            var password = this.uiTxtPass.Text.Trim().EncryptByRijndael();
+            var againPassword=this.uiTxt.Text.Trim().EncryptByRijndael();
+            if (password!=againPassword)
+            {
+                
+            }
+            else
+            {
 
+            }
         }
     }
 }
