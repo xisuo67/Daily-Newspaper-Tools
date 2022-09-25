@@ -17,6 +17,9 @@ namespace Daily_Newspaper_Tools
 {
     public partial class FormLogin : UIForm
     {
+        public string UserName { get; set; }
+
+        public Guid UserGUID { get; set; }
         public FormLogin()
         {
             InitializeComponent();
@@ -176,6 +179,8 @@ namespace Daily_Newspaper_Tools
                 var userEntity= ctx.Users.FirstOrDefault(d=>d.UserName==userName&& d.Password==password);
                 if (userEntity != null)
                 {
+                    this.UserName = userEntity.UserName;
+                    this.UserGUID = userEntity.UserId;
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
@@ -217,7 +222,7 @@ namespace Daily_Newspaper_Tools
                             };
                             ctx.Users.Add(user);
                             ctx.SaveChanges();
-                            ShowSuccessTip("注册成功");
+                            ShowSuccessTip("注册成功,请返回登录页");
                         }
                     }
                 }

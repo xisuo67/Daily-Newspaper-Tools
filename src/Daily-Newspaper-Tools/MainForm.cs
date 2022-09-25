@@ -13,6 +13,7 @@ namespace Daily_Newspaper_Tools
 {
     public partial class MainForm : UIAsideHeaderMainFrame
     {
+        //private
         public MainForm()
         {
             InitializeComponent();
@@ -24,6 +25,7 @@ namespace Daily_Newspaper_Tools
             formLogin.ShowInTaskbar = true;
             if (DialogResult.OK != formLogin.ShowDialog())
             {
+
                 this.Close();
                 return;
             }
