@@ -91,23 +91,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\EmailConfig.cs">
+    <Compile Include="Views\EmailConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\EmailConfig.Designer.cs">
-      <DependentUpon>EmailConfig.cs</DependentUpon>
+    <Compile Include="Views\EmailConfigForm.Designer.cs">
+      <DependentUpon>EmailConfigForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\EmailContacts.cs">
+    <Compile Include="Views\EmailContactsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\EmailContacts.Designer.cs">
-      <DependentUpon>EmailContacts.cs</DependentUpon>
+    <Compile Include="Views\EmailContactsForm.Designer.cs">
+      <DependentUpon>EmailContactsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\WorkDetails.cs">
+    <Compile Include="Views\WorkDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\WorkDetails.Designer.cs">
-      <DependentUpon>WorkDetails.cs</DependentUpon>
+    <Compile Include="Views\WorkDetailsForm.Designer.cs">
+      <DependentUpon>WorkDetailsForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -124,14 +124,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Views\EmailConfig.resx">
-      <DependentUpon>EmailConfig.cs</DependentUpon>
+    <EmbeddedResource Include="Views\EmailConfigForm.resx">
+      <DependentUpon>EmailConfigForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\EmailContacts.resx">
-      <DependentUpon>EmailContacts.cs</DependentUpon>
+    <EmbeddedResource Include="Views\EmailContactsForm.resx">
+      <DependentUpon>EmailContactsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\WorkDetails.resx">
-      <DependentUpon>WorkDetails.cs</DependentUpon>
+    <EmbeddedResource Include="Views\WorkDetailsForm.resx">
+      <DependentUpon>WorkDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
