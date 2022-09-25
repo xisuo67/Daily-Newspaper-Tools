@@ -1,4 +1,6 @@
-﻿using Sunny.UI;
+﻿using DAL;
+using DAL.Entity;
+using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,6 +36,18 @@ namespace Daily_Newspaper_Tools.Views
             if (string.IsNullOrEmpty(password))
             {
                 ShowErrorTip("密码不能为空");
+            }
+
+            using (var ctx = new EntityContext())
+            {
+                EmailConfig config = new EmailConfig()
+                {
+                    EmailAddress=email,
+                    Email_LoginId=email,
+                    Email_LoginPwd=password,
+                    Email_Server=server,
+                    //UserId= _userGUID
+                };
             }
         }
     }

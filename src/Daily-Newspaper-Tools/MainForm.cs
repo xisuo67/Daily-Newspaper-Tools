@@ -1,4 +1,5 @@
-﻿using Daily_Newspaper_Tools.Views;
+﻿using Daily_Newspaper_Tools.Common.Login;
+using Daily_Newspaper_Tools.Views;
 using Sunny.UI;
 using System;
 using System.Collections.Generic;
@@ -14,8 +15,6 @@ namespace Daily_Newspaper_Tools
 {
     public partial class MainForm : UIAsideHeaderMainFrame
     {
-        private Guid UserGUID = Guid.Empty;
-        private string UserName = string.Empty;
         public MainForm()
         {
             InitializeComponent();
@@ -34,16 +33,14 @@ namespace Daily_Newspaper_Tools
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //FormLogin formLogin = new FormLogin();
-            //formLogin.ShowInTaskbar = true;
-            //if (DialogResult.OK != formLogin.ShowDialog())
-            //{
-            //    this.Close();
-            //    return;
-            //}
-            //this.UserGUID = formLogin.UserGUID;
-            //this.UserName = formLogin.UserName;
-            //this.uiAvatar.Text = this.UserName;
+            FormLogin formLogin = new FormLogin();
+            formLogin.ShowInTaskbar = true;
+            if (DialogResult.OK != formLogin.ShowDialog())
+            {
+                this.Close();
+                return;
+            }
+            this.uiAvatar.Text = LoginContext.Current.UserInfo.UserName;
         }
     }
 }

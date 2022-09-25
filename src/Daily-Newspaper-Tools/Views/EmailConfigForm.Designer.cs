@@ -185,7 +185,7 @@
             this.uiLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.uiLabel6.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
-            // EmailConfig
+            // EmailConfigForm
             // 
             this.AllowShowTitle = true;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -200,7 +200,7 @@
             this.Controls.Add(this.uiBtnSave);
             this.Controls.Add(this.uiLabel4);
             this.Controls.Add(this.uiLabel3);
-            this.Name = "EmailConfig";
+            this.Name = "EmailConfigForm";
             this.Padding = new System.Windows.Forms.Padding(0, 35, 0, 0);
             this.ShowTitle = true;
             this.Symbol = 61664;

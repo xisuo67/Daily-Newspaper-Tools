@@ -1,4 +1,6 @@
-﻿using DAL;
+﻿using Daily_Newspaper_Tools.Common.Login;
+using DAL;
+using DAL.DTO;
 using DAL.Entity;
 using Sunny.UI;
 using System;
@@ -17,9 +19,6 @@ namespace Daily_Newspaper_Tools
 {
     public partial class FormLogin : UIForm
     {
-        public string UserName { get; set; }
-
-        public Guid UserGUID { get; set; }
         public FormLogin()
         {
             InitializeComponent();
@@ -179,8 +178,13 @@ namespace Daily_Newspaper_Tools
                 var userEntity= ctx.Users.FirstOrDefault(d=>d.UserName==userName&& d.Password==password);
                 if (userEntity != null)
                 {
-                    this.UserName = userEntity.UserName;
-                    this.UserGUID = userEntity.UserId;
+                    //TODO:后面切换AutoMapper
+                    UserDTO userDTO = new UserDTO()
+                    {
+                        UserId= userEntity.UserId,
+                        UserName= userEntity.UserName
+                    };
+                    LoginContext.Current  = new LoginContext(userDTO);
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
