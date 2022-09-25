@@ -54,15 +54,16 @@ namespace Daily_Newspaper_Tools
             // 
             // uiAvatar
             // 
-            this.uiAvatar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.uiAvatar.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiAvatar.Location = new System.Drawing.Point(739, 9);
+            this.uiAvatar.AvatarSize = 55;
+            this.uiAvatar.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiAvatar.Icon = Sunny.UI.UIAvatar.UIIcon.Text;
+            this.uiAvatar.Location = new System.Drawing.Point(747, 9);
             this.uiAvatar.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiAvatar.Name = "uiAvatar";
             this.uiAvatar.Size = new System.Drawing.Size(60, 60);
             this.uiAvatar.Style = Sunny.UI.UIStyle.Custom;
-            this.uiAvatar.TabIndex = 0;
-            this.uiAvatar.Text = "uiAvatar1";
+            this.uiAvatar.TabIndex = 27;
+            this.uiAvatar.Text = "Avatar";
             this.uiAvatar.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // MainForm

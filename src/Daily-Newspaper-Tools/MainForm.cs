@@ -13,7 +13,8 @@ namespace Daily_Newspaper_Tools
 {
     public partial class MainForm : UIAsideHeaderMainFrame
     {
-        //private
+        private Guid UserGUID = Guid.Empty;
+        private string UserName = string.Empty;
         public MainForm()
         {
             InitializeComponent();
@@ -25,10 +26,12 @@ namespace Daily_Newspaper_Tools
             formLogin.ShowInTaskbar = true;
             if (DialogResult.OK != formLogin.ShowDialog())
             {
-
                 this.Close();
                 return;
             }
+            this.UserGUID = formLogin.UserGUID;
+            this.UserName = formLogin.UserName;
+            this.uiAvatar.Text = this.UserName;
         }
         private void Aside_MenuItemClick(System.Windows.Forms.TreeNode node, NavMenuItem item, int pageIndex)
         {
