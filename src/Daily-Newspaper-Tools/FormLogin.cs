@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DAL.Entity;
 using Sunny.UI;
 using System;
 using System.Collections.Generic;
@@ -14,12 +15,11 @@ using ToolsHelper.Extensions;
 
 namespace Daily_Newspaper_Tools
 {
-    public partial class FormLogin : Form
+    public partial class FormLogin : UIForm
     {
         public FormLogin()
         {
             InitializeComponent();
-            //this.FormLogin.Form.FormBorderStyle = FormBorderStyle.None;
         }
 
         #region Drag Form/ Mover Arrastrar Formulario
@@ -181,7 +181,7 @@ namespace Daily_Newspaper_Tools
                 }
                 else
                 {
-                    //ShowErrorTip("用户名或密码错误");
+                    ShowErrorTip("用户名或密码错误");
                 }
             }
 
@@ -194,11 +194,39 @@ namespace Daily_Newspaper_Tools
             var againPassword=this.uiTxt.Text.Trim().EncryptByRijndael();
             if (password!=againPassword)
             {
-                
+                ShowErrorTip("两次密码输入不一致，请重新调整");
             }
             else
             {
+                try
+                {
+                    using (var ctx = new EntityContext())
+                    {
+                        var existsUser = ctx.Users.FirstOrDefault(d => d.UserName == userName);
+                        if (existsUser != null)
+                        {
+                            ShowErrorTip("存在相同用户名，请重新输入");
+                        }
+                        else
+                        {
+                            User user = new User()
+                            {
+                                UserId = Guid.NewGuid(),
+                                UserName = userName,
+                                Password = password
+                            };
+                            ctx.Users.Add(user);
+                            ctx.SaveChanges();
+                            ShowSuccessTip("注册成功");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
 
+                    ShowErrorTip("注册失败");
+                }
+                
             }
         }
     }

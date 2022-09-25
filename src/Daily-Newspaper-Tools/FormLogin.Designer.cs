@@ -80,7 +80,7 @@ namespace Daily_Newspaper_Tools
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(503, 10);
+            this.label1.Location = new System.Drawing.Point(490, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 32);
             this.label1.TabIndex = 4;
@@ -90,7 +90,7 @@ namespace Daily_Newspaper_Tools
             // 
             this.btncerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btncerrar.Image = ((System.Drawing.Image)(resources.GetObject("btncerrar.Image")));
-            this.btncerrar.Location = new System.Drawing.Point(761, 3);
+            this.btncerrar.Location = new System.Drawing.Point(761, 8);
             this.btncerrar.Name = "btncerrar";
             this.btncerrar.Size = new System.Drawing.Size(15, 14);
             this.btncerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -102,7 +102,7 @@ namespace Daily_Newspaper_Tools
             // 
             this.btnminimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnminimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnminimizar.Image")));
-            this.btnminimizar.Location = new System.Drawing.Point(740, 3);
+            this.btnminimizar.Location = new System.Drawing.Point(740, 8);
             this.btnminimizar.Name = "btnminimizar";
             this.btnminimizar.Size = new System.Drawing.Size(15, 14);
             this.btnminimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -300,8 +300,8 @@ namespace Daily_Newspaper_Tools
             // 
             // FormLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AllowShowTitle = false;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(780, 305);
             this.Controls.Add(this.btnminimizar);
@@ -309,11 +309,13 @@ namespace Daily_Newspaper_Tools
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.uiTabControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormLogin";
             this.Opacity = 0.9D;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Padding = new System.Windows.Forms.Padding(0);
+            this.ShowTitle = false;
+            this.Style = Sunny.UI.UIStyle.Custom;
             this.Text = "Form1";
+            this.ZoomScaleRect = new System.Drawing.Rectangle(15, 15, 780, 305);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.panel1.ResumeLayout(false);
