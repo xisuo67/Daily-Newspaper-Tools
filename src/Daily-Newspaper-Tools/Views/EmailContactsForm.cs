@@ -62,7 +62,7 @@ namespace Daily_Newspaper_Tools.Views
         {
             this.InitData();
         }
-
+        #region Event
         private void uiBtnAdd_Click(object sender, EventArgs e)
         {
             ContactEditForm frm = new ContactEditForm();
@@ -71,7 +71,6 @@ namespace Daily_Newspaper_Tools.Views
             if (frm.IsOK)
             {
                 var contacts = frm.Contacts;
-                contacts.UserId = LoginContext.Current.UserId;
                 using (var ctx = new EntityContext())
                 {
                     ctx.Contacts.Add(contacts);
@@ -82,7 +81,47 @@ namespace Daily_Newspaper_Tools.Views
             frm.Dispose();
             this.InitData();
         }
-
+        /// <summary>
+        /// 编辑
+        /// </summary>
+        /// <param name="id"></param>
+        private void Edit(int id)
+        {
+            ContactEditForm frm = new ContactEditForm();
+            using (var ctx = new EntityContext())
+            {
+                var entity= ctx.Contacts.FirstOrDefault(e=>e.Id== id);
+                if (entity!=null)
+                {
+                    frm.Render();
+                    frm.Contacts = entity;
+                    frm.ShowDialog();
+                    if (frm.IsOK)
+                    {
+                        ctx.Entry(frm.Contacts).State = System.Data.Entity.EntityState.Modified;
+                        ctx.SaveChanges();
+                        this.ShowSuccessDialog("保存成功");
+                        this.InitData();
+                    }
+                    frm.Dispose();
+                }
+                else
+                {
+                    ShowErrorTip("未能查询相应信息,请刷新后重试");
+                }
+            }
+        }
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="ids"></param>
+        private void Del(int[] ids)
+        {
+            using (var ctx = new EntityContext())
+            { 
+                
+            }
+        }
         private void uiBtnBatchDel_Click(object sender, EventArgs e)
         {
 
@@ -107,7 +146,9 @@ namespace Daily_Newspaper_Tools.Views
                 }
             }
         }
+        #endregion
 
+        #region 操作列
         private void uiDataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
@@ -124,7 +165,7 @@ namespace Daily_Newspaper_Tools.Views
                     //设置每个“按钮的边界”
                     RectangleF rectRun = new RectangleF(e.CellBounds.Left, e.CellBounds.Top, e.CellBounds.Width * fRun, e.CellBounds.Height);
                     RectangleF rectDel = new RectangleF(rectRun.Right, e.CellBounds.Top, e.CellBounds.Width * fDel, e.CellBounds.Height);
-                   
+
                     //设置字体样式
                     StringFormat sf = StringFormat.GenericDefault.Clone() as StringFormat;//设置重绘入单元格的字体样式
                     sf.FormatFlags = StringFormatFlags.DisplayFormatControl;
@@ -155,17 +196,23 @@ namespace Daily_Newspaper_Tools.Views
                     RectangleF rectRun = new RectangleF(rectTotal.Left, rectTotal.Top, rectTotal.Width * fRun, rectTotal.Height);
                     RectangleF rectDel = new RectangleF(rectRun.Right, rectTotal.Top, rectTotal.Width * fDel, rectTotal.Height);
                     //判断当前鼠标在哪个“按钮”范围内
+                    int id = 0;
+                    var idString = this.uiDataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    int.TryParse(idString,out id);
                     if (rectRun.Contains(curPosition))
                     {
-                        //do_Save_dan(e.RowIndex);//保存
+                        this.Edit(id);//编辑
                     }
 
                     else if (rectDel.Contains(curPosition))
                     {
+                       
                         //do_Del_dan(e.RowIndex);//删除
                     }
                 }
             }
         }
+        #endregion
+
     }
 }

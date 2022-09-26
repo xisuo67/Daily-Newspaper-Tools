@@ -1,4 +1,5 @@
-﻿using DAL.Entity;
+﻿using Daily_Newspaper_Tools.Common.Login;
+using DAL.Entity;
 using Sunny.UI;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,7 @@ namespace Daily_Newspaper_Tools.Views
                 }
                 contact.Email = uiTxtEmail.Text.Trim();
                 contact.Name = uiTxtName.Text.Trim();
+                contact.UserId= LoginContext.Current.UserId;
                 return contact;
             }
             set {
