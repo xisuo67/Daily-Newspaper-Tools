@@ -27,8 +27,8 @@ namespace Daily_Newspaper_Tools
             parent = Aside.CreateNode("系统设置", 61818, 24, ++pageIndex);
             Aside.CreateChildNode(parent, AddPage(new EmailConfigForm(), ++pageIndex));
 
-            parent = Aside.CreateNode("个人设置", 61818, 24, ++pageIndex);
-            Aside.CreateChildNode(parent, AddPage(new EmailConfigForm(), ++pageIndex));
+            //parent = Aside.CreateNode("个人设置", 61818, 24, ++pageIndex);
+            //Aside.CreateChildNode(parent, AddPage(new EmailConfigForm(), ++pageIndex));
         }
 
         private void MainForm_Load(object sender, EventArgs e)

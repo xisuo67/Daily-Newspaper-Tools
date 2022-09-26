@@ -26,43 +26,12 @@ namespace Daily_Newspaper_Tools.Views
         {
             InitializeComponent();
             //SunnyUI封装的加列函数，也可以和原生的一样，从Columns里面添加列
-            uiDataGridView1.AddCheckBoxColumn("", "Checked", 20);
+            uiDataGridView1.AddCheckBoxColumn("Checked", "Checked", 20);
            
             uiDataGridView1.AddColumn("联系人姓名", "Name");
             uiDataGridView1.AddColumn("邮件地址", "Email");
             uiDataGridView1.AddButtonColumn("编辑", "BtnEdit", 40);
             uiDataGridView1.AddButtonColumn("删除", "BtnDel", 40);
-
-            DataGridViewCheckBoxColumn gridViewCheckBoxCol = new DataGridViewCheckBoxColumn
-            {
-                Width = 20,
-                HeaderText = "",
-                DefaultCellStyle =
-            {
-                Alignment = DataGridViewContentAlignment.MiddleCenter
-            },
-                ReadOnly = false //若为 true 则无法选择 CheckBox
-            };
-
-            //把 dataGridView1 的第一列设置成 CheckBox 格式的列
-            uiDataGridView1.Columns.Insert(0, gridViewCheckBoxCol);
-
-            //获取 dataGridView1 中表示单元格显示区域的矩形，通过矩形的位置来设置 CheckBox 的相对位置
-            Rectangle rectangle = uiDataGridView1.GetCellDisplayRectangle(0, -1, true);
-            rectangle.X = rectangle.Location.X + rectangle.Width + 20;
-            rectangle.Y = rectangle.Location.Y + rectangle.Height + 10;
-
-            //新建一个用于“全选”的 CheckBox 对象 checkboxAll
-            CheckBox chkOfAll = new CheckBox();
-            chkOfAll.Name = "checkboxAll";
-            chkOfAll.Size = new Size(18, 18);
-            //chkOfAll.Location = rectangle.Location;
-
-            //为 checkboxAll 绑定全选事件
-            //chkOfAll.CheckedChanged += new EventHandler(checkboxAll_CheckedChanged);
-
-            //把 checkboxAll 添加到 dataGridView1 中
-            uiDataGridView1.Controls.Add(chkOfAll);
         }
         private void InitData()
         {
@@ -88,7 +57,7 @@ namespace Daily_Newspaper_Tools.Views
             }
             uiDataGridView1.DataSource = datas;
         }
-
+        
         private void uiBtnSearch_Click(object sender, EventArgs e)
         {
             this.InitData();
@@ -122,6 +91,21 @@ namespace Daily_Newspaper_Tools.Views
         private void EmailContactsForm_Load(object sender, EventArgs e)
         {
             this.InitData();
+        }
+
+        private void uiDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == 0)
+            {
+                if (this.uiDataGridView1.Rows[e.RowIndex].Cells["Checked"].Value.ToString() == "1")
+                {
+                    this.uiDataGridView1.Rows[e.RowIndex].Cells["Checked"].Value = false;
+                }
+                else
+                {
+                    this.uiDataGridView1.Rows[e.RowIndex].Cells["Checked"].Value = true;
+                }
+            }
         }
     }
 }

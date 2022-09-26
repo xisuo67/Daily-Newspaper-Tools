@@ -172,6 +172,7 @@
             this.uiDataGridView1.Size = new System.Drawing.Size(800, 358);
             this.uiDataGridView1.TabIndex = 10;
             this.uiDataGridView1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.uiDataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.uiDataGridView1_CellContentClick);
             // 
             // EmailContactsForm
             // 
