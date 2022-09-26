@@ -117,7 +117,7 @@ namespace Daily_Newspaper_Tools.Views
                     e.PaintBackground(e.CellBounds, false);//重绘边框
                     //设置要写入字体的大小
                     Font myFont = new Font("宋体", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-                    SizeF sizeRun = e.Graphics.MeasureString("保存", myFont);
+                    SizeF sizeRun = e.Graphics.MeasureString("编辑", myFont);
                     SizeF sizeDel = e.Graphics.MeasureString("删除", myFont);
                     float fRun = sizeRun.Width / (sizeRun.Width + sizeDel.Width);
                     float fDel = sizeDel.Width / (sizeRun.Width + sizeDel.Width);
@@ -131,7 +131,7 @@ namespace Daily_Newspaper_Tools.Views
                     sf.Alignment = StringAlignment.Center;
                     sf.LineAlignment = StringAlignment.Center;
                     sf.Trimming = StringTrimming.EllipsisCharacter;
-                    e.Graphics.DrawString("保存", myFont, Brushes.Blue, rectRun, sf);
+                    e.Graphics.DrawString("编辑", myFont, Brushes.Blue, rectRun, sf);
                     e.Graphics.DrawString("删除", myFont, Brushes.Red, rectDel, sf);
                     e.Handled = true;
                 }
@@ -147,7 +147,7 @@ namespace Daily_Newspaper_Tools.Views
                 {
                     Graphics g = this.uiDataGridView1.CreateGraphics();
                     Font myFont = new Font("宋体", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-                    SizeF sizeRun = g.MeasureString("保存", myFont);
+                    SizeF sizeRun = g.MeasureString("编辑", myFont);
                     SizeF sizeDel = g.MeasureString("删除", myFont);
                     float fRun = sizeRun.Width / (sizeRun.Width + sizeDel.Width);
                     float fDel = sizeDel.Width / (sizeRun.Width + sizeDel.Width);
