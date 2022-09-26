@@ -44,12 +44,10 @@ namespace Daily_Newspaper_Tools.Views
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(469, 12);
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOK
             // 
             this.btnOK.Location = new System.Drawing.Point(354, 12);
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // uiLabel1
             // 

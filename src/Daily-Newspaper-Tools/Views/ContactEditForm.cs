@@ -23,17 +23,23 @@ namespace Daily_Newspaper_Tools.Views
             return CheckEmpty(uiTxtName, "请输入姓名")
                    && CheckEmpty(uiTxtEmail, "请输入邮箱地址");
         }
-        private void btnOK_Click(object sender, EventArgs e)
-        {
-            Contacts contacts = new Contacts()
+        private Contacts contact;
+        public Contacts Contacts {
+            get
             {
-
-            };
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
+                if (contact==null)
+                {
+                    contact = new Contacts();
+                }
+                contact.Email = uiTxtEmail.Text.Trim();
+                contact.Name = uiTxtName.Text.Trim();
+                return contact;
+            }
+            set {
+                contact = value;
+                uiTxtEmail.Text = value.Email;
+                uiTxtName.Text = value.Name;
+            }
         }
     }
 }

@@ -22,7 +22,7 @@ namespace Daily_Newspaper_Tools.Views
         {
             InitializeComponent();
         }
-
+        
         private void uiBtnSave_Click(object sender, EventArgs e)
         {
             var server=this.uiTxtServer.Text.Trim();
