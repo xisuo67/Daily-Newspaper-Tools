@@ -20,5 +20,7 @@ namespace DAL.DTO
         public string BtnEdit { get; set; } = "编辑";
 
         public string BtnDel { get; set; } = "删除";
+
+        public bool Checked { get; set; } = false;
     }
 }

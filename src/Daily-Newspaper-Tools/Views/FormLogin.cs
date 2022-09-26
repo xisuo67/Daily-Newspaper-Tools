@@ -157,7 +157,21 @@ namespace Daily_Newspaper_Tools
         }
 
 
-
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Enter)
+            {
+                if (this.btnlogin.Enabled)
+                {
+                    this.btnlogin_Click(null, null);
+                }
+            }
+            else if (keyData == Keys.Escape)
+            {
+                this.Close();
+            }
+            return false;
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
 
