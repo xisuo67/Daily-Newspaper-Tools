@@ -37,9 +37,9 @@
             this.uiBtnSearch = new Sunny.UI.UIButton();
             this.uiBtnAdd = new Sunny.UI.UIButton();
             this.uiPanel1 = new Sunny.UI.UIPanel();
+            this.uiBtnBatchDel = new Sunny.UI.UIButton();
             this.uiDataGridView1 = new Sunny.UI.UIDataGridView();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.uiBtnBatchDel = new Sunny.UI.UIButton();
             this.uiPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiDataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -108,6 +108,21 @@
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.uiPanel1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
+            // uiBtnBatchDel
+            // 
+            this.uiBtnBatchDel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.uiBtnBatchDel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiBtnBatchDel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiBtnBatchDel.Location = new System.Drawing.Point(710, 22);
+            this.uiBtnBatchDel.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiBtnBatchDel.Name = "uiBtnBatchDel";
+            this.uiBtnBatchDel.Size = new System.Drawing.Size(76, 29);
+            this.uiBtnBatchDel.TabIndex = 7;
+            this.uiBtnBatchDel.Text = "批量删除";
+            this.uiBtnBatchDel.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiBtnBatchDel.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.uiBtnBatchDel.Click += new System.EventHandler(this.uiBtnBatchDel_Click);
+            // 
             // uiDataGridView1
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
@@ -158,21 +173,6 @@
             this.uiDataGridView1.TabIndex = 10;
             this.uiDataGridView1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
-            // uiBtnBatchDel
-            // 
-            this.uiBtnBatchDel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.uiBtnBatchDel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiBtnBatchDel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiBtnBatchDel.Location = new System.Drawing.Point(710, 22);
-            this.uiBtnBatchDel.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiBtnBatchDel.Name = "uiBtnBatchDel";
-            this.uiBtnBatchDel.Size = new System.Drawing.Size(76, 29);
-            this.uiBtnBatchDel.TabIndex = 7;
-            this.uiBtnBatchDel.Text = "批量删除";
-            this.uiBtnBatchDel.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiBtnBatchDel.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.uiBtnBatchDel.Click += new System.EventHandler(this.uiBtnBatchDel_Click);
-            // 
             // EmailContactsForm
             // 
             this.AllowShowTitle = true;
@@ -185,6 +185,7 @@
             this.ShowTitle = true;
             this.Symbol = 62004;
             this.Text = "联系人邮箱";
+            this.Load += new System.EventHandler(this.EmailContactsForm_Load);
             this.uiPanel1.ResumeLayout(false);
             this.uiPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiDataGridView1)).EndInit();
