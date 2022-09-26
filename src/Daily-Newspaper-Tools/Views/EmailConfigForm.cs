@@ -1,4 +1,5 @@
-﻿using DAL;
+﻿using Daily_Newspaper_Tools.Common.Login;
+using DAL;
 using DAL.Entity;
 using Sunny.UI;
 using System;
@@ -40,14 +41,25 @@ namespace Daily_Newspaper_Tools.Views
 
             using (var ctx = new EntityContext())
             {
-                EmailConfig config = new EmailConfig()
+                try
                 {
-                    EmailAddress=email,
-                    Email_LoginId=email,
-                    Email_LoginPwd=password,
-                    Email_Server=server,
-                    //UserId= _userGUID
-                };
+                    EmailConfig config = new EmailConfig()
+                    {
+                        EmailAddress = email,
+                        Email_LoginId = email,
+                        Email_LoginPwd = password,
+                        Email_Server = server,
+                        UserId = LoginContext.Current.UserId
+                    };
+                    ctx.EmailConfigs.Add(config);
+                    ctx.SaveChanges();
+                    ShowSuccessTip("设置成功");
+                }
+                catch (Exception ex)
+                {
+                    ShowErrorDialog("设置失败");
+                }
+               
             }
         }
     }
