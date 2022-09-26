@@ -118,8 +118,12 @@ namespace Daily_Newspaper_Tools.Views
         private void Del(int[] ids)
         {
             using (var ctx = new EntityContext())
-            { 
-                
+            {
+                var contacts = ctx.Contacts.Where(e=>ids.Contains(e.Id)).ToList();
+                ctx.Contacts.RemoveRange(contacts);
+                ctx.SaveChanges();
+                this.ShowSuccessDialog("删除成功");
+                this.InitData();
             }
         }
         private void uiBtnBatchDel_Click(object sender, EventArgs e)
@@ -206,8 +210,8 @@ namespace Daily_Newspaper_Tools.Views
 
                     else if (rectDel.Contains(curPosition))
                     {
-                       
-                        //do_Del_dan(e.RowIndex);//删除
+                        int[] ids = new int[] { id};
+                        this.Del(ids);
                     }
                 }
             }
