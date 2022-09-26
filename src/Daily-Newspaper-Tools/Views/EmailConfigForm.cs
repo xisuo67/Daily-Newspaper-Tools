@@ -16,6 +16,8 @@ namespace Daily_Newspaper_Tools.Views
 {
     public partial class EmailConfigForm : UIPage
     {
+        private EmailConfig emailConfig;
+        private Guid userId;
         public EmailConfigForm()
         {
             InitializeComponent();
@@ -38,28 +40,44 @@ namespace Daily_Newspaper_Tools.Views
             {
                 ShowErrorTip("密码不能为空");
             }
-
-            using (var ctx = new EntityContext())
+            try
             {
-                try
+                using (var ctx = new EntityContext())
                 {
+                    var emailConfigs = ctx.EmailConfigs.FirstOrDefault(d => d.UserId == this.userId);
                     EmailConfig config = new EmailConfig()
                     {
                         EmailAddress = email,
                         Email_LoginId = email,
                         Email_LoginPwd = password,
                         Email_Server = server,
-                        UserId = LoginContext.Current.UserId
+                        UserId = this.userId
                     };
                     ctx.EmailConfigs.Add(config);
                     ctx.SaveChanges();
                     ShowSuccessTip("设置成功");
                 }
-                catch (Exception ex)
+            }
+            catch (Exception ex)
+            {
+                ShowErrorTip("设置失败");
+            }
+            
+        }
+
+        private void EmailConfigForm_Load(object sender, EventArgs e)
+        {
+            this.userId = LoginContext.Current.UserId;
+            using (var ctx = new EntityContext())
+            {
+                var emailConfigs = ctx.EmailConfigs.FirstOrDefault(d => d.UserId == this.userId);
+                if (emailConfigs != null)
                 {
-                    ShowErrorDialog("设置失败");
+                    this.uiTxtServer.Text = emailConfigs.Email_Server;
+                    this.uiTxtEmial.Text = emailConfigs.Email_LoginId;
+                    this.uiTxtPassword.Text = emailConfigs.Email_LoginPwd;
                 }
-               
+                this.emailConfig = emailConfigs;
             }
         }
     }

@@ -147,11 +147,9 @@
             // 
             this.uiLabel1.AutoSize = true;
             this.uiLabel1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel1.ForeColor = System.Drawing.Color.Red;
             this.uiLabel1.Location = new System.Drawing.Point(58, 92);
             this.uiLabel1.Name = "uiLabel1";
             this.uiLabel1.Size = new System.Drawing.Size(17, 21);
-            this.uiLabel1.Style = Sunny.UI.UIStyle.Custom;
             this.uiLabel1.TabIndex = 9;
             this.uiLabel1.Text = "*";
             this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -161,11 +159,9 @@
             // 
             this.uiLabel5.AutoSize = true;
             this.uiLabel5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel5.ForeColor = System.Drawing.Color.Red;
             this.uiLabel5.Location = new System.Drawing.Point(58, 256);
             this.uiLabel5.Name = "uiLabel5";
             this.uiLabel5.Size = new System.Drawing.Size(17, 21);
-            this.uiLabel5.Style = Sunny.UI.UIStyle.Custom;
             this.uiLabel5.TabIndex = 10;
             this.uiLabel5.Text = "*";
             this.uiLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -175,11 +171,9 @@
             // 
             this.uiLabel6.AutoSize = true;
             this.uiLabel6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel6.ForeColor = System.Drawing.Color.Red;
             this.uiLabel6.Location = new System.Drawing.Point(58, 161);
             this.uiLabel6.Name = "uiLabel6";
             this.uiLabel6.Size = new System.Drawing.Size(17, 21);
-            this.uiLabel6.Style = Sunny.UI.UIStyle.Custom;
             this.uiLabel6.TabIndex = 11;
             this.uiLabel6.Text = "*";
             this.uiLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -205,6 +199,7 @@
             this.ShowTitle = true;
             this.Symbol = 61664;
             this.Text = "邮件设置";
+            this.Load += new System.EventHandler(this.EmailConfigForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
