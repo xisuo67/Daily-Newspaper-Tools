@@ -18,7 +18,11 @@ namespace Daily_Newspaper_Tools.Views
         {
             InitializeComponent();
         }
-
+        protected override bool CheckData()
+        {
+            return CheckEmpty(uiTxtName, "请输入姓名")
+                   && CheckEmpty(uiTxtEmail, "请输入邮箱地址");
+        }
         private void btnOK_Click(object sender, EventArgs e)
         {
             Contacts contacts = new Contacts()

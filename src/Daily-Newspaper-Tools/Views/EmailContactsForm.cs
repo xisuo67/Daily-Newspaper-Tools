@@ -55,7 +55,15 @@ namespace Daily_Newspaper_Tools.Views
 
         private void uiBtnAdd_Click(object sender, EventArgs e)
         {
-
+            ContactEditForm frm = new ContactEditForm();
+            frm.Render();
+            frm.ShowDialogWithMask();
+            if (frm.IsOK)
+            {
+                ShowSuccessDialog("添加成功");
+            }
+            frm.Dispose();
+            this.InitData();
         }
 
         private void uiBtnBatchDel_Click(object sender, EventArgs e)
