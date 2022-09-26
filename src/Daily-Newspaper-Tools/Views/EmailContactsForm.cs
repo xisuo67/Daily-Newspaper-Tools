@@ -1,4 +1,7 @@
-﻿using Sunny.UI;
+﻿using Daily_Newspaper_Tools.Common.Login;
+using DAL;
+using DAL.Entity;
+using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,34 +20,32 @@ namespace Daily_Newspaper_Tools.Views
         {
             InitializeComponent();
             //SunnyUI封装的加列函数，也可以和原生的一样，从Columns里面添加列
-            uiDataGridView1.AddCheckBoxColumn("选择","check",20);
+            uiDataGridView1.AddCheckBoxColumn("选择", "Id", 20);
             uiDataGridView1.AddColumn("联系人姓名", "Name");
             uiDataGridView1.AddColumn("邮件地址", "Email");
-            uiDataGridView1.AddButtonColumn("操作列", "del",40);
-
-           
-
-            //uiDataGridView1.SelectIndexChange += uiDataGridView1_SelectIndexChange;
-
-            //设置统计绑定的表格
-            uiDataGridViewFooter1.DataGridView = uiDataGridView1;
+            InitData();
         }
         private void InitData()
         {
-            uiPagination1.ActivePage = 1;
             //SunnyUI常用的初始化配置，看个人喜好用或者不用。
             uiDataGridView1.Init();
             var searchParam = this.uiTxtSearch.Text.Trim();
-            
-            if (string.IsNullOrEmpty(searchParam))
+            List<Contacts> datas = new List<Contacts>();
+            if (LoginContext.Current!=null)
             {
-
+                using (var ctx = new EntityContext())
+                {
+                    if (string.IsNullOrEmpty(searchParam))
+                    {
+                        datas = ctx.Contacts.Where(e => e.UserId == LoginContext.Current.UserId).ToList();
+                    }
+                    else
+                    {
+                        datas = ctx.Contacts.Where(e => e.UserId == LoginContext.Current.UserId && (e.Name.Contains(searchParam) || e.Email.Contains(searchParam))).ToList();
+                    }
+                }
             }
-            //设置分页控件总数
-            //uiPagination1.TotalCount = datas.Count;
-
-            ////设置分页控件每页数量
-            //uiPagination1.PageSize = 50;
+            uiDataGridView1.DataSource = datas;
         }
 
         private void uiBtnSearch_Click(object sender, EventArgs e)
@@ -53,6 +54,11 @@ namespace Daily_Newspaper_Tools.Views
         }
 
         private void uiBtnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiBtnBatchDel_Click(object sender, EventArgs e)
         {
 
         }

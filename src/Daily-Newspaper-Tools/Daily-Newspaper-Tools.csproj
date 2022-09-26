@@ -78,6 +78,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Login\LoginContext.cs" />
+    <Compile Include="Views\ContactEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ContactEditForm.Designer.cs">
+      <DependentUpon>ContactEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     <Compile Include="Views\WorkDetailsForm.Designer.cs">
       <DependentUpon>WorkDetailsForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\ContactEditForm.resx">
+      <DependentUpon>ContactEditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
