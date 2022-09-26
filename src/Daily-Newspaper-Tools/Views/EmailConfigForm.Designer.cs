@@ -144,6 +144,7 @@
             // 
             this.AllowShowTitle = true;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(763, 438);
             this.Controls.Add(this.uiLabel2);
             this.Controls.Add(this.uiTxtServer);
