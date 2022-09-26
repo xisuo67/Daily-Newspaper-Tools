@@ -26,12 +26,12 @@ namespace Daily_Newspaper_Tools.Views
         {
             InitializeComponent();
             //SunnyUI封装的加列函数，也可以和原生的一样，从Columns里面添加列
-            uiDataGridView1.AddCheckBoxColumn("Checked", "Checked", 20);
-           
+            uiDataGridView1.AddCheckBoxColumn("", "Checked", 20);
+            uiDataGridView1.AddColumn("Id", "Id");
+            uiDataGridView1.Columns[1].Visible = false;
             uiDataGridView1.AddColumn("联系人姓名", "Name");
             uiDataGridView1.AddColumn("邮件地址", "Email");
-            uiDataGridView1.AddButtonColumn("编辑", "BtnEdit", 40);
-            uiDataGridView1.AddButtonColumn("删除", "BtnDel", 40);
+            uiDataGridView1.AddColumn("操作", "",30);
         }
         private void InitData()
         {
@@ -97,13 +97,73 @@ namespace Daily_Newspaper_Tools.Views
         {
             if (e.RowIndex >= 0 && e.ColumnIndex == 0)
             {
-                if (this.uiDataGridView1.Rows[e.RowIndex].Cells["Checked"].Value.ToString() == "1")
+                if (this.uiDataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString() == "True")
                 {
-                    this.uiDataGridView1.Rows[e.RowIndex].Cells["Checked"].Value = false;
+                    this.uiDataGridView1.Rows[e.RowIndex].Cells[0].Value = false;
                 }
                 else
                 {
-                    this.uiDataGridView1.Rows[e.RowIndex].Cells["Checked"].Value = true;
+                    this.uiDataGridView1.Rows[e.RowIndex].Cells[0].Value = true;
+                }
+            }
+        }
+
+        private void uiDataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
+            {
+                if (this.uiDataGridView1.Columns[e.ColumnIndex].HeaderText == "操作")
+                {
+                    e.PaintBackground(e.CellBounds, false);//重绘边框
+                    //设置要写入字体的大小
+                    Font myFont = new Font("宋体", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+                    SizeF sizeRun = e.Graphics.MeasureString("保存", myFont);
+                    SizeF sizeDel = e.Graphics.MeasureString("删除", myFont);
+                    float fRun = sizeRun.Width / (sizeRun.Width + sizeDel.Width);
+                    float fDel = sizeDel.Width / (sizeRun.Width + sizeDel.Width);
+                    //设置每个“按钮的边界”
+                    RectangleF rectRun = new RectangleF(e.CellBounds.Left, e.CellBounds.Top, e.CellBounds.Width * fRun, e.CellBounds.Height);
+                    RectangleF rectDel = new RectangleF(rectRun.Right, e.CellBounds.Top, e.CellBounds.Width * fDel, e.CellBounds.Height);
+                   
+                    //设置字体样式
+                    StringFormat sf = StringFormat.GenericDefault.Clone() as StringFormat;//设置重绘入单元格的字体样式
+                    sf.FormatFlags = StringFormatFlags.DisplayFormatControl;
+                    sf.Alignment = StringAlignment.Center;
+                    sf.LineAlignment = StringAlignment.Center;
+                    sf.Trimming = StringTrimming.EllipsisCharacter;
+                    e.Graphics.DrawString("保存", myFont, Brushes.Blue, rectRun, sf);
+                    e.Graphics.DrawString("删除", myFont, Brushes.Red, rectDel, sf);
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void uiDataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
+            {
+                Point curPosition = e.Location;//当前鼠标在当前单元格中的坐标
+                if (this.uiDataGridView1.Columns[e.ColumnIndex].HeaderText == "操作")
+                {
+                    Graphics g = this.uiDataGridView1.CreateGraphics();
+                    Font myFont = new Font("宋体", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+                    SizeF sizeRun = g.MeasureString("保存", myFont);
+                    SizeF sizeDel = g.MeasureString("删除", myFont);
+                    float fRun = sizeRun.Width / (sizeRun.Width + sizeDel.Width);
+                    float fDel = sizeDel.Width / (sizeRun.Width + sizeDel.Width);
+                    Rectangle rectTotal = new Rectangle(0, 0, this.uiDataGridView1.Columns[e.ColumnIndex].Width, this.uiDataGridView1.Rows[e.RowIndex].Height);
+                    RectangleF rectRun = new RectangleF(rectTotal.Left, rectTotal.Top, rectTotal.Width * fRun, rectTotal.Height);
+                    RectangleF rectDel = new RectangleF(rectRun.Right, rectTotal.Top, rectTotal.Width * fDel, rectTotal.Height);
+                    //判断当前鼠标在哪个“按钮”范围内
+                    if (rectRun.Contains(curPosition))
+                    {
+                        //do_Save_dan(e.RowIndex);//保存
+                    }
+
+                    else if (rectDel.Contains(curPosition))
+                    {
+                        //do_Del_dan(e.RowIndex);//删除
+                    }
                 }
             }
         }
