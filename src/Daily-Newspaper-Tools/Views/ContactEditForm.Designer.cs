@@ -39,7 +39,9 @@ namespace Daily_Newspaper_Tools.Views
             // pnlBtm
             // 
             this.pnlBtm.Location = new System.Drawing.Point(1, 219);
+            this.pnlBtm.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.pnlBtm.Size = new System.Drawing.Size(597, 55);
+            this.pnlBtm.Style = Sunny.UI.UIStyle.Custom;
             // 
             // btnCancel
             // 

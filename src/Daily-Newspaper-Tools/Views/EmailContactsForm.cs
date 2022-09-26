@@ -126,6 +126,11 @@ namespace Daily_Newspaper_Tools.Views
                 this.InitData();
             }
         }
+        /// <summary>
+        /// 批量删除（留后面做）
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uiBtnBatchDel_Click(object sender, EventArgs e)
         {
 
