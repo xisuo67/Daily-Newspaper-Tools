@@ -92,6 +92,12 @@
     <Compile Include="Views\ContactEditForm.Designer.cs">
       <DependentUpon>ContactEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\EmailConfigFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EmailConfigFrom.Designer.cs">
+      <DependentUpon>EmailConfigFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     </Compile>
     <EmbeddedResource Include="Views\ContactEditForm.resx">
       <DependentUpon>ContactEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EmailConfigFrom.resx">
+      <DependentUpon>EmailConfigFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

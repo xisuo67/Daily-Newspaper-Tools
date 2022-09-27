@@ -60,10 +60,9 @@ namespace Daily_Newspaper_Tools.Views
                     if (workId != null)
                     {
                         var todayworks = ctx.TodayWorkDetails.Where(e => e.WorkId == workId).OrderBy(e => e.Seq).ToList();
-
                         foreach (var item in todayworks)
                         {
-                            System.Windows.Forms.DataGridViewRow dataGridViewRow = new System.Windows.Forms.DataGridViewRow();
+                            DataGridViewRow dataGridViewRow = new DataGridViewRow();
                             dataGridViewRow.CreateCells(this.uiDataGridView1);
                             dataGridViewRow.Cells[0].Value = item.Seq;
                             dataGridViewRow.Cells[1].Value = item.WorkDetails;
@@ -226,7 +225,7 @@ namespace Daily_Newspaper_Tools.Views
 
         private void uiDataGridView2_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
         {
-           
+            e.Row.Cells[0].Value = e.Row.Index + 1;
         }
         private void uiDataGridView3_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
         {
