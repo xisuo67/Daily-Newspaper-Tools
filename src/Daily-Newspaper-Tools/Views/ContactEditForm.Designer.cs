@@ -46,10 +46,12 @@ namespace Daily_Newspaper_Tools.Views
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(469, 12);
+            this.btnCancel.Style = Sunny.UI.UIStyle.Custom;
             // 
             // btnOK
             // 
             this.btnOK.Location = new System.Drawing.Point(354, 12);
+            this.btnOK.Style = Sunny.UI.UIStyle.Custom;
             // 
             // uiLabel1
             // 
@@ -112,7 +114,7 @@ namespace Daily_Newspaper_Tools.Views
             this.Controls.Add(this.uiLabel2);
             this.Controls.Add(this.uiLabel1);
             this.Name = "ContactEditForm";
-            this.Text = "ContactEditForm";
+            this.Text = "联系人设置";
             this.ZoomScaleRect = new System.Drawing.Rectangle(15, 15, 800, 450);
             this.Controls.SetChildIndex(this.pnlBtm, 0);
             this.Controls.SetChildIndex(this.uiLabel1, 0);
