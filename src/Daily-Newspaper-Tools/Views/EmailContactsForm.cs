@@ -133,7 +133,7 @@ namespace Daily_Newspaper_Tools.Views
         /// <param name="e"></param>
         private void uiBtnBatchDel_Click(object sender, EventArgs e)
         {
-
+            ShowInfoTip("暂不支持该功能，请耐心等待作者迭代");
         }
 
         private void EmailContactsForm_Load(object sender, EventArgs e)
