@@ -18,6 +18,10 @@ namespace Daily_Newspaper_Tools
         public MainForm()
         {
             InitializeComponent();
+           
+
+        }
+        private void InitMenu() {
             int pageIndex = 1000;
             TreeNode parent = Aside.CreateNode("工作管理", 61451, 24, pageIndex);
             //通过设置PageIndex关联，节点文字、图标由相应的Page的Text、Symbol提供
@@ -29,8 +33,11 @@ namespace Daily_Newspaper_Tools
 
             //parent = Aside.CreateNode("个人设置", 61818, 24, ++pageIndex);
             //Aside.CreateChildNode(parent, AddPage(new EmailConfigForm(), ++pageIndex));
-        }
 
+
+            //选中第一个节点
+            Aside.SelectPage(1001);
+        }
         private void MainForm_Load(object sender, EventArgs e)
         {
             FormLogin formLogin = new FormLogin();
@@ -40,6 +47,7 @@ namespace Daily_Newspaper_Tools
                 this.Close();
                 return;
             }
+            InitMenu();
             this.uiAvatar.Text = LoginContext.Current.UserInfo.UserName;
         }
     }
