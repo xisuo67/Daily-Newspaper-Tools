@@ -28,7 +28,8 @@ namespace Daily_Newspaper_Tools.Views
         private void WorkDetailsForm_Load(object sender, EventArgs e)
         {
             this.InitControls();
-            this.InitWorkData();
+            if (LoginContext.Current != null)
+                this.InitWorkData();
         }
         #region 初始化相关数据
         /// <summary>
@@ -223,6 +224,15 @@ namespace Daily_Newspaper_Tools.Views
         private void uiDataGridView2_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
         {
             e.Row.Cells[0].Value = e.Row.Index + 1;
+        }
+        /// <summary>
+        /// 日报，日期选择
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="value"></param>
+        private void uiDatePicker1_ValueChanged(object sender, DateTime value)
+        {
+            InitWorkData();
         }
         #endregion
 
