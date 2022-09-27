@@ -262,11 +262,33 @@ namespace Daily_Newspaper_Tools.Views
         {
             using (var ctx = new EntityContext())
             {
+                EmailTaskFrom frm = new EmailTaskFrom();
                 var emailTaskConfig = ctx.EmailTaskConfigs.FirstOrDefault(x=>x.UserId==LoginContext.Current.UserId);
-                if (emailTaskConfig != null)
+                var entityState = System.Data.Entity.EntityState.Unchanged;
+                if (emailTaskConfig==null)
                 {
-
+                    entityState = System.Data.Entity.EntityState.Added;
+                    emailTaskConfig = new EmailTaskConfig()
+                    {
+                        IsSendNow = false,
+                        TaskTime = DateTime.Now,
+                        UserId = LoginContext.Current.UserId
+                    };
                 }
+                else
+                {
+                    entityState= System.Data.Entity.EntityState.Modified;
+                }
+                frm.Render();
+                frm.Config = emailTaskConfig;
+                frm.ShowDialog();
+                if (frm.IsOK)
+                {
+                    ctx.Entry(frm.Config).State = entityState;
+                    ctx.SaveChanges();
+                    this.ShowSuccessDialog("保存成功");
+                }
+                frm.Dispose();
             }
         }
         /// <summary>

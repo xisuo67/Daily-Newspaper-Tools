@@ -34,8 +34,8 @@ namespace Daily_Newspaper_Tools.Views
             set
             {
                 config = value;
-                uiSwitch1.Active = (bool)value.IsSendNow;
-                uiDatetimePicker1.Value = (DateTime)value.TaskTime;
+                uiSwitch1.Active = value==null?false:(bool)value.IsSendNow;
+                uiDatetimePicker1.Value = value == null ? DateTime.Now:(DateTime)value.TaskTime;
             }
         }
     }
