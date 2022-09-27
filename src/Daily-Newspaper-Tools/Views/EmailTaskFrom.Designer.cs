@@ -1,6 +1,6 @@
 ﻿namespace Daily_Newspaper_Tools.Views
 {
-    partial class EmailConfigFrom
+    partial class EmailTaskFrom
     {
         /// <summary>
         /// Required designer variable.

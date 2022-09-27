@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace Daily_Newspaper_Tools.Views
 {
-    public partial class EmailConfigFrom : UIEditForm
+    public partial class EmailTaskFrom : UIEditForm
     {
-        public EmailConfigFrom()
+        public EmailTaskFrom()
         {
             InitializeComponent();
         }

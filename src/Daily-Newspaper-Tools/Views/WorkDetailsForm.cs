@@ -254,6 +254,22 @@ namespace Daily_Newspaper_Tools.Views
             changeColor(kc.ToArray());
         }
         /// <summary>
+        /// 邮件设置
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uiSymbolBtnEmailSetting_Click(object sender, EventArgs e)
+        {
+            using (var ctx = new EntityContext())
+            {
+                var emailTaskConfig = ctx.EmailTaskConfigs.FirstOrDefault(x=>x.UserId==LoginContext.Current.UserId);
+                if (emailTaskConfig != null)
+                {
+
+                }
+            }
+        }
+        /// <summary>
         /// 发送邮件
         /// </summary>
         /// <param name="sender"></param>
