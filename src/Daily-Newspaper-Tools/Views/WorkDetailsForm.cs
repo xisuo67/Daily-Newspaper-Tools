@@ -14,6 +14,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ToolsHelper;
 
 namespace Daily_Newspaper_Tools.Views
 {
@@ -260,67 +261,67 @@ namespace Daily_Newspaper_Tools.Views
         /// <param name="e"></param>
         private void uiSymbolBtnSendEmail_Click(object sender, EventArgs e)
         {
-            //button4.Enabled = false;
-            //var weekWorks = this.richTextBox1.Rtf;
-            //string contacts = string.Empty;
-            //if (string.IsNullOrEmpty(this.richTextBox1.Text))
-            //{
-            //    MessageBox.Show("请先生成周报再发送");
-            //}
-            //else
-            //{
-            //    string content = RtfToHtmlConverter.ConvertRtfToHtml(weekWorks);
-            //    using (var ctx = new EntityContext())
-            //    {
-            //        var emailConfig = ctx.EmailConfigs.FirstOrDefault();
-            //        if (emailConfig != null)
-            //        {
-            //            contacts = string.Join(";", ctx.Contacts.Select(x => x.Email));
-            //            if (string.IsNullOrEmpty(contacts))
-            //            {
-            //                MessageBox.Show("请先配置联系人邮箱");
-            //            }
-            //            var emailTaskConfig = ctx.EmailTaskConfigs.FirstOrDefault();
-            //            if (emailTaskConfig != null)
-            //            {
-            //                //立即发送
-            //                if (emailTaskConfig.IsSendNow == true)
-            //                {
-            //                    SendEmail sendEmail = new SendEmail(emailConfig.EmailAddress, emailConfig.Email_Server, emailConfig.Email_LoginId, emailConfig.Email_LoginPwd);
-            //                    bool isSend = sendEmail.Send(contacts, "周报", content);
-            //                    if (isSend)
-            //                        MessageBox.Show("发送成功");
-            //                    else
+            uiSymbolBtnSendEmail.Enabled = false;
+            var weekWorks = this.uiRichTextBox2.Rtf;
+            string contacts = string.Empty;
+            if (string.IsNullOrEmpty(this.uiRichTextBox2.Text))
+            {
+                MessageBox.Show("请先生成周报再发送");
+            }
+            else
+            {
+                string content = RtfToHtmlConverter.ConvertRtfToHtml(weekWorks);
+                using (var ctx = new EntityContext())
+                {
+                    var emailConfig = ctx.EmailConfigs.FirstOrDefault();
+                    if (emailConfig != null)
+                    {
+                        contacts = string.Join(";", ctx.Contacts.Select(x => x.Email));
+                        if (string.IsNullOrEmpty(contacts))
+                        {
+                            ShowErrorTip("请先配置联系人邮箱");
+                        }
+                        var emailTaskConfig = ctx.EmailTaskConfigs.FirstOrDefault();
+                        if (emailTaskConfig != null)
+                        {
+                            //立即发送
+                            if (emailTaskConfig.IsSendNow == true)
+                            {
+                                SendEmail sendEmail = new SendEmail(emailConfig.EmailAddress, emailConfig.Email_Server, emailConfig.Email_LoginId, emailConfig.Email_LoginPwd);
+                                bool isSend = sendEmail.Send(contacts, "周报", content);
+                                if (isSend)
+                                    ShowSuccessTip("发送成功");
+                                else
 
-            //                        MessageBox.Show("发送失败");
-            //                }
-            //                else
-            //                {
-            //                    var taskTime = (DateTime)emailTaskConfig.TaskTime;
-            //                    DateTime sendTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, taskTime.Hour, taskTime.Minute, taskTime.Second);
-            //                    EmailTask emailTask = new EmailTask()
-            //                    {
-            //                        EmailContent = content,
-            //                        IsSend = false,
-            //                        SendTime = sendTime
-            //                    };
-            //                    ctx.EmailTasks.Add(emailTask);
-            //                    MessageBox.Show($"任务设置成功，邮件将于今晚发送");
-            //                }
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("请先配置邮件设置");
-            //            }
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("请先配置联系人邮箱");
-            //        }
-            //        ctx.SaveChanges();
-            //    }
-            //}
-            //button4.Enabled = true;
+                                    ShowErrorTip("发送失败");
+                            }
+                            else
+                            {
+                                var taskTime = (DateTime)emailTaskConfig.TaskTime;
+                                DateTime sendTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, taskTime.Hour, taskTime.Minute, taskTime.Second);
+                                EmailTask emailTask = new EmailTask()
+                                {
+                                    EmailContent = content,
+                                    IsSend = false,
+                                    SendTime = sendTime
+                                };
+                                ctx.EmailTasks.Add(emailTask);
+                                ShowSuccessTip($"任务设置成功，邮件将于今晚发送");
+                            }
+                        }
+                        else
+                        {
+                            ShowErrorTip("请先配置邮件设置");
+                        }
+                    }
+                    else
+                    {
+                        ShowErrorTip("请先配置联系人邮箱");
+                    }
+                    ctx.SaveChanges();
+                }
+            }
+            uiSymbolBtnSendEmail.Enabled = true;
         }
         #endregion
 

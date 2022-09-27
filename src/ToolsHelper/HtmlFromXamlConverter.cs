@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Diagnostics;
-namespace WorkTools
+namespace ToolsHelper
 {
     /// <summary>
     /// HtmlToXamlConverter is a static class that takes an HTML string

@@ -8,7 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 
-namespace WorkTools
+namespace ToolsHelper
 {
     public static class RtfToHtmlConverter
     {
@@ -56,9 +56,5 @@ namespace WorkTools
             }
 
         }
-
-
-
-
     }
 }
