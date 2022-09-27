@@ -50,7 +50,7 @@ namespace Daily_Newspaper_Tools
             this.Aside.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(182)))));
             this.Aside.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
             this.Aside.MenuStyle = Sunny.UI.UIMenuStyle.Custom;
-            this.Aside.Size = new System.Drawing.Size(204, 685);
+            this.Aside.Size = new System.Drawing.Size(204, 825);
             // 
             // uiAvatar
             // 
@@ -70,7 +70,7 @@ namespace Daily_Newspaper_Tools
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1024, 720);
+            this.ClientSize = new System.Drawing.Size(1024, 860);
             this.Name = "MainForm";
             this.Text = "日报工具";
             this.ZoomScaleRect = new System.Drawing.Rectangle(-98, 15, 1024, 720);

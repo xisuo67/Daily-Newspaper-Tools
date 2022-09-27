@@ -77,10 +77,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.uiBtnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiBtnSave.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiBtnSave.Location = new System.Drawing.Point(330, 353);
+            this.uiBtnSave.Location = new System.Drawing.Point(327, 296);
             this.uiBtnSave.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiBtnSave.Name = "uiBtnSave";
-            this.uiBtnSave.Size = new System.Drawing.Size(133, 34);
+            this.uiBtnSave.Radius = 1;
+            this.uiBtnSave.Size = new System.Drawing.Size(118, 34);
             this.uiBtnSave.TabIndex = 4;
             this.uiBtnSave.Text = "保存";
             this.uiBtnSave.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -99,7 +100,7 @@
             this.uiTxtEmial.MinimumSize = new System.Drawing.Size(1, 16);
             this.uiTxtEmial.Name = "uiTxtEmial";
             this.uiTxtEmial.ShowText = false;
-            this.uiTxtEmial.Size = new System.Drawing.Size(533, 29);
+            this.uiTxtEmial.Size = new System.Drawing.Size(521, 29);
             this.uiTxtEmial.TabIndex = 6;
             this.uiTxtEmial.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.uiTxtEmial.Watermark = "请输入登录邮箱";
@@ -116,7 +117,7 @@
             this.uiTxtPassword.MinimumSize = new System.Drawing.Size(1, 16);
             this.uiTxtPassword.Name = "uiTxtPassword";
             this.uiTxtPassword.ShowText = false;
-            this.uiTxtPassword.Size = new System.Drawing.Size(533, 29);
+            this.uiTxtPassword.Size = new System.Drawing.Size(518, 29);
             this.uiTxtPassword.TabIndex = 7;
             this.uiTxtPassword.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.uiTxtPassword.Watermark = "请输入密码";
@@ -134,7 +135,7 @@
             this.uiTxtServer.MinimumSize = new System.Drawing.Size(1, 16);
             this.uiTxtServer.Name = "uiTxtServer";
             this.uiTxtServer.ShowText = false;
-            this.uiTxtServer.Size = new System.Drawing.Size(528, 29);
+            this.uiTxtServer.Size = new System.Drawing.Size(516, 29);
             this.uiTxtServer.TabIndex = 8;
             this.uiTxtServer.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.uiTxtServer.Watermark = "请输入发送服务器";
@@ -143,9 +144,10 @@
             // EmailConfigForm
             // 
             this.AllowShowTitle = true;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(763, 438);
+            this.ClientSize = new System.Drawing.Size(748, 365);
             this.Controls.Add(this.uiLabel2);
             this.Controls.Add(this.uiTxtServer);
             this.Controls.Add(this.uiTxtPassword);
