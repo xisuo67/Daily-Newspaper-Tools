@@ -388,6 +388,7 @@
             this.uiDataGridView1.Style = Sunny.UI.UIStyle.Custom;
             this.uiDataGridView1.TabIndex = 14;
             this.uiDataGridView1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.uiDataGridView1.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.uiDataGridView1_RowStateChanged);
             // 
             // uiSymbolBtnSearch
             // 
@@ -576,6 +577,7 @@
             this.uiDataGridView2.Style = Sunny.UI.UIStyle.Custom;
             this.uiDataGridView2.TabIndex = 4;
             this.uiDataGridView2.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.uiDataGridView2.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.uiDataGridView2_RowStateChanged);
             // 
             // uiLabel3
             // 
