@@ -1,8 +1,10 @@
 ﻿using Daily_Newspaper_Tools.Common.Login;
 using DAL;
+using DAL.DTO;
 using DAL.Entity;
 using Sunny.UI;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -223,6 +225,10 @@ namespace Daily_Newspaper_Tools.Views
 
         private void uiDataGridView2_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
         {
+           
+        }
+        private void uiDataGridView3_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
             e.Row.Cells[0].Value = e.Row.Index + 1;
         }
         /// <summary>
@@ -234,8 +240,178 @@ namespace Daily_Newspaper_Tools.Views
         {
             InitWorkData();
         }
+
+        /// <summary>
+        /// 生成周报
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uiSymbolBtnCreateWeekDetail_Click(object sender, EventArgs e)
+        {
+
+            this.uiRichTextBox2.Text = CreateWeekWorks();
+            uiRichTextBox2.Font = new Font("微软雅黑", 10, uiRichTextBox2.Font.Style);
+            changeColor(kc.ToArray());
+        }
+        /// <summary>
+        /// 发送邮件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uiSymbolBtnSendEmail_Click(object sender, EventArgs e)
+        {
+
+        }
         #endregion
 
+        #region 私有方法
+        /// <summary>
+        /// 改变richTextBox中指定字符串的颜色
+        /// 调用即可
+        /// </summary>
+        /// <param name="str" value="为指定的字符串"></param>
 
+        public int changeColor(string[] str)
+        {
+            ArrayList list = null;
+            int b = 0;
+            for (int i = 0; i < str.Length; i++)
+            {
+                list = getIndexArray(uiRichTextBox2.Text, str[i]);
+                b += list.Count;
+            }
+            for (int i = 0; i < str.Length; i++)
+            {
+                list = getIndexArray(uiRichTextBox2.Text, str[i]);
+                if (list.Count == 0)
+                {
+                    continue;
+                }
+                if (a == b)
+                {
+                    uiRichTextBox2.SelectionColor = Color.Empty;
+                    return b;
+                }
+                for (int j = 0; j < list.Count; j++)
+                {
+                    int index = (int)list[j];
+                    uiRichTextBox2.Select(index, str[i].Length);
+                    uiRichTextBox2.SelectionFont = new Font("微软雅黑", 10, FontStyle.Bold);
+                    this.uiRichTextBox2.Focus();
+                    //设置光标的位置到文本尾 
+                    this.uiRichTextBox2.Select(this.uiRichTextBox2.TextLength, 0);
+                }
+            }
+            return b;
+        }
+
+        public ArrayList getIndexArray(String inputStr, String findStr)
+        {
+            ArrayList list = new ArrayList();
+            int start = 0;
+            while (start < inputStr.Length)
+            {
+                int index = inputStr.IndexOf(findStr, start);
+                if (index >= 0)
+                {
+                    list.Add(index);
+                    start = index + findStr.Length;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            return list;
+        }
+        private string CreateWeekWorks()
+        {
+            var startDate = uiDatePicker2.Value.Date;
+            var endDate = uiDatePicker3.Value.Date;
+            using (var ctx = new EntityContext())
+            {
+                //查询当前周数据
+                var weekWorks = (from x in ctx.Works
+                                 where x.WorkDate >= startDate && x.WorkDate <= endDate && x.UserId==LoginContext.Current.UserId
+                                 join y in ctx.TodayWorkDetails on x.Id equals y.WorkId
+                                 select new WeekWorksDTO
+                                 {
+                                     Id = y.Id,
+                                     WorkDate = x.WorkDate,
+                                     WorkDetails = y.WorkDetails,
+                                     WorkId = y.WorkId,
+                                     AffiliatedProject = y.AffiliatedProject,
+                                     JIRANumber = y.JIRANumber,
+                                     Seq = y.Seq,
+                                 }).ToList();
+
+                //对项目分组求和，求出当前周，不同项目处理JIRA数量
+
+                var details = weekWorks.GroupBy(x => x.AffiliatedProject).Select(x => new WeekWorksDetailsDTO
+                {
+                    AffiliatedProject = x.Key,
+                    WeekWorksDTOs = x.ToList(),
+                }).OrderBy(x => x.AffiliatedProject).ToList();
+
+                StringBuilder sb = new StringBuilder();
+                kc = new List<string>();
+                string currentWrokDetail = "一、本周工作内容";
+                sb.Append(currentWrokDetail + "\r\n");
+                kc.Add(currentWrokDetail);
+                int index = 1;
+                //针对分组信息去重
+                details.ForEach(x =>
+                {
+                    if (string.IsNullOrEmpty(x.AffiliatedProject) || x.AffiliatedProject.Contains("调休"))
+                    {
+                        //判断是否存在调休
+                        if (x.WeekWorksDTOs.Exists(a => a.WorkDetails.Contains("调休")))
+                        {
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        //判断是否存在重复数据，如果存在重复数据，根据时间取最后一条状态
+                        //例：xxx任务状态，未完成30% ，50% 存在多条记录，则根据时间取最后一条数据状态生成周报
+                        //TODO：待实现以上逻辑
+                        var repeatDic = x.WeekWorksDTOs.Where(a => a.JIRANumber != "代码评审").OrderByDescending(q => q.WorkDate).GroupBy(q => q.JIRANumber).ToList();
+
+                        if (repeatDic.Count != 0)
+                        {
+                            string titile = string.Empty;
+                            titile = $"{index}. {x.AffiliatedProject}({repeatDic.Count}个)";
+                            sb.Append(titile + "\r\n");
+                            kc.Add(titile);
+                            int seq = 1;
+                            foreach (var item in repeatDic)
+                            {
+                                var workDetails = item.OrderByDescending(b => b.WorkDate).First();
+                                string title = string.Empty;
+                                sb.Append($"{seq}) {workDetails.WorkDetails}\r\n");
+                                seq++;
+                            }
+                            index++;
+                        }
+                    }
+
+                });
+                sb.Append("\r\n");
+                string nextWork = "二、下周工作计划";
+                sb.Append(nextWork + "\r\n");
+                kc.Add(nextWork);
+                for (int i = 0; i < this.uiDataGridView3.Rows.Count; i++)
+                {
+                    var num = this.uiDataGridView3.Rows[i].Cells[0].Value;
+                    var work = this.uiDataGridView3.Rows[i].Cells[1].Value;
+                    if (work != null)
+                        sb.Append($"{num}) {work}\r\n");
+                }
+
+                return sb.ToString();
+
+            }
+        }
+        #endregion
     }
 }
