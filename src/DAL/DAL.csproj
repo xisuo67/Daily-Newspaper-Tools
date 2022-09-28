@@ -58,6 +58,7 @@
     <Compile Include="DTO\WeekWorksDTO.cs" />
     <Compile Include="EntityContext.cs" />
     <Compile Include="Entity\Contacts.cs" />
+    <Compile Include="Entity\Department.cs" />
     <Compile Include="Entity\EmailConfig.cs" />
     <Compile Include="Entity\EmailTask.cs" />
     <Compile Include="Entity\EmailTaskConfig.cs" />
@@ -69,6 +70,10 @@
     <Compile Include="Migrations\202209230740417_init.designer.cs">
       <DependentUpon>202209230740417_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202209281304405_init_20220928.cs" />
+    <Compile Include="Migrations\202209281304405_init_20220928.designer.cs">
+      <DependentUpon>202209281304405_init_20220928.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -79,6 +84,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202209230740417_init.resx">
       <DependentUpon>202209230740417_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209281304405_init_20220928.resx">
+      <DependentUpon>202209281304405_init_20220928.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
