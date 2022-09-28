@@ -13,5 +13,15 @@ namespace DAL.DTO
         public string UserName { get; set; }
 
         public string Password { get; set; }
+
+        /// <summary>
+        /// 用户名
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// 部门名称
+        /// </summary>
+        public Guid? DepartmentId { get; set; }
     }
 }

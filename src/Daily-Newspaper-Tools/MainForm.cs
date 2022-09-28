@@ -49,7 +49,8 @@ namespace Daily_Newspaper_Tools
                 return;
             }
             InitMenu();
-            this.uiAvatar.Text = LoginContext.Current.UserInfo.UserName;
+            this.uiAvatar.Text = string.IsNullOrEmpty(LoginContext.Current.UserInfo.Name)? LoginContext.Current.UserInfo.UserName: LoginContext.Current.UserInfo.Name;
+
         }
 
         private void uiAvatar_Click(object sender, EventArgs e)

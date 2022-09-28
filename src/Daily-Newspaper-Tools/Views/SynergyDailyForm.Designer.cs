@@ -53,6 +53,8 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uiLabel3 = new Sunny.UI.UILabel();
+            this.uiImageListBox1 = new Sunny.UI.UIImageListBox();
+            this.uiPanel1.SuspendLayout();
             this.uiPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiDataGridView2)).BeginInit();
@@ -60,6 +62,7 @@
             // 
             // uiPanel1
             // 
+            this.uiPanel1.Controls.Add(this.uiImageListBox1);
             this.uiPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.uiPanel1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiPanel1.Location = new System.Drawing.Point(0, 35);
@@ -68,6 +71,7 @@
             this.uiPanel1.Name = "uiPanel1";
             this.uiPanel1.Size = new System.Drawing.Size(216, 615);
             this.uiPanel1.TabIndex = 0;
+            this.uiPanel1.Text = null;
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.uiPanel1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
@@ -327,6 +331,23 @@
             this.uiLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.uiLabel3.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
+            // uiImageListBox1
+            // 
+            this.uiImageListBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiImageListBox1.FillColor = System.Drawing.Color.White;
+            this.uiImageListBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiImageListBox1.Location = new System.Drawing.Point(0, 0);
+            this.uiImageListBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiImageListBox1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiImageListBox1.Name = "uiImageListBox1";
+            this.uiImageListBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.uiImageListBox1.ShowText = false;
+            this.uiImageListBox1.Size = new System.Drawing.Size(216, 615);
+            this.uiImageListBox1.TabIndex = 0;
+            this.uiImageListBox1.Text = "uiImageListBox1";
+            this.uiImageListBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uiImageListBox1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
             // SynergyDailyForm
             // 
             this.AllowShowTitle = true;
@@ -339,6 +360,7 @@
             this.ShowTitle = true;
             this.Symbol = 362938;
             this.Text = "日报协同";
+            this.uiPanel1.ResumeLayout(false);
             this.uiPanel2.ResumeLayout(false);
             this.uiPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiDataGridView1)).EndInit();
@@ -364,5 +386,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private Sunny.UI.UILabel uiLabel3;
+        private Sunny.UI.UIImageListBox uiImageListBox1;
     }
 }
