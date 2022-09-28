@@ -26,6 +26,7 @@ namespace Daily_Newspaper_Tools
             TreeNode parent = Aside.CreateNode("工作管理", 61451, 24, pageIndex);
             //通过设置PageIndex关联，节点文字、图标由相应的Page的Text、Symbol提供
             Aside.CreateChildNode(parent, AddPage(new WorkDetailsForm(), ++pageIndex));
+            Aside.CreateChildNode(parent, AddPage(new SynergyDailyForm(), ++pageIndex));
             Aside.CreateChildNode(parent, AddPage(new EmailContactsForm(), ++pageIndex));
 
             parent = Aside.CreateNode("系统设置", 61818, 24, ++pageIndex);

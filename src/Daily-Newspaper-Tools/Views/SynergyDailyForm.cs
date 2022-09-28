@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sunny.UI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,10 @@ using System.Windows.Forms;
 
 namespace Daily_Newspaper_Tools.Views
 {
-    public partial class SynergyDailyForm : Form
+    /// <summary>
+    /// 日报协同功能
+    /// </summary>
+    public partial class SynergyDailyForm : UIPage
     {
         public SynergyDailyForm()
         {
