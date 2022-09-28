@@ -50,5 +50,14 @@ namespace Daily_Newspaper_Tools
             InitMenu();
             this.uiAvatar.Text = LoginContext.Current.UserInfo.UserName;
         }
+
+        private void uiAvatar_Click(object sender, EventArgs e)
+        {
+            uiAvatar.ShowContextMenuStrip(uiContextMenuStrip1, 0, uiAvatar.Height);
+        }
+        private void 设置ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
