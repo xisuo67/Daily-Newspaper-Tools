@@ -68,7 +68,7 @@ namespace Daily_Newspaper_Tools.Common.Controls
             listbox.Dock = DockStyle.Fill;
             listbox.Show();
             listbox.Bar = bar;
-
+            //listbox.DataSource = listbox;
             listbox.SelectedIndexChanged += Listbox_SelectedIndexChanged;
             listbox.SelectedValueChanged += Listbox_SelectedValueChanged;
             listbox.Click += Listbox_Click;
