@@ -30,7 +30,10 @@ namespace Daily_Newspaper_Tools
         private void InitializeComponent()
         {
             this.uiAvatar = new Sunny.UI.UIAvatar();
+            this.uiContextMenuStrip1 = new Sunny.UI.UIContextMenuStrip();
+            this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Header.SuspendLayout();
+            this.uiContextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Header
@@ -66,6 +69,24 @@ namespace Daily_Newspaper_Tools
             this.uiAvatar.TabIndex = 27;
             this.uiAvatar.Text = "Avatar";
             this.uiAvatar.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.uiAvatar.Click += new System.EventHandler(this.uiAvatar_Click);
+            // 
+            // uiContextMenuStrip1
+            // 
+            this.uiContextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.uiContextMenuStrip1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.设置ToolStripMenuItem});
+            this.uiContextMenuStrip1.Name = "uiContextMenuStrip1";
+            this.uiContextMenuStrip1.Size = new System.Drawing.Size(113, 30);
+            this.uiContextMenuStrip1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // 设置ToolStripMenuItem
+            // 
+            this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
+            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.设置ToolStripMenuItem.Text = "设置";
+            this.设置ToolStripMenuItem.Click += new System.EventHandler(this.设置ToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -75,7 +96,10 @@ namespace Daily_Newspaper_Tools
             this.Text = "日报工具";
             this.ZoomScaleRect = new System.Drawing.Rectangle(-98, 15, 1024, 720);
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Controls.SetChildIndex(this.Aside, 0);
+            this.Controls.SetChildIndex(this.Header, 0);
             this.Header.ResumeLayout(false);
+            this.uiContextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -83,5 +107,7 @@ namespace Daily_Newspaper_Tools
         #endregion
 
         private Sunny.UI.UIAvatar uiAvatar;
+        private Sunny.UI.UIContextMenuStrip uiContextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
     }
 }
