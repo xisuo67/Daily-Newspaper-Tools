@@ -45,7 +45,9 @@ namespace Daily_Newspaper_Tools.Views
             this.uiListBox1.DataSource = userList;
             this.uiListBox1.DisplayMember = "Name";
             this.uiListBox1.ValueMember = "UserId";
+            this.uiListBox1.SelectedIndex = -1;
         }
+        #region 绘制头像框
         /// <summary>
         /// 生成圆形头像
         /// </summary>
@@ -72,7 +74,7 @@ namespace Daily_Newspaper_Tools.Views
 
             //MemoryStream ms = new MemoryStream();
             var bmp = CutEllipse(bitmap, rect, bitmap.Size);
-            return bmp; 
+            return bmp;
             //return ms;
         }
 
@@ -98,6 +100,9 @@ namespace Daily_Newspaper_Tools.Views
             }
             return bitmap;
         }
+        #endregion
+
+        #region 事件
         private void uiListBox1_DrawItem(object sender, DrawItemEventArgs e)
         {
             Brush myBrush = Brushes.Black;
@@ -146,12 +151,21 @@ namespace Daily_Newspaper_Tools.Views
                     //e.Graphics.DrawString(item.Name, e.Font, new SolidBrush(Color.Black), textRec, stringFormat);
                 }
             }
-           
-        }
 
-        private void listBox1_DrawItem(object sender, DrawItemEventArgs e)
-        {
-           
         }
+        /// <summary>
+        /// listbox 点击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uiListBox1_Click(object sender, EventArgs e)
+        {
+            var listbox = (Sunny.UI.UIListBox)sender;
+            var itemData = listbox.SelectedItem as UserDTO;
+
+        }
+        #endregion
+
+
     }
 }
