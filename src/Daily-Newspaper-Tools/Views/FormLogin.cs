@@ -192,12 +192,8 @@ namespace Daily_Newspaper_Tools
                 var userEntity= ctx.Users.FirstOrDefault(d=>d.UserName==userName&& d.Password==password);
                 if (userEntity != null)
                 {
-                    //TODO:后面切换AutoMapper
-                    UserDTO userDTO = new UserDTO()
-                    {
-                        UserId= userEntity.UserId,
-                        UserName= userEntity.UserName
-                    };
+                    UserDTO userDTO = new UserDTO();
+                    userDTO.MapperFrom(userEntity);
                     LoginContext.Current  = new LoginContext(userDTO);
                     this.DialogResult = DialogResult.OK;
                     this.Close();

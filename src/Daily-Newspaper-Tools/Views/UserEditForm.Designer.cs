@@ -84,11 +84,11 @@
             this.uiTxtUserName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiTxtUserName.MinimumSize = new System.Drawing.Size(1, 16);
             this.uiTxtUserName.Name = "uiTxtUserName";
+            this.uiTxtUserName.ReadOnly = true;
             this.uiTxtUserName.ShowText = false;
             this.uiTxtUserName.Size = new System.Drawing.Size(416, 29);
             this.uiTxtUserName.TabIndex = 6;
             this.uiTxtUserName.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiTxtUserName.Visible = false;
             this.uiTxtUserName.Watermark = "";
             this.uiTxtUserName.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 

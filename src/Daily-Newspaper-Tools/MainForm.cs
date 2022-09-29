@@ -1,5 +1,7 @@
 ﻿using Daily_Newspaper_Tools.Common.Login;
 using Daily_Newspaper_Tools.Views;
+using DAL;
+using DAL.Entity;
 using Sunny.UI;
 using System;
 using System.Collections.Generic;
@@ -49,17 +51,39 @@ namespace Daily_Newspaper_Tools
                 return;
             }
             InitMenu();
-            this.uiAvatar.Text = string.IsNullOrEmpty(LoginContext.Current.UserInfo.Name)? LoginContext.Current.UserInfo.UserName: LoginContext.Current.UserInfo.Name;
+            InitAvatar();
 
         }
-
+        private void InitAvatar()
+        {
+            this.uiAvatar.Text = string.IsNullOrEmpty(LoginContext.Current.UserInfo.Name) ? LoginContext.Current.UserInfo.UserName : LoginContext.Current.UserInfo.Name;
+        }
         private void uiAvatar_Click(object sender, EventArgs e)
         {
             uiAvatar.ShowContextMenuStrip(uiContextMenuStrip1, 0, uiAvatar.Height);
         }
         private void 设置ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            UserEditForm frm = new UserEditForm();
+            var userDto = LoginContext.Current.UserInfo;
+            User user = new User();
+            user.MapperFrom(userDto);
+            using (var ctx = new EntityContext())
+            {
+                frm.User = user;
+                frm.Render();
+                frm.ShowDialog();
+                if (frm.IsOK)
+                {
+                    ctx.Entry(frm.User).State = System.Data.Entity.EntityState.Modified;
+                    ctx.SaveChanges();
+                    ShowSuccessDialog("编辑成功");
+                    userDto.MapperFrom(user);
+                    LoginContext.Current.UserInfo = userDto;
+                    InitAvatar();
+                }
+                frm.Dispose();
+            }
         }
     }
 }
