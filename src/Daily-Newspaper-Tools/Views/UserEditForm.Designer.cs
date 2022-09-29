@@ -56,7 +56,7 @@
             // 
             this.uiLabel1.AutoSize = true;
             this.uiLabel1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel1.Location = new System.Drawing.Point(21, 210);
+            this.uiLabel1.Location = new System.Drawing.Point(21, 168);
             this.uiLabel1.Name = "uiLabel1";
             this.uiLabel1.Size = new System.Drawing.Size(90, 21);
             this.uiLabel1.TabIndex = 2;
@@ -68,7 +68,7 @@
             // 
             this.uiLabel2.AutoSize = true;
             this.uiLabel2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel2.Location = new System.Drawing.Point(21, 270);
+            this.uiLabel2.Location = new System.Drawing.Point(21, 215);
             this.uiLabel2.Name = "uiLabel2";
             this.uiLabel2.Size = new System.Drawing.Size(90, 21);
             this.uiLabel2.TabIndex = 3;
@@ -80,7 +80,7 @@
             // 
             this.uiTxtUserName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.uiTxtUserName.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiTxtUserName.Location = new System.Drawing.Point(135, 202);
+            this.uiTxtUserName.Location = new System.Drawing.Point(135, 160);
             this.uiTxtUserName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiTxtUserName.MinimumSize = new System.Drawing.Size(1, 16);
             this.uiTxtUserName.Name = "uiTxtUserName";
@@ -96,7 +96,7 @@
             // 
             this.uiTxtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.uiTxtPassword.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiTxtPassword.Location = new System.Drawing.Point(135, 270);
+            this.uiTxtPassword.Location = new System.Drawing.Point(135, 215);
             this.uiTxtPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiTxtPassword.MinimumSize = new System.Drawing.Size(1, 16);
             this.uiTxtPassword.Name = "uiTxtPassword";
@@ -112,7 +112,7 @@
             this.uiCmbTreeDepartment.DropDownStyle = Sunny.UI.UIDropDownStyle.DropDownList;
             this.uiCmbTreeDepartment.FillColor = System.Drawing.Color.White;
             this.uiCmbTreeDepartment.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiCmbTreeDepartment.Location = new System.Drawing.Point(135, 134);
+            this.uiCmbTreeDepartment.Location = new System.Drawing.Point(135, 111);
             this.uiCmbTreeDepartment.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiCmbTreeDepartment.MinimumSize = new System.Drawing.Size(63, 0);
             this.uiCmbTreeDepartment.Name = "uiCmbTreeDepartment";
@@ -142,7 +142,7 @@
             // 
             this.uiLabel4.AutoSize = true;
             this.uiLabel4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel4.Location = new System.Drawing.Point(21, 134);
+            this.uiLabel4.Location = new System.Drawing.Point(21, 111);
             this.uiLabel4.Name = "uiLabel4";
             this.uiLabel4.Size = new System.Drawing.Size(90, 21);
             this.uiLabel4.TabIndex = 10;
@@ -154,7 +154,7 @@
             // 
             this.uiLabel3.AutoSize = true;
             this.uiLabel3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel3.Location = new System.Drawing.Point(21, 65);
+            this.uiLabel3.Location = new System.Drawing.Point(37, 65);
             this.uiLabel3.Name = "uiLabel3";
             this.uiLabel3.Size = new System.Drawing.Size(74, 21);
             this.uiLabel3.TabIndex = 9;
