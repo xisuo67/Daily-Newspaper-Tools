@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace DAL.DTO
 
         public string UserName { get; set; }
 
+        public Bitmap Head { get; set; }
         public string Password { get; set; }
 
         /// <summary>

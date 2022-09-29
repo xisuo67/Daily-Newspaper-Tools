@@ -43,7 +43,7 @@ namespace Daily_Newspaper_Tools
             this.Header.FillColor = System.Drawing.Color.WhiteSmoke;
             this.Header.ForeColor = System.Drawing.Color.White;
             this.Header.Location = new System.Drawing.Point(204, 35);
-            this.Header.Size = new System.Drawing.Size(820, 72);
+            this.Header.Size = new System.Drawing.Size(918, 72);
             this.Header.Style = Sunny.UI.UIStyle.Custom;
             this.Header.StyleCustomMode = true;
             // 
@@ -61,7 +61,7 @@ namespace Daily_Newspaper_Tools
             this.uiAvatar.AvatarSize = 55;
             this.uiAvatar.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiAvatar.Icon = Sunny.UI.UIAvatar.UIIcon.Text;
-            this.uiAvatar.Location = new System.Drawing.Point(747, 9);
+            this.uiAvatar.Location = new System.Drawing.Point(845, 9);
             this.uiAvatar.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiAvatar.Name = "uiAvatar";
             this.uiAvatar.Size = new System.Drawing.Size(60, 60);
@@ -84,14 +84,14 @@ namespace Daily_Newspaper_Tools
             // 设置ToolStripMenuItem
             // 
             this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
-            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(112, 26);
             this.设置ToolStripMenuItem.Text = "设置";
             this.设置ToolStripMenuItem.Click += new System.EventHandler(this.设置ToolStripMenuItem_Click);
             // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1024, 860);
+            this.ClientSize = new System.Drawing.Size(1122, 860);
             this.Name = "MainForm";
             this.Text = "日报工具";
             this.ZoomScaleRect = new System.Drawing.Rectangle(-98, 15, 1024, 720);

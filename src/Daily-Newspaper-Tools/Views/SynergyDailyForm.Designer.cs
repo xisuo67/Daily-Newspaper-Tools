@@ -69,7 +69,7 @@
             this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.Size = new System.Drawing.Size(216, 615);
+            this.uiPanel1.Size = new System.Drawing.Size(162, 615);
             this.uiPanel1.TabIndex = 0;
             this.uiPanel1.Text = null;
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -87,11 +87,11 @@
             this.uiPanel2.Controls.Add(this.uiLabel3);
             this.uiPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiPanel2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiPanel2.Location = new System.Drawing.Point(216, 35);
+            this.uiPanel2.Location = new System.Drawing.Point(162, 35);
             this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel2.Name = "uiPanel2";
-            this.uiPanel2.Size = new System.Drawing.Size(818, 615);
+            this.uiPanel2.Size = new System.Drawing.Size(872, 615);
             this.uiPanel2.TabIndex = 16;
             this.uiPanel2.Text = null;
             this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -151,7 +151,7 @@
             this.uiDataGridView1.RowTemplate.Height = 23;
             this.uiDataGridView1.ScrollBarRectColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.uiDataGridView1.SelectedIndex = -1;
-            this.uiDataGridView1.Size = new System.Drawing.Size(661, 237);
+            this.uiDataGridView1.Size = new System.Drawing.Size(715, 237);
             this.uiDataGridView1.TabIndex = 22;
             this.uiDataGridView1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
@@ -178,7 +178,7 @@
             // 
             this.uiSymbolBtnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiSymbolBtnSearch.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiSymbolBtnSearch.Location = new System.Drawing.Point(714, 24);
+            this.uiSymbolBtnSearch.Location = new System.Drawing.Point(758, 23);
             this.uiSymbolBtnSearch.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolBtnSearch.Name = "uiSymbolBtnSearch";
             this.uiSymbolBtnSearch.Size = new System.Drawing.Size(84, 35);
@@ -192,7 +192,7 @@
             // 
             this.uiTxtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.uiTxtSearch.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiTxtSearch.Location = new System.Drawing.Point(357, 27);
+            this.uiTxtSearch.Location = new System.Drawing.Point(315, 27);
             this.uiTxtSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiTxtSearch.MinimumSize = new System.Drawing.Size(1, 16);
             this.uiTxtSearch.Name = "uiTxtSearch";
@@ -226,7 +226,7 @@
             this.uiDatePicker1.MinimumSize = new System.Drawing.Size(63, 0);
             this.uiDatePicker1.Name = "uiDatePicker1";
             this.uiDatePicker1.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
-            this.uiDatePicker1.Size = new System.Drawing.Size(202, 29);
+            this.uiDatePicker1.Size = new System.Drawing.Size(159, 29);
             this.uiDatePicker1.SymbolDropDown = 61555;
             this.uiDatePicker1.SymbolNormal = 61555;
             this.uiDatePicker1.TabIndex = 18;
@@ -302,7 +302,7 @@
             this.uiDataGridView2.RowTemplate.Height = 23;
             this.uiDataGridView2.ScrollBarRectColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.uiDataGridView2.SelectedIndex = -1;
-            this.uiDataGridView2.Size = new System.Drawing.Size(661, 273);
+            this.uiDataGridView2.Size = new System.Drawing.Size(715, 273);
             this.uiDataGridView2.TabIndex = 16;
             this.uiDataGridView2.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
@@ -336,16 +336,18 @@
             this.uiListBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiListBox1.FillColor = System.Drawing.Color.White;
             this.uiListBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiListBox1.ItemHeight = 50;
             this.uiListBox1.Location = new System.Drawing.Point(0, 0);
             this.uiListBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiListBox1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiListBox1.Name = "uiListBox1";
             this.uiListBox1.Padding = new System.Windows.Forms.Padding(2);
             this.uiListBox1.ShowText = false;
-            this.uiListBox1.Size = new System.Drawing.Size(216, 615);
+            this.uiListBox1.Size = new System.Drawing.Size(162, 615);
             this.uiListBox1.TabIndex = 24;
             this.uiListBox1.Text = "uiListBox1";
             this.uiListBox1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.uiListBox1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.uiListBox1_DrawItem);
             // 
             // SynergyDailyForm
             // 
