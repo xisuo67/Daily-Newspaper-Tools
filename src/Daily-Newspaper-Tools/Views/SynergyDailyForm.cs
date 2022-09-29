@@ -22,31 +22,49 @@ namespace Daily_Newspaper_Tools.Views
     /// </summary>
     public partial class SynergyDailyForm : UIPage
     {
-        private Dictionary<Guid,Bitmap> userImageDic = new Dictionary<Guid,Bitmap>();
+        private Guid? CurrentClickUserId = null;
         public SynergyDailyForm()
         {
             InitializeComponent();
             InitListBox();
         }
-        private void InitListBox() {
-            List<UserDTO> userList = new List<UserDTO>();  
+
+        #region 初始化
+
+        /// <summary>
+        /// 初始化listbox
+        /// </summary>
+        private void InitListBox()
+        {
+            List<UserDTO> userList = new List<UserDTO>();
             using (var ctx = new EntityContext())
             {
-                userList = ctx.Users.Select(e=>(new UserDTO { 
-                    UserId=e.UserId,
-                    Name=string.IsNullOrEmpty(e.Name)?e.UserName : e.Name,
+                userList = ctx.Users.Select(e => (new UserDTO
+                {
+                    UserId = e.UserId,
+                    Name = string.IsNullOrEmpty(e.Name) ? e.UserName : e.Name,
                 })).ToList();
             }
             foreach (var item in userList)
             {
                 var bitmap = CreateHead(item.Name);
-                item.Head=bitmap;
+                item.Head = bitmap;
             }
             this.uiListBox1.DataSource = userList;
             this.uiListBox1.DisplayMember = "Name";
             this.uiListBox1.ValueMember = "UserId";
             this.uiListBox1.SelectedIndex = -1;
         }
+
+        /// <summary>
+        /// 根据用户ID及时间查询当前选中人日报信息
+        /// </summary>
+        /// <param name="UserId"></param>
+        private void InitNewspaperData(Guid UserId)
+        { 
+        
+        }
+        #endregion
         #region 绘制头像框
         /// <summary>
         /// 生成圆形头像
