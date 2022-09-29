@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ToolsHelper.Extensions;
 
 namespace Daily_Newspaper_Tools.Views
 {
@@ -18,6 +19,7 @@ namespace Daily_Newspaper_Tools.Views
         public UserEditForm()
         {
             InitializeComponent();
+            uiTxtPassword.TextBox.UseSystemPasswordChar = true;
         }
         protected override bool CheckData()
         {
@@ -33,7 +35,7 @@ namespace Daily_Newspaper_Tools.Views
                 {
                     user = new User();
                 }
-                user.Password = uiTxtPassword.Text.Trim();
+                user.Password = uiTxtPassword.Text.Trim().MyEncrypt();
                 user.Name = uiTxtName.Text.Trim();
                 //部门后面迭代完成
                 return user;
@@ -41,7 +43,7 @@ namespace Daily_Newspaper_Tools.Views
             set
             {
                 user = value;
-                uiTxtPassword.Text = value.Password;
+                uiTxtPassword.Text = value.Password.MyDecrypt();
                 uiTxtName.Text = value.Name;
                 uiTxtUserName.Text = value.UserName;
             }

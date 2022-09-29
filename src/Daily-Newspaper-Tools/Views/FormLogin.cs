@@ -185,7 +185,7 @@ namespace Daily_Newspaper_Tools
         {
             var userName = this.uiTxtUser.Text.Trim();
             //加密
-            var password = this.uiTxtPassword.Text.Trim().EncryptByRijndael();
+            var password = this.uiTxtPassword.Text.Trim().MyEncrypt();
 
             using (var ctx = new EntityContext())
             {
@@ -209,8 +209,8 @@ namespace Daily_Newspaper_Tools
         {
             var userName = this.uiTxtUserName.Text.Trim();
             //加密比对
-            var password = this.uiTxtPass.Text.Trim().EncryptByRijndael();
-            var againPassword=this.uiTxt.Text.Trim().EncryptByRijndael();
+            var password = this.uiTxtPass.Text.Trim().MyEncrypt();
+            var againPassword=this.uiTxt.Text.Trim().MyEncrypt();
             if (password!=againPassword)
             {
                 ShowErrorTip("两次密码输入不一致，请重新调整");
