@@ -1,4 +1,6 @@
-﻿using DAL.Entity;
+﻿using DAL;
+using DAL.DTO;
+using DAL.Entity;
 using Sunny.UI;
 using System;
 using System.Collections.Generic;
@@ -20,17 +22,20 @@ namespace Daily_Newspaper_Tools.Views
         public SynergyDailyForm()
         {
             InitializeComponent();
+            InitListBox();
+        }
+        private void InitListBox() {
+            using (var ctx = new EntityContext())
+            {
+                var users=ctx.Users.Select(e=>(new UserDTO { 
+                    UserId=e.UserId,
+                    Name=string.IsNullOrEmpty(e.Name)?e.UserName : e.Name,
+                })).ToList();
 
-            List<User> userInfos = new List<User>();
-            userInfos.Add(new User() { UserId =Guid.NewGuid(), Name = "admin" });
-            userInfos.Add(new User() { UserId = Guid.NewGuid(), Name = "admin1" });
-            userInfos.Add(new User() { UserId = Guid.NewGuid(), Name = "admin2" });
-            userInfos.Add(new User() { UserId = Guid.NewGuid(), Name = "admin3" });
-            this.listBox1.DataSource = userInfos;
-            this.listBox1.DisplayMember = "Name";  // 显示内容  数据的属性
-            this.listBox1.ValueMember = "UserId"; // 项的值  数据的属性
-
-            //this.yImageListBox1.DataBindings = userInfos;
+                this.uiListBox1.DataSource=users;
+                this.uiListBox1.DisplayMember = "Name";
+                this.uiListBox1.ValueMember="UserId";
+            }
         }
     }
 }
