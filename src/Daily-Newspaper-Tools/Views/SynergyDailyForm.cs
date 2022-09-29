@@ -26,6 +26,8 @@ namespace Daily_Newspaper_Tools.Views
         public SynergyDailyForm()
         {
             InitializeComponent();
+            DateTime dt = DateTime.Now;  //获取系统当前时间
+            uiDatePicker1.Value = dt;
             InitListBox();
         }
 
@@ -60,9 +62,43 @@ namespace Daily_Newspaper_Tools.Views
         /// 根据用户ID及时间查询当前选中人日报信息
         /// </summary>
         /// <param name="UserId"></param>
-        private void InitNewspaperData(Guid UserId)
-        { 
-        
+        private void InitNewspaperData()
+        {
+            if (this.CurrentClickUserId != null)
+            {
+                this.uiDataGridView1.Rows.Clear();
+                this.uiDataGridView2.Rows.Clear();
+                DateTime dt = this.uiDatePicker1.Value;
+                using (var ctx = new EntityContext())
+                {
+                    var workId = ctx.Works.FirstOrDefault(e => e.WorkDate == dt.Date && e.UserId == this.CurrentClickUserId)?.Id;
+                    if (workId != null)
+                    {
+                        var todayworks = ctx.TodayWorkDetails.Where(e => e.WorkId == workId).OrderBy(e => e.Seq).ToList();
+                        foreach (var item in todayworks)
+                        {
+                            DataGridViewRow dataGridViewRow = new DataGridViewRow();
+                            dataGridViewRow.CreateCells(this.uiDataGridView1);
+                            dataGridViewRow.Cells[0].Value = item.Seq;
+                            dataGridViewRow.Cells[1].Value = item.WorkDetails;
+                            dataGridViewRow.Cells[2].Value = item.AffiliatedProject;
+                            this.uiDataGridView1.Rows.Add(dataGridViewRow);
+                        }
+
+                        var tomorrowWorkDetails = ctx.TomorrowWorkDetails.Where(e => e.WorkId == workId).OrderBy(e => e.Seq).ToList();
+
+                        foreach (var item in tomorrowWorkDetails)
+                        {
+                            System.Windows.Forms.DataGridViewRow dataGridViewRow = new System.Windows.Forms.DataGridViewRow();
+                            dataGridViewRow.CreateCells(this.uiDataGridView2);
+                            dataGridViewRow.Cells[0].Value = item.Seq;
+                            dataGridViewRow.Cells[1].Value = item.WorkDetails;
+                            this.uiDataGridView2.Rows.Add(dataGridViewRow);
+                        }
+                    }
+                }
+            }
+
         }
         #endregion
         #region 绘制头像框
@@ -180,10 +216,13 @@ namespace Daily_Newspaper_Tools.Views
         {
             var listbox = (Sunny.UI.UIListBox)sender;
             var itemData = listbox.SelectedItem as UserDTO;
-
+            this.CurrentClickUserId = itemData.UserId;
+            this.InitNewspaperData();
+        }
+        private void uiDatePicker1_ValueChanged(object sender, DateTime value)
+        {
+            this.InitNewspaperData();
         }
         #endregion
-
-
     }
 }
