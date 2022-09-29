@@ -30,5 +30,7 @@ namespace DAL
         public DbSet<EmailTask> EmailTasks { get; set; }
 
         public DbSet<User> Users { get; set; }
+
+        public DbSet<Department> Departments { get; set; }
     }
 }
