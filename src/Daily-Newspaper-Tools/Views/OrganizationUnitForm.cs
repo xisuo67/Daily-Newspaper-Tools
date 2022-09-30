@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sunny.UI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Daily_Newspaper_Tools.Views
 {
-    public partial class OrganizationUnitForm : Form
+    public partial class OrganizationUnitForm : UIPage
     {
         public OrganizationUnitForm()
         {
