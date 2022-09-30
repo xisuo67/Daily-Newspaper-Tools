@@ -41,19 +41,19 @@
             this.uiPanel1 = new Sunny.UI.UIPanel();
             this.uiListBox1 = new Sunny.UI.UIListBox();
             this.uiPanel2 = new Sunny.UI.UIPanel();
-            this.uiDataGridView1 = new Sunny.UI.UIDataGridView();
-            this.uiLabel2 = new Sunny.UI.UILabel();
-            this.uiDataGridView2 = new Sunny.UI.UIDataGridView();
-            this.uiLabel3 = new Sunny.UI.UILabel();
-            this.index = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.workDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AffiliatedProject = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uiSymbolBtnSearch = new Sunny.UI.UISymbolButton();
             this.uiTxtSearch = new Sunny.UI.UITextBox();
             this.uiLabel1 = new Sunny.UI.UILabel();
             this.uiDatePicker1 = new Sunny.UI.UIDatePicker();
+            this.uiDataGridView1 = new Sunny.UI.UIDataGridView();
+            this.index = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.workDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AffiliatedProject = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uiLabel2 = new Sunny.UI.UILabel();
+            this.uiDataGridView2 = new Sunny.UI.UIDataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uiLabel3 = new Sunny.UI.UILabel();
             this.uiPanel1.SuspendLayout();
             this.uiPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiDataGridView1)).BeginInit();
@@ -110,13 +110,78 @@
             this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel2.Name = "uiPanel2";
-            this.uiPanel2.RectColor = System.Drawing.Color.White;
             this.uiPanel2.Size = new System.Drawing.Size(818, 650);
-            this.uiPanel2.Style = Sunny.UI.UIStyle.Custom;
             this.uiPanel2.TabIndex = 16;
             this.uiPanel2.Text = null;
             this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.uiPanel2.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiSymbolBtnSearch
+            // 
+            this.uiSymbolBtnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.uiSymbolBtnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiSymbolBtnSearch.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiSymbolBtnSearch.Location = new System.Drawing.Point(731, 15);
+            this.uiSymbolBtnSearch.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiSymbolBtnSearch.Name = "uiSymbolBtnSearch";
+            this.uiSymbolBtnSearch.Size = new System.Drawing.Size(84, 35);
+            this.uiSymbolBtnSearch.Symbol = 61442;
+            this.uiSymbolBtnSearch.TabIndex = 26;
+            this.uiSymbolBtnSearch.Text = "搜索";
+            this.uiSymbolBtnSearch.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiSymbolBtnSearch.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiTxtSearch
+            // 
+            this.uiTxtSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.uiTxtSearch.AutoSize = true;
+            this.uiTxtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.uiTxtSearch.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTxtSearch.Location = new System.Drawing.Point(377, 19);
+            this.uiTxtSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiTxtSearch.MinimumSize = new System.Drawing.Size(1, 16);
+            this.uiTxtSearch.Name = "uiTxtSearch";
+            this.uiTxtSearch.ShowText = false;
+            this.uiTxtSearch.Size = new System.Drawing.Size(280, 29);
+            this.uiTxtSearch.Symbol = 61442;
+            this.uiTxtSearch.TabIndex = 25;
+            this.uiTxtSearch.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiTxtSearch.Watermark = "请输入查询内容";
+            this.uiTxtSearch.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiLabel1
+            // 
+            this.uiLabel1.AutoSize = true;
+            this.uiLabel1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel1.Location = new System.Drawing.Point(55, 27);
+            this.uiLabel1.Name = "uiLabel1";
+            this.uiLabel1.Size = new System.Drawing.Size(42, 21);
+            this.uiLabel1.TabIndex = 24;
+            this.uiLabel1.Text = "日期";
+            this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiDatePicker1
+            // 
+            this.uiDatePicker1.AutoSize = true;
+            this.uiDatePicker1.FillColor = System.Drawing.Color.White;
+            this.uiDatePicker1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiDatePicker1.Location = new System.Drawing.Point(111, 19);
+            this.uiDatePicker1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiDatePicker1.MaxLength = 10;
+            this.uiDatePicker1.MinimumSize = new System.Drawing.Size(63, 0);
+            this.uiDatePicker1.Name = "uiDatePicker1";
+            this.uiDatePicker1.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
+            this.uiDatePicker1.Size = new System.Drawing.Size(268, 31);
+            this.uiDatePicker1.SymbolDropDown = 61555;
+            this.uiDatePicker1.SymbolNormal = 61555;
+            this.uiDatePicker1.TabIndex = 23;
+            this.uiDatePicker1.Text = "2022-09-27";
+            this.uiDatePicker1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiDatePicker1.Value = new System.DateTime(2022, 9, 27, 0, 0, 0, 0);
+            this.uiDatePicker1.Watermark = "";
+            this.uiDatePicker1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.uiDatePicker1.ValueChanged += new Sunny.UI.UIDatePicker.OnDateTimeChanged(this.uiDatePicker1_ValueChanged);
             // 
             // uiDataGridView1
             // 
@@ -175,6 +240,27 @@
             this.uiDataGridView1.Size = new System.Drawing.Size(704, 258);
             this.uiDataGridView1.TabIndex = 22;
             this.uiDataGridView1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // index
+            // 
+            this.index.HeaderText = "序号";
+            this.index.Name = "index";
+            this.index.ReadOnly = true;
+            this.index.Width = 66;
+            // 
+            // workDetail
+            // 
+            this.workDetail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.workDetail.HeaderText = "工作内容";
+            this.workDetail.Name = "workDetail";
+            this.workDetail.ReadOnly = true;
+            // 
+            // AffiliatedProject
+            // 
+            this.AffiliatedProject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.AffiliatedProject.HeaderText = "所属项目";
+            this.AffiliatedProject.Name = "AffiliatedProject";
+            this.AffiliatedProject.ReadOnly = true;
             // 
             // uiLabel2
             // 
@@ -246,39 +332,6 @@
             this.uiDataGridView2.TabIndex = 16;
             this.uiDataGridView2.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
-            // uiLabel3
-            // 
-            this.uiLabel3.AutoSize = true;
-            this.uiLabel3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel3.Location = new System.Drawing.Point(3, 399);
-            this.uiLabel3.Name = "uiLabel3";
-            this.uiLabel3.Size = new System.Drawing.Size(106, 21);
-            this.uiLabel3.TabIndex = 15;
-            this.uiLabel3.Text = "明日工作内容";
-            this.uiLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiLabel3.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // index
-            // 
-            this.index.HeaderText = "序号";
-            this.index.Name = "index";
-            this.index.ReadOnly = true;
-            this.index.Width = 66;
-            // 
-            // workDetail
-            // 
-            this.workDetail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.workDetail.HeaderText = "工作内容";
-            this.workDetail.Name = "workDetail";
-            this.workDetail.ReadOnly = true;
-            // 
-            // AffiliatedProject
-            // 
-            this.AffiliatedProject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.AffiliatedProject.HeaderText = "所属项目";
-            this.AffiliatedProject.Name = "AffiliatedProject";
-            this.AffiliatedProject.ReadOnly = true;
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.HeaderText = "序号";
@@ -293,72 +346,17 @@
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // uiSymbolBtnSearch
+            // uiLabel3
             // 
-            this.uiSymbolBtnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.uiSymbolBtnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiSymbolBtnSearch.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiSymbolBtnSearch.Location = new System.Drawing.Point(731, 15);
-            this.uiSymbolBtnSearch.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiSymbolBtnSearch.Name = "uiSymbolBtnSearch";
-            this.uiSymbolBtnSearch.Size = new System.Drawing.Size(84, 35);
-            this.uiSymbolBtnSearch.Symbol = 61442;
-            this.uiSymbolBtnSearch.TabIndex = 26;
-            this.uiSymbolBtnSearch.Text = "搜索";
-            this.uiSymbolBtnSearch.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiSymbolBtnSearch.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // uiTxtSearch
-            // 
-            this.uiTxtSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.uiTxtSearch.AutoSize = true;
-            this.uiTxtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.uiTxtSearch.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiTxtSearch.Location = new System.Drawing.Point(377, 19);
-            this.uiTxtSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiTxtSearch.MinimumSize = new System.Drawing.Size(1, 16);
-            this.uiTxtSearch.Name = "uiTxtSearch";
-            this.uiTxtSearch.ShowText = false;
-            this.uiTxtSearch.Size = new System.Drawing.Size(280, 29);
-            this.uiTxtSearch.Symbol = 61442;
-            this.uiTxtSearch.TabIndex = 25;
-            this.uiTxtSearch.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiTxtSearch.Watermark = "请输入查询内容";
-            this.uiTxtSearch.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // uiLabel1
-            // 
-            this.uiLabel1.AutoSize = true;
-            this.uiLabel1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiLabel1.Location = new System.Drawing.Point(55, 27);
-            this.uiLabel1.Name = "uiLabel1";
-            this.uiLabel1.Size = new System.Drawing.Size(42, 21);
-            this.uiLabel1.TabIndex = 24;
-            this.uiLabel1.Text = "日期";
-            this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiLabel1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // uiDatePicker1
-            // 
-            this.uiDatePicker1.AutoSize = true;
-            this.uiDatePicker1.FillColor = System.Drawing.Color.White;
-            this.uiDatePicker1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiDatePicker1.Location = new System.Drawing.Point(111, 19);
-            this.uiDatePicker1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiDatePicker1.MaxLength = 10;
-            this.uiDatePicker1.MinimumSize = new System.Drawing.Size(63, 0);
-            this.uiDatePicker1.Name = "uiDatePicker1";
-            this.uiDatePicker1.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
-            this.uiDatePicker1.Size = new System.Drawing.Size(208, 31);
-            this.uiDatePicker1.SymbolDropDown = 61555;
-            this.uiDatePicker1.SymbolNormal = 61555;
-            this.uiDatePicker1.TabIndex = 23;
-            this.uiDatePicker1.Text = "2022-09-27";
-            this.uiDatePicker1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiDatePicker1.Value = new System.DateTime(2022, 9, 27, 0, 0, 0, 0);
-            this.uiDatePicker1.Watermark = "";
-            this.uiDatePicker1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.uiDatePicker1.ValueChanged += new Sunny.UI.UIDatePicker.OnDateTimeChanged(this.uiDatePicker1_ValueChanged);
+            this.uiLabel3.AutoSize = true;
+            this.uiLabel3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiLabel3.Location = new System.Drawing.Point(3, 399);
+            this.uiLabel3.Name = "uiLabel3";
+            this.uiLabel3.Size = new System.Drawing.Size(106, 21);
+            this.uiLabel3.TabIndex = 15;
+            this.uiLabel3.Text = "明日工作内容";
+            this.uiLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel3.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // SynergyDailyForm
             // 

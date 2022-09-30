@@ -186,6 +186,9 @@
     <EmbeddedResource Include="Views\EmailContactsForm.resx">
       <DependentUpon>EmailContactsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\OrganizationUnitForm.resx">
+      <DependentUpon>OrganizationUnitForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\SynergyDailyForm.resx">
       <DependentUpon>SynergyDailyForm.cs</DependentUpon>
     </EmbeddedResource>
