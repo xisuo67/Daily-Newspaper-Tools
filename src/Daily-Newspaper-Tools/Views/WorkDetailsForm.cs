@@ -138,7 +138,7 @@ namespace Daily_Newspaper_Tools.Views
             DateTime dt = this.uiDatePicker1.Value;
             var date = dt.ToString("yyyyMMdd");
             StringBuilder sb = new StringBuilder();
-            string works = $"手麻重症研发-{date}-日报\r\n今日完成工作：\r\n";
+            string works = $"{date}-日报\r\n今日完成工作：\r\n";
             sb.Append(works);
             List<TodayWorkDetails> todayWorksList = new List<TodayWorkDetails>();
             List<TomorrowWorkDetails> tomorrowWorkList = new List<TomorrowWorkDetails>();
