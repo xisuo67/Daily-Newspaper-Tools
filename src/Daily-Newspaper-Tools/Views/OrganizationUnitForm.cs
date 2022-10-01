@@ -115,7 +115,21 @@ namespace Daily_Newspaper_Tools.Views
         private bool Create(Department department)
         {
             department.Code = GetNextChildCode(department.ParentId);
-            return true;
+            var validSuccess= ValidateOrganizationUnit(department);
+            if (validSuccess)
+            {
+                using (var ctx = new EntityContext())
+                {
+                    ctx.Departments.Add(department);
+                    ctx.SaveChanges();
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
 
         /// <summary>
@@ -125,7 +139,18 @@ namespace Daily_Newspaper_Tools.Views
         /// <returns></returns>
         private bool ValidateOrganizationUnit(Department department)
         {
-            return false;
+            var siblings = FindChildren(department.ParentId)
+            .Where(ou => ou.Id != department.Id)
+            .ToList();
+
+            if (siblings.Any(ou => ou.Name == department.Name))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
         /// <summary>
         /// 查询子节点
@@ -135,7 +160,47 @@ namespace Daily_Newspaper_Tools.Views
         /// <returns></returns>
         public List<Department> FindChildren(Guid? parentId, bool recursive = false)
         {
-            return null;
+            if (!recursive)
+            {
+                return GetChildren(parentId);
+            }
+
+            if (!parentId.HasValue)
+            {
+                return GetList();
+            }
+
+            var code = GetCodeOrDefault(parentId.Value);
+
+            return GetAllChildrenWithParentCode(code, parentId);
+        }
+
+        public virtual List<Department> GetAllChildrenWithParentCode(string code, Guid? parentId)
+        {
+            using (var ctx = new EntityContext())
+            {
+               return ctx.Departments.Where(x=>x.Code.StartsWith(code)&& x.Id!=parentId.Value).ToList();
+            }
+        }
+        /// <summary>
+        /// 查询children
+        /// </summary>
+        /// <param name="parentId"></param>
+        /// <returns></returns>
+        public List<Department> GetChildren(Guid? parentId)
+        {
+            using (var ctx = new EntityContext())
+            {
+                return ctx.Departments.Where(e => e.ParentId == parentId).ToList();
+            }
+        }
+
+        public virtual List<Department> GetList()
+        {
+            using (var ctx = new EntityContext())
+            {
+                return ctx.Departments.OrderBy(e => e.Name).ToList();
+            }
         }
         /// <summary>
         /// 获取code
@@ -160,11 +225,11 @@ namespace Daily_Newspaper_Tools.Views
             );
         }
 
-        public virtual  string GetCodeOrDefault(Guid id)
+        public virtual string GetCodeOrDefault(Guid id)
         {
             using (var ctx = new EntityContext())
             {
-                var entity = ctx.Departments.FirstOrDefault(e=>e.Id==id);
+                var entity = ctx.Departments.FirstOrDefault(e => e.Id == id);
                 return entity?.Code;
             }
         }
@@ -178,7 +243,7 @@ namespace Daily_Newspaper_Tools.Views
         {
             if (code.IsNullOrEmpty())
             {
-                throw new ArgumentNullException(nameof(code), "code can not be null or empty.");
+                throw new ArgumentNullException(nameof(code), "code不能为空");
             }
 
             var splittedCode = code.Split('.');
@@ -191,29 +256,29 @@ namespace Daily_Newspaper_Tools.Views
                 return null;
             }
 
-            var code= numbers.Select(number => number.ToString(new string('0', 5)));
+            var code = numbers.Select(number => number.ToString(new string('0', 5)));
 
-           return string.Join(".",code);
+            return string.Join(".", code);
         }
         public static string GetParentCode(string code)
         {
             if (code.IsNullOrEmpty())
             {
-                throw new ArgumentNullException(nameof(code), "code can not be null or empty.");
+                throw new ArgumentNullException(nameof(code), "code不能为空");
             }
             var splittedCode = code.Split('.');
             if (splittedCode.Length == 1)
             {
                 return null;
             }
-            var splitCode= splittedCode.Take(splittedCode.Length - 1);
+            var splitCode = splittedCode.Take(splittedCode.Length - 1);
             return string.Join(".", splitCode);
         }
         public static string AppendCode(string parentCode, string childCode)
         {
             if (childCode.IsNullOrEmpty())
             {
-                throw new ArgumentNullException(nameof(childCode), "childCode can not be null or empty.");
+                throw new ArgumentNullException(nameof(childCode), "childCode不能为空");
             }
 
             if (parentCode.IsNullOrEmpty())
