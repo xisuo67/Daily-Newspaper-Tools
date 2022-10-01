@@ -26,7 +26,17 @@ namespace Daily_Newspaper_Tools.Views
         /// <param name="e"></param>
         private void uiBtnCreateRoot_Click(object sender, EventArgs e)
         {
+            Department department = new Department();
+            var treeNode= this.uiTreeView1.SelectedNode;
+            if (treeNode==null)
+            {
 
+            }
+            else
+            {
+
+            }
+            DepartmentEditForm departmentEditForm
         }
         /// <summary>
         /// 编辑节点

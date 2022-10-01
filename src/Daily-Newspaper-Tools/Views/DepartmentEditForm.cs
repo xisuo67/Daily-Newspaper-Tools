@@ -1,4 +1,5 @@
-﻿using Sunny.UI;
+﻿using DAL.Entity;
+using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,31 +19,27 @@ namespace Daily_Newspaper_Tools.Views
             InitializeComponent();
         }
 
-        //protected override bool CheckData()
-        //{
-        //    return CheckEmpty(uiTxtName, "请输入姓名")
-        //           && CheckEmpty(uiTxtEmail, "请输入邮箱地址");
-        //}
-        //private Contacts contact;
-        //public Contacts Contacts
-        //{
-        //    get
-        //    {
-        //        if (contact == null)
-        //        {
-        //            contact = new Contacts();
-        //        }
-        //        contact.Email = uiTxtEmail.Text.Trim();
-        //        contact.Name = uiTxtName.Text.Trim();
-        //        contact.UserId = LoginContext.Current.UserId;
-        //        return contact;
-        //    }
-        //    set
-        //    {
-        //        contact = value;
-        //        uiTxtEmail.Text = value.Email;
-        //        uiTxtName.Text = value.Name;
-        //    }
-        //}
+        protected override bool CheckData()
+        {
+            return CheckEmpty(uiTxtName, "请输入名称");
+        }
+        private Department department;
+        public Department Departments
+        {
+            get
+            {
+                if (department == null)
+                {
+                    department = new Department();
+                }
+                department.Name = uiTxtName.Text.Trim();
+                return department;
+            }
+            set
+            {
+                department = value;
+                uiTxtName.Text = value.Name;
+            }
+        }
     }
 }
