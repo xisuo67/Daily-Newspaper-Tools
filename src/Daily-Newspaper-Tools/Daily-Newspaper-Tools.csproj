@@ -99,6 +99,12 @@
     <Compile Include="Views\ContactEditForm.Designer.cs">
       <DependentUpon>ContactEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\DepartmentEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DepartmentEditForm.Designer.cs">
+      <DependentUpon>DepartmentEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\EmailTaskFrom.cs">
       <SubType>Form</SubType>
     </Compile>
