@@ -1,4 +1,5 @@
-﻿using DAL.Entity;
+﻿using DAL;
+using DAL.Entity;
 using Sunny.UI;
 using System;
 using System.Collections.Generic;
@@ -26,9 +27,12 @@ namespace Daily_Newspaper_Tools.Views
         /// <param name="e"></param>
         private void uiBtnCreateRoot_Click(object sender, EventArgs e)
         {
-            Department department = new Department();
-            var treeNode= this.uiTreeView1.SelectedNode;
-            if (treeNode==null)
+            Department department = new Department()
+            { 
+                Id = Guid.NewGuid(),
+            };
+            var treeNode = this.uiTreeView1.SelectedNode;
+            if (treeNode == null)
             {
 
             }
@@ -36,7 +40,21 @@ namespace Daily_Newspaper_Tools.Views
             {
 
             }
-            DepartmentEditForm departmentEditForm
+
+            DepartmentEditForm frm = new DepartmentEditForm();
+            frm.Departments = department;
+            frm.Render();
+            frm.ShowDialogWithMask();
+            if (frm.IsOK)
+            {
+                var isSuccess= Create(frm.Departments);
+                if (isSuccess)
+                    ShowSuccessDialog("添加成功");
+                else
+                    ShowErrorTip("添加失败");
+               
+            }
+            frm.Dispose();
         }
         /// <summary>
         /// 编辑节点
@@ -63,9 +81,10 @@ namespace Daily_Newspaper_Tools.Views
         /// 新增节点
         /// </summary>
         /// <param name="department"></param>
-        private void Create(Department department)
+        private bool Create(Department department)
         {
             department.Code = GetNextChildCode(department.ParentId);
+            return true;
         }
 
         /// <summary>
