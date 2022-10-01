@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DAL.DTO;
 using DAL.Entity;
 using Sunny.UI;
 using System;
@@ -75,7 +76,37 @@ namespace Daily_Newspaper_Tools.Views
 
         }
         #endregion
+        #region 生成树结构私有方法
 
+        private List<TreeOutput> ConvertToTree(
+            List<Department> list,
+            Guid? Id = null)
+        {
+            var result = new List<TreeOutput>();
+            var childList = Children(list, Id);
+            foreach (var item in childList)
+            {
+                var tree = new TreeOutput
+                {
+                    Key = item.Id,
+                    Title = item.Name,
+                    Children = ConvertToTree(list, item.Id)
+                };
+                result.Add(tree);
+            }
+
+            return result;
+        }
+
+        private List<Department> Children(
+            List<Department> list,
+            Guid? Id)
+        {
+            var childList = list.Where(x => x.ParentId == Id).ToList();
+            return childList;
+        }
+
+        #endregion
         #region 私有方法
         /// <summary>
         /// 新增节点
