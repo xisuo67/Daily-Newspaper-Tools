@@ -97,6 +97,5 @@ namespace Daily_Newspaper_Tools.Views
             return null;
         }
         #endregion
-
     }
 }
