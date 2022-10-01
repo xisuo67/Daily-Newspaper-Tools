@@ -85,12 +85,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\Controls\YImageListBox.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Common\Controls\YImageListBox.Designer.cs">
-      <DependentUpon>YImageListBox.cs</DependentUpon>
-    </Compile>
     <Compile Include="Common\Login\LoginContext.cs" />
     <Compile Include="Common\Style\UIDPIScale.cs" />
     <Compile Include="Views\ContactEditForm.cs">
@@ -161,11 +155,11 @@
     <Compile Include="Views\WorkDetailsForm.Designer.cs">
       <DependentUpon>WorkDetailsForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Common\Controls\YImageListBox.resx">
-      <DependentUpon>YImageListBox.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\ContactEditForm.resx">
       <DependentUpon>ContactEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DepartmentEditForm.resx">
+      <DependentUpon>DepartmentEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EmailTaskFrom.resx">
       <DependentUpon>EmailTaskFrom.cs</DependentUpon>
