@@ -28,7 +28,7 @@ namespace Daily_Newspaper_Tools.Views
         private void uiBtnCreateRoot_Click(object sender, EventArgs e)
         {
             Department department = new Department()
-            { 
+            {
                 Id = Guid.NewGuid(),
             };
             var treeNode = this.uiTreeView1.SelectedNode;
@@ -47,12 +47,12 @@ namespace Daily_Newspaper_Tools.Views
             frm.ShowDialogWithMask();
             if (frm.IsOK)
             {
-                var isSuccess= Create(frm.Departments);
+                var isSuccess = Create(frm.Departments);
                 if (isSuccess)
                     ShowSuccessDialog("添加成功");
                 else
                     ShowErrorTip("添加失败");
-               
+
             }
             frm.Dispose();
         }
@@ -113,7 +113,83 @@ namespace Daily_Newspaper_Tools.Views
         /// <returns></returns>
         private string GetNextChildCode(Guid? parentId)
         {
+            var lastChild = GetLastChildOrNull(parentId);
+            if (lastChild != null)
+            {
+                return CalculateNextCode(lastChild.Code);
+            }
+
+            //var parentCode = parentId != null
+            //    ? await GetCodeOrDefaultAsync(parentId.Value)
+            //    : null;
+
+            //return OrganizationUnit.AppendCode(
+            //    parentCode,
+            //    OrganizationUnit.CreateCode(1)
+            //);
             return null;
+        }
+
+        public virtual async Task<string> GetCodeOrDefaultAsync(Guid id)
+        {
+            //var ou = await OrganizationUnitRepository.GetAsync(id);
+            //return ou?.Code;
+            return null;
+        }
+        private string CalculateNextCode(string code)
+        {
+            var parentCode = GetParentCode(code);
+            var lastUnitCode = GetLastUnitCode(code);
+            return AppendCode(parentCode, CreateCode(Convert.ToInt32(lastUnitCode) + 1));
+        }
+        public static string GetLastUnitCode(string code)
+        {
+            if (code.IsNullOrEmpty())
+            {
+                throw new ArgumentNullException(nameof(code), "code can not be null or empty.");
+            }
+
+            var splittedCode = code.Split('.');
+            return splittedCode[splittedCode.Length - 1];
+        }
+        public static string CreateCode(params int[] numbers)
+        {
+            if (numbers.IsNullOrEmpty())
+            {
+                return null;
+            }
+
+            var code= numbers.Select(number => number.ToString(new string('0', 5)));
+
+           return string.Join(".",code);
+        }
+        public static string GetParentCode(string code)
+        {
+            if (code.IsNullOrEmpty())
+            {
+                throw new ArgumentNullException(nameof(code), "code can not be null or empty.");
+            }
+            var splittedCode = code.Split('.');
+            if (splittedCode.Length == 1)
+            {
+                return null;
+            }
+            var splitCode= splittedCode.Take(splittedCode.Length - 1);
+            return string.Join(".", splitCode);
+        }
+        public static string AppendCode(string parentCode, string childCode)
+        {
+            if (childCode.IsNullOrEmpty())
+            {
+                throw new ArgumentNullException(nameof(childCode), "childCode can not be null or empty.");
+            }
+
+            if (parentCode.IsNullOrEmpty())
+            {
+                return childCode;
+            }
+
+            return parentCode + "." + childCode;
         }
         /// <summary>
         /// 获取子节点code或根节点
@@ -121,9 +197,13 @@ namespace Daily_Newspaper_Tools.Views
         /// <param name="parentId"></param>
         /// <returns></returns>
 
-        private Department GetLastChildOrNullAsync(Guid? parentId)
+        private Department GetLastChildOrNull(Guid? parentId)
         {
-            return null;
+            using (var ctx = new EntityContext())
+            {
+                var children = ctx.Departments.Where(x => x.ParentId == parentId).ToList();
+                return children.OrderBy(c => c.Code).LastOrDefault();
+            }
         }
         #endregion
     }
