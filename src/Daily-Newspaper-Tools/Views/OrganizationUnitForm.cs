@@ -150,22 +150,23 @@ namespace Daily_Newspaper_Tools.Views
                 return CalculateNextCode(lastChild.Code);
             }
 
-            //var parentCode = parentId != null
-            //    ? await GetCodeOrDefaultAsync(parentId.Value)
-            //    : null;
+            var parentCode = parentId != null
+                ? GetCodeOrDefault(parentId.Value)
+                : null;
 
-            //return OrganizationUnit.AppendCode(
-            //    parentCode,
-            //    OrganizationUnit.CreateCode(1)
-            //);
-            return null;
+            return AppendCode(
+                parentCode,
+                CreateCode(1)
+            );
         }
 
-        public virtual async Task<string> GetCodeOrDefaultAsync(Guid id)
+        public virtual  string GetCodeOrDefault(Guid id)
         {
-            //var ou = await OrganizationUnitRepository.GetAsync(id);
-            //return ou?.Code;
-            return null;
+            using (var ctx = new EntityContext())
+            {
+                var entity = ctx.Departments.FirstOrDefault(e=>e.Id==id);
+                return entity?.Code;
+            }
         }
         private string CalculateNextCode(string code)
         {
