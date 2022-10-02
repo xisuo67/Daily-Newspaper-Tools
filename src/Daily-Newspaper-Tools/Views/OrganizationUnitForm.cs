@@ -1,4 +1,5 @@
-﻿using DAL;
+﻿using AutoMapper;
+using DAL;
 using DAL.DTO;
 using DAL.Entity;
 using Sunny.UI;
@@ -16,6 +17,11 @@ namespace Daily_Newspaper_Tools.Views
 {
     public partial class OrganizationUnitForm : UIPage
     {
+        private static MapperConfiguration config = new MapperConfiguration(cfg =>
+        {
+            cfg.CreateMap<User, UserDTO>();
+        });
+        private static IMapper mapper = config.CreateMapper();
         private List<Department> departments = new List<Department>();
         public OrganizationUnitForm()
         {
@@ -24,13 +30,14 @@ namespace Daily_Newspaper_Tools.Views
         #region 事件
         private void OrganizationUnitForm_Load(object sender, EventArgs e)
         {
-            InitDepartment();
+            this.InitDepartment();
             uiDataGridView1.AddColumn("Id", "Id");
-            uiDataGridView1.Columns[1].Visible = false;
+            uiDataGridView1.Columns[0].Visible = false;
             uiDataGridView1.AddColumn("用户名", "Name");
             uiDataGridView1.AddColumn("登录账号", "UserName");
             uiDataGridView1.AddColumn("所属部门", "DepartmentName");
             uiDataGridView1.AddColumn("操作", "", 30);
+            this.InitGridData();
         }
         /// <summary>
         /// 删除节点
@@ -176,8 +183,8 @@ namespace Daily_Newspaper_Tools.Views
         /// </summary>
         private void InitGridData(Guid? Id=null)
         {
+            uiDataGridView1.Init();
             List<User> users = new List<User>();
-            List<UserDTO> userDtos = new List<UserDTO>();
             using (var ctx = new EntityContext())
             {
                 if (Id == null)
@@ -185,14 +192,15 @@ namespace Daily_Newspaper_Tools.Views
                 else
                     users = ctx.Users.Where(e=>e.DepartmentId==Id).ToList();
 
-                userDtos.MapperFrom(users);
-
-                foreach (var item in userDtos)
-                {
-                    item.DepartmentName = departments.FirstOrDefault(e=>e.Id==item.DepartmentId)?.Name;
-                }
+                var datas = users.Select(e=>new {
+                    Id=e.UserId,
+                    Name=e.Name,
+                    UserName=e.UserName,
+                    DepartmentName= departments.FirstOrDefault(x=>x.Id==e.DepartmentId)?.Name
+                }).ToList();
+                uiDataGridView1.DataSource = datas;
             }
-
+         
         }
 
         #endregion
