@@ -214,7 +214,7 @@ namespace Daily_Newspaper_Tools
             this.tabPage2.Controls.Add(this.btnregistered);
             this.tabPage2.Location = new System.Drawing.Point(0, 40);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(482, 208);
+            this.tabPage2.Size = new System.Drawing.Size(200, 60);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "注册";
             // 
@@ -309,6 +309,7 @@ namespace Daily_Newspaper_Tools
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.uiTabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormLogin";
             this.Opacity = 0.9D;
             this.Padding = new System.Windows.Forms.Padding(0);

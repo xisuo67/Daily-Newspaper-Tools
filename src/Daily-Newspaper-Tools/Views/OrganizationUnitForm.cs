@@ -35,7 +35,7 @@ namespace Daily_Newspaper_Tools.Views
             var treeNode = this.uiTreeView1.SelectedNode;
             if (treeNode == null)
             {
-
+                
             }
             else
             {

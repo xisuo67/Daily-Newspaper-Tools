@@ -29,6 +29,7 @@ namespace Daily_Newspaper_Tools
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.uiAvatar = new Sunny.UI.UIAvatar();
             this.uiContextMenuStrip1 = new Sunny.UI.UIContextMenuStrip();
             this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -92,6 +93,7 @@ namespace Daily_Newspaper_Tools
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1122, 860);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "日报工具";
             this.ZoomScaleRect = new System.Drawing.Rectangle(-98, 15, 1024, 720);
