@@ -109,7 +109,36 @@ namespace Daily_Newspaper_Tools.Views
         /// <param name="e"></param>
         private void uiBtnEditNode_Click(object sender, EventArgs e)
         {
-
+            var treeNode = this.uiTreeView1.SelectedNode;
+            if (treeNode != null)
+            {
+                Guid Id = Guid.Empty;
+                Guid.TryParse(treeNode.Tag.ToString(), out Id);
+                using (var ctx = new EntityContext())
+                {
+                    var entity = ctx.Departments.FirstOrDefault(x=>x.Id==Id);
+                    if (entity!=null)
+                    {
+                        DepartmentEditForm frm = new DepartmentEditForm();
+                        frm.Departments = entity;
+                        frm.Render();
+                        frm.ShowDialogWithMask();
+                        if (frm.IsOK)
+                        {
+                            ctx.Entry(frm.Departments).State = System.Data.Entity.EntityState.Modified;
+                            ctx.SaveChanges();
+                            this.ShowSuccessDialog("保存成功");
+                            this.InitDepartment();
+                        }
+                        frm.Dispose();
+                    }
+                    else
+                    {
+                        ShowErrorTip("未能查询相应信息");
+                        this.InitDepartment();
+                    }
+                }
+            }
         }
         /// <summary>
         /// 新增成员
