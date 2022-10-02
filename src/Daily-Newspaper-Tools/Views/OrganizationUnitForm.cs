@@ -22,7 +22,126 @@ namespace Daily_Newspaper_Tools.Views
         {
             InitializeComponent();
         }
+        #region 列表私有方法
+        /// <summary>
+        /// 编辑
+        /// </summary>
+        /// <param name="id"></param>
+        private void Edit(Guid id)
+        {
+            UserEditForm frm = new UserEditForm();
+            using (var ctx = new EntityContext())
+            {
+                var user = ctx.Users.FirstOrDefault(e=>e.UserId==id);
+                frm.User = user;
+                frm.Render();
+                frm.ShowDialog();
+                if (frm.IsOK)
+                {
+                    ctx.Entry(frm.User).State = System.Data.Entity.EntityState.Modified;
+                    ctx.SaveChanges();
+                    ShowSuccessDialog("编辑成功");
+                }
+                frm.Dispose();
+            }
+        }
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="ids"></param>
+        private void Del(Guid id)
+        {
+            using (var ctx = new EntityContext())
+            {
+                var user = ctx.Users.FirstOrDefault(e =>e.UserId==id);
+                ctx.Users.Remove(user);
+                ctx.SaveChanges();
+                this.ShowSuccessDialog("删除成功");
+                this.InitGridData();
+            }
+        }
+        #endregion
         #region 事件
+
+        private void uiDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == 0)
+            {
+                if (this.uiDataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString() == "True")
+                {
+                    this.uiDataGridView1.Rows[e.RowIndex].Cells[0].Value = false;
+                }
+                else
+                {
+                    this.uiDataGridView1.Rows[e.RowIndex].Cells[0].Value = true;
+                }
+            }
+        }
+
+        private void uiDataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
+            {
+                Point curPosition = e.Location;//当前鼠标在当前单元格中的坐标
+                if (this.uiDataGridView1.Columns[e.ColumnIndex].HeaderText == "操作")
+                {
+                    Graphics g = this.uiDataGridView1.CreateGraphics();
+                    Font myFont = new Font("宋体", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+                    SizeF sizeRun = g.MeasureString("编辑", myFont);
+                    SizeF sizeDel = g.MeasureString("删除", myFont);
+                    float fRun = sizeRun.Width / (sizeRun.Width + sizeDel.Width);
+                    float fDel = sizeDel.Width / (sizeRun.Width + sizeDel.Width);
+                    Rectangle rectTotal = new Rectangle(0, 0, this.uiDataGridView1.Columns[e.ColumnIndex].Width, this.uiDataGridView1.Rows[e.RowIndex].Height);
+                    RectangleF rectRun = new RectangleF(rectTotal.Left, rectTotal.Top, rectTotal.Width * fRun, rectTotal.Height);
+                    RectangleF rectDel = new RectangleF(rectRun.Right, rectTotal.Top, rectTotal.Width * fDel, rectTotal.Height);
+                    //判断当前鼠标在哪个“按钮”范围内
+                    Guid id = Guid.Empty;
+                    var idString = this.uiDataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    Guid.TryParse(idString, out id);
+                    if (rectRun.Contains(curPosition))
+                    {
+                        this.Edit(id);//编辑
+                    }
+
+                    else if (rectDel.Contains(curPosition))
+                    {
+                        //TODO:删除
+                        this.Del(id);
+                    }
+                }
+            }
+        }
+
+        private void uiDataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
+            {
+                if (this.uiDataGridView1.Columns[e.ColumnIndex].HeaderText == "操作")
+                {
+                    e.PaintBackground(e.CellBounds, false);//重绘边框
+                    //设置要写入字体的大小
+                    Font myFont = new Font("宋体", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+                    SizeF sizeRun = e.Graphics.MeasureString("编辑", myFont);
+                    SizeF sizeDel = e.Graphics.MeasureString("删除", myFont);
+                    float fRun = sizeRun.Width / (sizeRun.Width + sizeDel.Width);
+                    float fDel = sizeDel.Width / (sizeRun.Width + sizeDel.Width);
+                    //设置每个“按钮的边界”
+                    RectangleF rectRun = new RectangleF(e.CellBounds.Left, e.CellBounds.Top, e.CellBounds.Width * fRun, e.CellBounds.Height);
+                    RectangleF rectDel = new RectangleF(rectRun.Right, e.CellBounds.Top, e.CellBounds.Width * fDel, e.CellBounds.Height);
+
+                    //设置字体样式
+                    StringFormat sf = StringFormat.GenericDefault.Clone() as StringFormat;//设置重绘入单元格的字体样式
+                    sf.FormatFlags = StringFormatFlags.DisplayFormatControl;
+                    sf.Alignment = StringAlignment.Center;
+                    sf.LineAlignment = StringAlignment.Center;
+                    sf.Trimming = StringTrimming.EllipsisCharacter;
+                    e.Graphics.DrawString("编辑", myFont, Brushes.Blue, rectRun, sf);
+                    e.Graphics.DrawString("删除", myFont, Brushes.Red, rectDel, sf);
+                    e.Handled = true;
+                }
+            }
+        }
+
         private void OrganizationUnitForm_Load(object sender, EventArgs e)
         {
             this.InitDepartment();
@@ -443,6 +562,7 @@ namespace Daily_Newspaper_Tools.Views
             }
         }
         #endregion
+
 
     }
 }
