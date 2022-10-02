@@ -16,6 +16,7 @@ namespace Daily_Newspaper_Tools.Views
 {
     public partial class OrganizationUnitForm : UIPage
     {
+        private List<Department> departments = new List<Department>();
         public OrganizationUnitForm()
         {
             InitializeComponent();
@@ -24,6 +25,12 @@ namespace Daily_Newspaper_Tools.Views
         private void OrganizationUnitForm_Load(object sender, EventArgs e)
         {
             InitDepartment();
+            uiDataGridView1.AddColumn("Id", "Id");
+            uiDataGridView1.Columns[1].Visible = false;
+            uiDataGridView1.AddColumn("用户名", "Name");
+            uiDataGridView1.AddColumn("登录账号", "UserName");
+            uiDataGridView1.AddColumn("所属部门", "DepartmentName");
+            uiDataGridView1.AddColumn("操作", "", 30);
         }
         /// <summary>
         /// 删除节点
@@ -164,7 +171,29 @@ namespace Daily_Newspaper_Tools.Views
         }
         #endregion
         #region 初始化列表及数据
+        /// <summary>
+        /// 初始化列表数据
+        /// </summary>
+        private void InitGridData(Guid? Id=null)
+        {
+            List<User> users = new List<User>();
+            List<UserDTO> userDtos = new List<UserDTO>();
+            using (var ctx = new EntityContext())
+            {
+                if (Id == null)
+                    users = ctx.Users.ToList();
+                else
+                    users = ctx.Users.Where(e=>e.DepartmentId==Id).ToList();
 
+                userDtos.MapperFrom(users);
+
+                foreach (var item in userDtos)
+                {
+                    item.DepartmentName = departments.FirstOrDefault(e=>e.Id==item.DepartmentId)?.Name;
+                }
+            }
+
+        }
 
         #endregion
         #region 生成树结构私有方法
@@ -172,7 +201,7 @@ namespace Daily_Newspaper_Tools.Views
         {
             using (var ctx = new EntityContext())
             {
-                var departments = ctx.Departments.ToList();
+                this.departments = ctx.Departments.ToList();
                 var trees = ConvertToTree(departments);
                 uiTreeView1.Nodes.Clear();
 

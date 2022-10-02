@@ -22,8 +22,12 @@ namespace DAL.DTO
         public string Name { get; set; }
 
         /// <summary>
-        /// 部门名称
+        /// 部门GUID
         /// </summary>
         public Guid? DepartmentId { get; set; }
+        /// <summary>
+        /// 部门名称
+        /// </summary>
+        public string DepartmentName { get; set; }
     }
 }
