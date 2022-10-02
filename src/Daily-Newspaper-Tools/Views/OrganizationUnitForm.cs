@@ -32,7 +32,20 @@ namespace Daily_Newspaper_Tools.Views
         /// <param name="e"></param>
         private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            var treeNode = this.uiTreeView1.SelectedNode;
+            if (treeNode != null)
+            {
+                Guid id = Guid.Empty;
+                Guid.TryParse(treeNode.Tag.ToString(), out id);
+                using (var ctx = new EntityContext())
+                {
+                    var entity = ctx.Departments.FirstOrDefault(x=>x.Id== id);
+                    ctx.Departments.Remove(entity);
+                    ctx.SaveChanges();
+                    ShowSuccessDialog("添加成功");
+                    InitDepartment();
+                }
+            }
         }
         /// <summary>
         /// 树节点选中显示菜单
