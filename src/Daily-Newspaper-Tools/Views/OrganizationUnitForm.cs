@@ -91,6 +91,8 @@ namespace Daily_Newspaper_Tools.Views
                 uiTreeView1.Nodes.Clear();
 
                 uiTreeView1.Nodes.AddRange(trees.ToArray());
+
+                uiTreeView1.ExpandAll();
             }
         }
         private List<TreeNode> ConvertToTree(
