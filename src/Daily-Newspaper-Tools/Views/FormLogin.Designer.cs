@@ -160,12 +160,9 @@ namespace Daily_Newspaper_Tools
             this.uiTxtPassword.Size = new System.Drawing.Size(429, 37);
             this.uiTxtPassword.Style = Sunny.UI.UIStyle.Custom;
             this.uiTxtPassword.TabIndex = 5;
-            this.uiTxtPassword.Text = "密码";
             this.uiTxtPassword.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiTxtPassword.Watermark = "";
+            this.uiTxtPassword.Watermark = "密码";
             this.uiTxtPassword.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.uiTxtPassword.Leave += new System.EventHandler(this.uiTxtPassword_Leave);
-            this.uiTxtPassword.Enter += new System.EventHandler(this.uiTxtPassword_Enter);
             // 
             // uiTxtUser
             // 
@@ -182,12 +179,9 @@ namespace Daily_Newspaper_Tools
             this.uiTxtUser.Size = new System.Drawing.Size(429, 35);
             this.uiTxtUser.Style = Sunny.UI.UIStyle.Custom;
             this.uiTxtUser.TabIndex = 4;
-            this.uiTxtUser.Text = "用户名";
             this.uiTxtUser.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiTxtUser.Watermark = "";
+            this.uiTxtUser.Watermark = "用户名";
             this.uiTxtUser.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.uiTxtUser.Leave += new System.EventHandler(this.uiTxtUser_Leave);
-            this.uiTxtUser.Enter += new System.EventHandler(this.uiTxtUser_Enter);
             // 
             // btnlogin
             // 
@@ -214,7 +208,7 @@ namespace Daily_Newspaper_Tools
             this.tabPage2.Controls.Add(this.btnregistered);
             this.tabPage2.Location = new System.Drawing.Point(0, 40);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(200, 60);
+            this.tabPage2.Size = new System.Drawing.Size(482, 208);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "注册";
             // 
@@ -232,12 +226,9 @@ namespace Daily_Newspaper_Tools
             this.uiTxt.Size = new System.Drawing.Size(429, 37);
             this.uiTxt.Style = Sunny.UI.UIStyle.Custom;
             this.uiTxt.TabIndex = 9;
-            this.uiTxt.Text = "确认密码";
             this.uiTxt.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiTxt.Watermark = "";
+            this.uiTxt.Watermark = "确认密码";
             this.uiTxt.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.uiTxt.Leave += new System.EventHandler(this.uiTxt_Leave);
-            this.uiTxt.Enter += new System.EventHandler(this.uiTxt_Enter);
             // 
             // uiTxtPass
             // 
@@ -253,12 +244,9 @@ namespace Daily_Newspaper_Tools
             this.uiTxtPass.Size = new System.Drawing.Size(429, 37);
             this.uiTxtPass.Style = Sunny.UI.UIStyle.Custom;
             this.uiTxtPass.TabIndex = 8;
-            this.uiTxtPass.Text = "密码";
             this.uiTxtPass.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiTxtPass.Watermark = "";
+            this.uiTxtPass.Watermark = "密码";
             this.uiTxtPass.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.uiTxtPass.Leave += new System.EventHandler(this.uiTxtPass_Leave);
-            this.uiTxtPass.Enter += new System.EventHandler(this.uiTxtPass_Enter);
             // 
             // uiTxtUserName
             // 
@@ -275,12 +263,9 @@ namespace Daily_Newspaper_Tools
             this.uiTxtUserName.Size = new System.Drawing.Size(429, 35);
             this.uiTxtUserName.Style = Sunny.UI.UIStyle.Custom;
             this.uiTxtUserName.TabIndex = 7;
-            this.uiTxtUserName.Text = "用户名";
             this.uiTxtUserName.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiTxtUserName.Watermark = "";
+            this.uiTxtUserName.Watermark = "用户名";
             this.uiTxtUserName.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.uiTxtUserName.Leave += new System.EventHandler(this.uiTxtUserName_Leave);
-            this.uiTxtUserName.Enter += new System.EventHandler(this.uiTxtUserName_Enter);
             // 
             // btnregistered
             // 

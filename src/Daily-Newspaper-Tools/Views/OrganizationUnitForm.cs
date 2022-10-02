@@ -17,11 +17,6 @@ namespace Daily_Newspaper_Tools.Views
 {
     public partial class OrganizationUnitForm : UIPage
     {
-        private static MapperConfiguration config = new MapperConfiguration(cfg =>
-        {
-            cfg.CreateMap<User, UserDTO>();
-        });
-        private static IMapper mapper = config.CreateMapper();
         private List<Department> departments = new List<Department>();
         public OrganizationUnitForm()
         {
