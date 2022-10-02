@@ -26,6 +26,33 @@ namespace Daily_Newspaper_Tools.Views
             InitDepartment();
         }
         /// <summary>
+        /// 删除节点
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+        /// <summary>
+        /// 树节点选中显示菜单
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uiTreeView1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)//判断你点的是不是右键
+            {
+                Point ClickPoint = new Point(e.X, e.Y);
+                TreeNode CurrentNode = uiTreeView1.GetNodeAt(ClickPoint);
+                if (CurrentNode != null)//判断你点的是不是一个节点
+                {
+                    CurrentNode.ContextMenuStrip = uiContextMenuStrip1;
+                    uiTreeView1.SelectedNode = CurrentNode;//选中这个节点
+                }
+            }
+        }
+        /// <summary>
         /// 新增节点
         /// </summary>
         /// <param name="sender"></param>
@@ -325,5 +352,10 @@ namespace Daily_Newspaper_Tools.Views
             }
         }
         #endregion
+
+        private void 设置ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
