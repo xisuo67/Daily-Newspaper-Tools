@@ -121,6 +121,10 @@ namespace Daily_Newspaper_Tools.Views
 
         }
         #endregion
+        #region 初始化列表及数据
+
+
+        #endregion
         #region 生成树结构私有方法
         private void InitDepartment()
         {
