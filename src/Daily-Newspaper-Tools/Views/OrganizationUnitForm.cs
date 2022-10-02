@@ -39,11 +39,20 @@ namespace Daily_Newspaper_Tools.Views
                 Guid.TryParse(treeNode.Tag.ToString(), out id);
                 using (var ctx = new EntityContext())
                 {
-                    var entity = ctx.Departments.FirstOrDefault(x=>x.Id== id);
-                    ctx.Departments.Remove(entity);
-                    ctx.SaveChanges();
-                    ShowSuccessDialog("添加成功");
-                    InitDepartment();
+                    var users = ctx.Users.Where(x=>x.DepartmentId==id);
+                    if (users.Count()>0)
+                    {
+                        ShowErrorTip("当前组织架构下存在成员，请调整成员组织架构后再删除");
+                    }
+                    else
+                    {
+                        var entity = ctx.Departments.FirstOrDefault(x => x.Id == id);
+                        ctx.Departments.Remove(entity);
+                        ctx.SaveChanges();
+                        ShowSuccessTip("删除成功");
+                        InitDepartment();
+                    }
+                   
                 }
             }
         }
@@ -93,7 +102,7 @@ namespace Daily_Newspaper_Tools.Views
                 var isSuccess = Create(frm.Departments);
                 if (isSuccess)
                 {
-                    ShowSuccessDialog("添加成功");
+                    ShowSuccessTip("添加成功");
                     InitDepartment();
                 }
                 else
@@ -127,7 +136,7 @@ namespace Daily_Newspaper_Tools.Views
                         {
                             ctx.Entry(frm.Departments).State = System.Data.Entity.EntityState.Modified;
                             ctx.SaveChanges();
-                            this.ShowSuccessDialog("保存成功");
+                            this.ShowSuccessTip("保存成功");
                             this.InitDepartment();
                         }
                         frm.Dispose();
@@ -399,9 +408,5 @@ namespace Daily_Newspaper_Tools.Views
         }
         #endregion
 
-        private void 设置ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
