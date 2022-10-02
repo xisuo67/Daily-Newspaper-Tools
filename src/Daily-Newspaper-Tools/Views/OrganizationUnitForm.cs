@@ -55,6 +55,7 @@ namespace Daily_Newspaper_Tools.Views
             {
                 var user = ctx.Users.FirstOrDefault(e =>e.UserId==id);
                 ctx.Users.Remove(user);
+                //TODO:删除用户后，需要同时删除日报，迭代后期在做
                 ctx.SaveChanges();
                 this.ShowSuccessDialog("删除成功");
                 this.InitGridData();
