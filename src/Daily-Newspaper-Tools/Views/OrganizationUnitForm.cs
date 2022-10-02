@@ -63,7 +63,7 @@ namespace Daily_Newspaper_Tools.Views
         /// <param name="e"></param>
         private void uiTreeView1_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right)//判断你点的是不是右键
+            if (e.Button == MouseButtons.Right)//判断点的是不是右键
             {
                 Point ClickPoint = new Point(e.X, e.Y);
                 TreeNode CurrentNode = uiTreeView1.GetNodeAt(ClickPoint);
@@ -72,6 +72,10 @@ namespace Daily_Newspaper_Tools.Views
                     CurrentNode.ContextMenuStrip = uiContextMenuStrip1;
                     uiTreeView1.SelectedNode = CurrentNode;//选中这个节点
                 }
+            }
+            else if (e.Button == MouseButtons.Left) //左键联动成员数据
+            {
+
             }
         }
         /// <summary>
