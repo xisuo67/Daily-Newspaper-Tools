@@ -21,6 +21,10 @@ namespace Daily_Newspaper_Tools.Views
             InitializeComponent();
         }
         #region 事件
+        private void OrganizationUnitForm_Load(object sender, EventArgs e)
+        {
+            InitDepartment();
+        }
         /// <summary>
         /// 新增节点
         /// </summary>
@@ -33,13 +37,11 @@ namespace Daily_Newspaper_Tools.Views
                 Id = Guid.NewGuid(),
             };
             var treeNode = this.uiTreeView1.SelectedNode;
-            if (treeNode == null)
+            if (treeNode != null)
             {
-                
-            }
-            else
-            {
-
+                Guid parentId = Guid.Empty;
+                Guid.TryParse(treeNode.Tag.ToString(), out parentId);
+                department.ParentId = parentId;
             }
 
             DepartmentEditForm frm = new DepartmentEditForm();
@@ -50,7 +52,10 @@ namespace Daily_Newspaper_Tools.Views
             {
                 var isSuccess = Create(frm.Departments);
                 if (isSuccess)
+                {
                     ShowSuccessDialog("添加成功");
+                    InitDepartment();
+                }
                 else
                     ShowErrorTip("添加失败");
 
@@ -77,21 +82,36 @@ namespace Daily_Newspaper_Tools.Views
         }
         #endregion
         #region 生成树结构私有方法
+        private void InitDepartment()
+        {
+            using (var ctx = new EntityContext())
+            {
+                var departments = ctx.Departments.ToList();
+                var trees = ConvertToTree(departments);
+                uiTreeView1.Nodes.Clear();
 
-        private List<TreeOutput> ConvertToTree(
+                uiTreeView1.Nodes.AddRange(trees.ToArray());
+            }
+        }
+        private List<TreeNode> ConvertToTree(
             List<Department> list,
             Guid? Id = null)
         {
-            var result = new List<TreeOutput>();
+            var result = new List<TreeNode>();
             var childList = Children(list, Id);
             foreach (var item in childList)
             {
-                var tree = new TreeOutput
+                var tree = new TreeNode
                 {
-                    Key = item.Id,
-                    Title = item.Name,
-                    Children = ConvertToTree(list, item.Id)
+                    Name = item.Id.ToString(),
+                    Text = item.Name,
+                    Tag = item.Id.ToString(),
                 };
+                var childs = ConvertToTree(list, item.Id);
+                foreach (var items in childs)
+                {
+                    tree.Nodes.Add(items);
+                }
                 result.Add(tree);
             }
 
@@ -115,7 +135,7 @@ namespace Daily_Newspaper_Tools.Views
         private bool Create(Department department)
         {
             department.Code = GetNextChildCode(department.ParentId);
-            var validSuccess= ValidateOrganizationUnit(department);
+            var validSuccess = ValidateOrganizationUnit(department);
             if (validSuccess)
             {
                 using (var ctx = new EntityContext())
@@ -129,7 +149,7 @@ namespace Daily_Newspaper_Tools.Views
             {
                 return false;
             }
-            
+
         }
 
         /// <summary>
@@ -179,7 +199,7 @@ namespace Daily_Newspaper_Tools.Views
         {
             using (var ctx = new EntityContext())
             {
-               return ctx.Departments.Where(x=>x.Code.StartsWith(code)&& x.Id!=parentId.Value).ToList();
+                return ctx.Departments.Where(x => x.Code.StartsWith(code) && x.Id != parentId.Value).ToList();
             }
         }
         /// <summary>
