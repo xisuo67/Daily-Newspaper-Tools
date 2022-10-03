@@ -18,6 +18,7 @@ namespace Daily_Newspaper_Tools.Views
     public partial class OrganizationUnitForm : UIPage
     {
         private List<Department> departments = new List<Department>();
+        private Guid currentDeparentId= Guid.Empty;
         public OrganizationUnitForm()
         {
             InitializeComponent();
@@ -41,7 +42,7 @@ namespace Daily_Newspaper_Tools.Views
                     ctx.Entry(frm.User).State = System.Data.Entity.EntityState.Modified;
                     ctx.SaveChanges();
                     ShowSuccessTip("编辑成功");
-                    this.InitGridData(user.DepartmentId);
+                    this.InitGridData();
                 }
                 frm.Dispose();
             }
@@ -59,7 +60,7 @@ namespace Daily_Newspaper_Tools.Views
                 //TODO:删除用户后，需要同时删除日报，迭代后期在做
                 ctx.SaveChanges();
                 this.ShowSuccessTip("删除成功");
-                this.InitGridData(user?.DepartmentId);
+                this.InitGridData();
             }
         }
         #endregion
@@ -209,7 +210,8 @@ namespace Daily_Newspaper_Tools.Views
                 {
                     Guid id = Guid.Empty;
                     Guid.TryParse(CurrentNode.Tag.ToString(), out id);
-                    this.InitGridData(id);
+                    this.currentDeparentId = id;
+                    this.InitGridData();
                 }
             }
         }
@@ -298,7 +300,7 @@ namespace Daily_Newspaper_Tools.Views
             UserEditForm frm = new UserEditForm(true);
             using (var ctx = new EntityContext())
             {
-                var user = new User();
+                var user = new User() {UserId=Guid.NewGuid() };
                 frm.User = user;
                 frm.Render();
                 frm.ShowDialog();
@@ -307,7 +309,7 @@ namespace Daily_Newspaper_Tools.Views
                     ctx.Entry(frm.User).State = System.Data.Entity.EntityState.Added;
                     ctx.SaveChanges();
                     ShowSuccessTip("保存成功");
-                    this.InitGridData(user.DepartmentId);
+                    this.InitGridData();
                 }
                 frm.Dispose();
             }
@@ -317,16 +319,26 @@ namespace Daily_Newspaper_Tools.Views
         /// <summary>
         /// 初始化列表数据
         /// </summary>
-        private void InitGridData(Guid? Id=null)
+        private void InitGridData(string searchParam = null)
         {
             uiDataGridView1.Init();
             List<User> users = new List<User>();
             using (var ctx = new EntityContext())
             {
-                if (Id == null)
-                    users = ctx.Users.ToList();
+                if (string.IsNullOrEmpty(searchParam))
+                {
+                    if (this.currentDeparentId == null)
+                        users = ctx.Users.ToList();
+                    else
+                        users = ctx.Users.Where(e => e.DepartmentId == this.currentDeparentId).ToList();
+                }
                 else
-                    users = ctx.Users.Where(e=>e.DepartmentId==Id).ToList();
+                {
+                    if (this.currentDeparentId == null)
+                        users = ctx.Users.Where(e=>e.Name.Contains(searchParam)||e.UserName.Contains(searchParam)).ToList();
+                    else
+                        users = ctx.Users.Where(e => e.DepartmentId == this.currentDeparentId &&(e.Name.Contains(searchParam) || e.UserName.Contains(searchParam))).ToList();
+                }
 
                 var datas = users.Select(e=>new {
                     Id=e.UserId,
@@ -583,8 +595,19 @@ namespace Daily_Newspaper_Tools.Views
                 return children.OrderBy(c => c.Code).LastOrDefault();
             }
         }
+
         #endregion
 
-
+        private void uiTxtSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Control || e.KeyCode == Keys.Enter)
+            {
+                var searchParam = uiTxtSearch.Text.Trim();
+                if (!string.IsNullOrEmpty(searchParam))
+                {
+                    InitGridData(searchParam);
+                }
+            }
+        }
     }
 }

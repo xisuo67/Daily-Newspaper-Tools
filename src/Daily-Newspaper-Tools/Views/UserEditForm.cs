@@ -92,13 +92,12 @@ namespace Daily_Newspaper_Tools.Views
                 }
                 user.Password = uiTxtPassword.Text.Trim().MyEncrypt();
                 user.Name = uiTxtName.Text.Trim();
-
+                user.UserName=uiTxtUserName.Text.Trim();
 
                 var stringId = uiCmbTreeDepartment.SelectedNode?.Tag.ToString();
                 Guid id = Guid.Empty;
                 Guid.TryParse(stringId, out id);
-                user.DepartmentId = id;
-                //部门后面迭代完成
+                user.DepartmentId = id==Guid.Empty?user.DepartmentId:id;
                 return user;
             }
             set

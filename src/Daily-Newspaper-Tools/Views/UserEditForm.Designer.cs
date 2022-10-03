@@ -41,16 +41,16 @@
             // 
             // pnlBtm
             // 
-            this.pnlBtm.Location = new System.Drawing.Point(1, 311);
-            this.pnlBtm.Size = new System.Drawing.Size(572, 55);
+            this.pnlBtm.Location = new System.Drawing.Point(1, 266);
+            this.pnlBtm.Size = new System.Drawing.Size(564, 55);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(444, 12);
+            this.btnCancel.Location = new System.Drawing.Point(436, 12);
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(329, 12);
+            this.btnOK.Location = new System.Drawing.Point(321, 12);
             // 
             // uiLabel1
             // 
@@ -166,7 +166,7 @@
             // UserEditForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(574, 369);
+            this.ClientSize = new System.Drawing.Size(566, 324);
             this.Controls.Add(this.uiCmbTreeDepartment);
             this.Controls.Add(this.uiTxtName);
             this.Controls.Add(this.uiLabel4);
