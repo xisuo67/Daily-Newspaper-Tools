@@ -41,7 +41,7 @@ namespace Daily_Newspaper_Tools.Views
                     ctx.Entry(frm.User).State = System.Data.Entity.EntityState.Modified;
                     ctx.SaveChanges();
                     ShowSuccessTip("编辑成功");
-                    this.InitGridData();
+                    this.InitGridData(user.DepartmentId);
                 }
                 frm.Dispose();
             }
@@ -59,7 +59,7 @@ namespace Daily_Newspaper_Tools.Views
                 //TODO:删除用户后，需要同时删除日报，迭代后期在做
                 ctx.SaveChanges();
                 this.ShowSuccessTip("删除成功");
-                this.InitGridData();
+                this.InitGridData(user?.DepartmentId);
             }
         }
         #endregion
@@ -192,10 +192,11 @@ namespace Daily_Newspaper_Tools.Views
         /// <param name="e"></param>
         private void uiTreeView1_MouseDown(object sender, MouseEventArgs e)
         {
+            Point ClickPoint = new Point(e.X, e.Y);
+            TreeNode CurrentNode = uiTreeView1.GetNodeAt(ClickPoint);
             if (e.Button == MouseButtons.Right)//判断点的是不是右键
             {
-                Point ClickPoint = new Point(e.X, e.Y);
-                TreeNode CurrentNode = uiTreeView1.GetNodeAt(ClickPoint);
+               
                 if (CurrentNode != null)//判断你点的是不是一个节点
                 {
                     CurrentNode.ContextMenuStrip = uiContextMenuStrip1;
@@ -204,7 +205,12 @@ namespace Daily_Newspaper_Tools.Views
             }
             else if (e.Button == MouseButtons.Left) //左键联动成员数据
             {
-
+                if (CurrentNode != null)
+                {
+                    Guid id = Guid.Empty;
+                    Guid.TryParse(CurrentNode.Tag.ToString(), out id);
+                    this.InitGridData(id);
+                }
             }
         }
         /// <summary>
@@ -301,7 +307,7 @@ namespace Daily_Newspaper_Tools.Views
                     ctx.Entry(frm.User).State = System.Data.Entity.EntityState.Added;
                     ctx.SaveChanges();
                     ShowSuccessTip("保存成功");
-                    this.InitGridData();
+                    this.InitGridData(user.DepartmentId);
                 }
                 frm.Dispose();
             }
