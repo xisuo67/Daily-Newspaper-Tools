@@ -7,7 +7,7 @@ using System.Web;
 using ToolsHelper.Extensions;
 using UpdateChecker;
 
-namespace ToolsHelper.HttpRequests
+namespace ToolsHelper.HttpRequest
 {
     public class UpdateChecker
     {
