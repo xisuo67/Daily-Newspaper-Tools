@@ -89,6 +89,12 @@ namespace Daily_Newspaper_Tools.Views
                 }
                 user.Password = uiTxtPassword.Text.Trim().MyEncrypt();
                 user.Name = uiTxtName.Text.Trim();
+
+
+                var stringId = uiCmbTreeDepartment.SelectedNode?.Tag.ToString();
+                Guid id = Guid.Empty;
+                Guid.TryParse(stringId, out id);
+                user.DepartmentId = id;
                 //部门后面迭代完成
                 return user;
             }
@@ -98,6 +104,7 @@ namespace Daily_Newspaper_Tools.Views
                 uiTxtPassword.Text = value.Password.MyDecrypt();
                 uiTxtName.Text = value.Name;
                 uiTxtUserName.Text = value.UserName;
+                InitDepartment();
             }
         }
     }

@@ -38,9 +38,9 @@ namespace Daily_Newspaper_Tools.Views
                 frm.ShowDialog();
                 if (frm.IsOK)
                 {
-                    ctx.Entry(frm.User).State = System.Data.Entity.EntityState.Modified;
-                    ctx.SaveChanges();
-                    ShowSuccessDialog("编辑成功");
+                    //ctx.Entry(frm.User).State = System.Data.Entity.EntityState.Modified;
+                    //ctx.SaveChanges();
+                    //ShowSuccessDialog("编辑成功");
                 }
                 frm.Dispose();
             }
