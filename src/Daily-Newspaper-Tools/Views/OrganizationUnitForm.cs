@@ -97,13 +97,12 @@ namespace Daily_Newspaper_Tools.Views
                     RectangleF rectDel = new RectangleF(rectRun.Right, rectTotal.Top, rectTotal.Width * fDel, rectTotal.Height);
                     //判断当前鼠标在哪个“按钮”范围内
                     Guid id = Guid.Empty;
-                    var idString = this.uiDataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    var idString = this.uiDataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
                     Guid.TryParse(idString, out id);
                     if (rectRun.Contains(curPosition))
                     {
                         this.Edit(id);//编辑
                     }
-
                     else if (rectDel.Contains(curPosition))
                     {
                         //TODO:删除
@@ -151,7 +150,7 @@ namespace Daily_Newspaper_Tools.Views
             uiDataGridView1.AddColumn("用户名", "Name");
             uiDataGridView1.AddColumn("登录账号", "UserName");
             uiDataGridView1.AddColumn("所属部门", "DepartmentName");
-            uiDataGridView1.AddColumn("操作", "", 30);
+            uiDataGridView1.AddColumn("操作", "", 50);
             this.InitGridData();
         }
         /// <summary>

@@ -32,10 +32,10 @@
             this.uiLabel2 = new Sunny.UI.UILabel();
             this.uiTxtUserName = new Sunny.UI.UITextBox();
             this.uiTxtPassword = new Sunny.UI.UITextBox();
-            this.uiCmbTreeDepartment = new Sunny.UI.UIComboTreeView();
             this.uiTxtName = new Sunny.UI.UITextBox();
             this.uiLabel4 = new Sunny.UI.UILabel();
             this.uiLabel3 = new Sunny.UI.UILabel();
+            this.uiCmbTreeDepartment = new Sunny.UI.UIComboTreeView();
             this.pnlBtm.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,22 +107,6 @@
             this.uiTxtPassword.Watermark = "请输入密码";
             this.uiTxtPassword.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
-            // uiCmbTreeDepartment
-            // 
-            this.uiCmbTreeDepartment.DropDownStyle = Sunny.UI.UIDropDownStyle.DropDownList;
-            this.uiCmbTreeDepartment.FillColor = System.Drawing.Color.White;
-            this.uiCmbTreeDepartment.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiCmbTreeDepartment.Location = new System.Drawing.Point(135, 111);
-            this.uiCmbTreeDepartment.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiCmbTreeDepartment.MinimumSize = new System.Drawing.Size(63, 0);
-            this.uiCmbTreeDepartment.Name = "uiCmbTreeDepartment";
-            this.uiCmbTreeDepartment.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
-            this.uiCmbTreeDepartment.Size = new System.Drawing.Size(416, 27);
-            this.uiCmbTreeDepartment.TabIndex = 12;
-            this.uiCmbTreeDepartment.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiCmbTreeDepartment.Watermark = "";
-            this.uiCmbTreeDepartment.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
             // uiTxtName
             // 
             this.uiTxtName.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -162,6 +146,23 @@
             this.uiLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.uiLabel3.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
+            // uiCmbTreeDepartment
+            // 
+            this.uiCmbTreeDepartment.DropDownStyle = Sunny.UI.UIDropDownStyle.DropDownList;
+            this.uiCmbTreeDepartment.FillColor = System.Drawing.Color.White;
+            this.uiCmbTreeDepartment.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiCmbTreeDepartment.Location = new System.Drawing.Point(135, 111);
+            this.uiCmbTreeDepartment.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiCmbTreeDepartment.MinimumSize = new System.Drawing.Size(63, 0);
+            this.uiCmbTreeDepartment.Name = "uiCmbTreeDepartment";
+            this.uiCmbTreeDepartment.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
+            this.uiCmbTreeDepartment.ShowLines = true;
+            this.uiCmbTreeDepartment.Size = new System.Drawing.Size(416, 29);
+            this.uiCmbTreeDepartment.TabIndex = 67;
+            this.uiCmbTreeDepartment.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiCmbTreeDepartment.Watermark = "";
+            this.uiCmbTreeDepartment.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
             // UserEditForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -198,9 +199,9 @@
         private Sunny.UI.UILabel uiLabel2;
         private Sunny.UI.UITextBox uiTxtUserName;
         private Sunny.UI.UITextBox uiTxtPassword;
-        private Sunny.UI.UIComboTreeView uiCmbTreeDepartment;
         private Sunny.UI.UITextBox uiTxtName;
         private Sunny.UI.UILabel uiLabel4;
         private Sunny.UI.UILabel uiLabel3;
+        private Sunny.UI.UIComboTreeView uiCmbTreeDepartment;
     }
 }
