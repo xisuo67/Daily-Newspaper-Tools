@@ -84,7 +84,6 @@
             this.uiTxtUserName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiTxtUserName.MinimumSize = new System.Drawing.Size(1, 16);
             this.uiTxtUserName.Name = "uiTxtUserName";
-            this.uiTxtUserName.ReadOnly = true;
             this.uiTxtUserName.ShowText = false;
             this.uiTxtUserName.Size = new System.Drawing.Size(416, 29);
             this.uiTxtUserName.TabIndex = 6;
@@ -156,6 +155,7 @@
             this.uiCmbTreeDepartment.MinimumSize = new System.Drawing.Size(63, 0);
             this.uiCmbTreeDepartment.Name = "uiCmbTreeDepartment";
             this.uiCmbTreeDepartment.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
+            this.uiCmbTreeDepartment.ReadOnly = true;
             this.uiCmbTreeDepartment.ShowLines = true;
             this.uiCmbTreeDepartment.Size = new System.Drawing.Size(416, 29);
             this.uiCmbTreeDepartment.TabIndex = 67;

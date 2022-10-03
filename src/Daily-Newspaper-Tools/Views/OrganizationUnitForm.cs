@@ -29,7 +29,7 @@ namespace Daily_Newspaper_Tools.Views
         /// <param name="id"></param>
         private void Edit(Guid id)
         {
-            UserEditForm frm = new UserEditForm();
+            UserEditForm frm = new UserEditForm(true);
             using (var ctx = new EntityContext())
             {
                 var user = ctx.Users.FirstOrDefault(e=>e.UserId==id);
@@ -38,9 +38,9 @@ namespace Daily_Newspaper_Tools.Views
                 frm.ShowDialog();
                 if (frm.IsOK)
                 {
-                    //ctx.Entry(frm.User).State = System.Data.Entity.EntityState.Modified;
-                    //ctx.SaveChanges();
-                    //ShowSuccessDialog("编辑成功");
+                    ctx.Entry(frm.User).State = System.Data.Entity.EntityState.Modified;
+                    ctx.SaveChanges();
+                    ShowSuccessDialog("编辑成功");
                 }
                 frm.Dispose();
             }
@@ -288,7 +288,21 @@ namespace Daily_Newspaper_Tools.Views
         /// <param name="e"></param>
         private void uiSymbolBtnAdd_Click(object sender, EventArgs e)
         {
-
+            UserEditForm frm = new UserEditForm(true);
+            using (var ctx = new EntityContext())
+            {
+                var user = new User();
+                frm.User = user;
+                frm.Render();
+                frm.ShowDialog();
+                if (frm.IsOK)
+                {
+                    ctx.Entry(frm.User).State = System.Data.Entity.EntityState.Added;
+                    ctx.SaveChanges();
+                    ShowSuccessDialog("保存成功");
+                }
+                frm.Dispose();
+            }
         }
         #endregion
         #region 初始化列表及数据

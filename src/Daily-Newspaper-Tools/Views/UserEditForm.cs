@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,9 +19,11 @@ namespace Daily_Newspaper_Tools.Views
     public partial class UserEditForm : UIEditForm
     {
         private List<Department> departments = new List<Department>();
-        public UserEditForm()
+        public UserEditForm(bool IsOrganization=false)
         {
             InitializeComponent();
+            if (IsOrganization)
+                uiCmbTreeDepartment.ReadOnly = false;
             uiTxtPassword.TextBox.UseSystemPasswordChar = true;
         }
         #region 生成树结构私有方法
