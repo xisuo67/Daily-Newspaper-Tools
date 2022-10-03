@@ -40,7 +40,8 @@ namespace Daily_Newspaper_Tools.Views
                 {
                     ctx.Entry(frm.User).State = System.Data.Entity.EntityState.Modified;
                     ctx.SaveChanges();
-                    ShowSuccessDialog("编辑成功");
+                    ShowSuccessTip("编辑成功");
+                    this.InitGridData();
                 }
                 frm.Dispose();
             }
@@ -57,7 +58,7 @@ namespace Daily_Newspaper_Tools.Views
                 ctx.Users.Remove(user);
                 //TODO:删除用户后，需要同时删除日报，迭代后期在做
                 ctx.SaveChanges();
-                this.ShowSuccessDialog("删除成功");
+                this.ShowSuccessTip("删除成功");
                 this.InitGridData();
             }
         }
@@ -299,7 +300,8 @@ namespace Daily_Newspaper_Tools.Views
                 {
                     ctx.Entry(frm.User).State = System.Data.Entity.EntityState.Added;
                     ctx.SaveChanges();
-                    ShowSuccessDialog("保存成功");
+                    ShowSuccessTip("保存成功");
+                    this.InitGridData();
                 }
                 frm.Dispose();
             }

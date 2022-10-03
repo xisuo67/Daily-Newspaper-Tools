@@ -37,7 +37,7 @@ namespace Daily_Newspaper_Tools.Views
 
                 uiCmbTreeDepartment.Nodes.AddRange(trees.ToArray());
 
-                var departmentName = departments.FirstOrDefault(e=>e.Id==this.User.DepartmentId)?.Name;
+                var departmentName = departments.FirstOrDefault(e=>e.Id==this.user.DepartmentId)?.Name;
                 uiCmbTreeDepartment.Text = departmentName;
             }
         }
