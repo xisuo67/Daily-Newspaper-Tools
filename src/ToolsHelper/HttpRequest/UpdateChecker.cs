@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using ToolsHelper.Extensions;
 using UpdateChecker;
+using UpdateChecker.VersionComparers;
 
 namespace ToolsHelper.HttpRequest
 {
@@ -26,7 +27,7 @@ namespace ToolsHelper.HttpRequest
 
         public const string Name = @"Daily-Newspaper";
         public const string Copyright = @"Copyright © 2022-present xisuo67";
-        public const string Version = @"1.0.1";
+        public const string Version = @"1.0.0";
 
         public const string FullVersion = Version +
 #if SelfContained
@@ -54,13 +55,9 @@ namespace ToolsHelper.HttpRequest
                     Owner,
                     Repo,
                     false,
-                    Version);
-
-                //var userAgent = config.ProxyUserAgent;
-                //var proxy = CreateProxy(config);
-                //using var client = CreateClient(true, proxy, userAgent, config.ConnectTimeout * 1000);
-
-                //var res = await updater.CheckAsync(client, default);
+                    Version,
+                    tag => tag.Replace(@"v", string.Empty),
+                    new DefaultVersionComparer());
                 var res = await updater.CheckAsync(default);
                 LatestVersionNumber = updater.LatestVersion;
                 Found = res;

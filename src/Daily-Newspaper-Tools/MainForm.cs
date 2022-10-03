@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ToolsHelper.HttpRequest;
 
 namespace Daily_Newspaper_Tools
 {
@@ -20,8 +21,9 @@ namespace Daily_Newspaper_Tools
         public MainForm()
         {
             InitializeComponent();
-           
 
+            UpdateChecker updateChecker= new UpdateChecker();
+            updateChecker.Check(true);
         }
         private void InitMenu() {
             int pageIndex = 1000;
