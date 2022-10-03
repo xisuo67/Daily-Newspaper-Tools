@@ -23,7 +23,7 @@ namespace Daily_Newspaper_Tools.Views
         {
             InitializeComponent();
             if (IsOrganization)
-                uiCmbTreeDepartment.ReadOnly = false;
+                uiCmbTreeDepartment.Enabled = true;
             uiTxtPassword.TextBox.UseSystemPasswordChar = true;
         }
         #region 生成树结构私有方法

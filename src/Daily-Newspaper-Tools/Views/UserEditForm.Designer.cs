@@ -148,6 +148,7 @@
             // uiCmbTreeDepartment
             // 
             this.uiCmbTreeDepartment.DropDownStyle = Sunny.UI.UIDropDownStyle.DropDownList;
+            this.uiCmbTreeDepartment.Enabled = false;
             this.uiCmbTreeDepartment.FillColor = System.Drawing.Color.White;
             this.uiCmbTreeDepartment.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiCmbTreeDepartment.Location = new System.Drawing.Point(135, 111);
@@ -155,7 +156,6 @@
             this.uiCmbTreeDepartment.MinimumSize = new System.Drawing.Size(63, 0);
             this.uiCmbTreeDepartment.Name = "uiCmbTreeDepartment";
             this.uiCmbTreeDepartment.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
-            this.uiCmbTreeDepartment.ReadOnly = true;
             this.uiCmbTreeDepartment.ShowLines = true;
             this.uiCmbTreeDepartment.Size = new System.Drawing.Size(416, 29);
             this.uiCmbTreeDepartment.TabIndex = 67;
