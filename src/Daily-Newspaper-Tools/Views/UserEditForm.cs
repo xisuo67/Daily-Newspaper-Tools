@@ -19,7 +19,7 @@ namespace Daily_Newspaper_Tools.Views
     public partial class UserEditForm : UIEditForm
     {
         private List<Department> departments = new List<Department>();
-        public UserEditForm(bool IsOrganization=false)
+        public UserEditForm(bool IsOrganization = false)
         {
             InitializeComponent();
             if (IsOrganization)
@@ -37,7 +37,7 @@ namespace Daily_Newspaper_Tools.Views
 
                 uiCmbTreeDepartment.Nodes.AddRange(trees.ToArray());
 
-                var departmentName = departments.FirstOrDefault(e=>e.Id==this.user.DepartmentId)?.Name;
+                var departmentName = departments.FirstOrDefault(e => e.Id == this.user.DepartmentId)?.Name;
                 uiCmbTreeDepartment.Text = departmentName;
             }
         }
@@ -92,12 +92,12 @@ namespace Daily_Newspaper_Tools.Views
                 }
                 user.Password = uiTxtPassword.Text.Trim().MyEncrypt();
                 user.Name = uiTxtName.Text.Trim();
-                user.UserName=uiTxtUserName.Text.Trim();
+                user.UserName = uiTxtUserName.Text.Trim();
 
                 var stringId = uiCmbTreeDepartment.SelectedNode?.Tag.ToString();
                 Guid id = Guid.Empty;
                 Guid.TryParse(stringId, out id);
-                user.DepartmentId = id==Guid.Empty?user.DepartmentId:id;
+                user.DepartmentId = id == Guid.Empty ? user.DepartmentId : id;
                 return user;
             }
             set
