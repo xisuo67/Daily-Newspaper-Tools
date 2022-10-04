@@ -45,7 +45,7 @@
             this.uiTxtSearch = new Sunny.UI.UITextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.uiDataGridView2 = new Sunny.UI.UIDataGridView();
-            this.uiSymbolButton1 = new Sunny.UI.UISymbolButton();
+            this.uiSymbolBtnRoleAdd = new Sunny.UI.UISymbolButton();
             this.uiTextBox1 = new Sunny.UI.UITextBox();
             this.uiBtnEditNode = new Sunny.UI.UIButton();
             this.uiBtnCreateRoot = new Sunny.UI.UIButton();
@@ -191,7 +191,7 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.uiDataGridView2);
-            this.tabPage2.Controls.Add(this.uiSymbolButton1);
+            this.tabPage2.Controls.Add(this.uiSymbolBtnRoleAdd);
             this.tabPage2.Controls.Add(this.uiTextBox1);
             this.tabPage2.Location = new System.Drawing.Point(0, 40);
             this.tabPage2.Name = "tabPage2";
@@ -253,19 +253,20 @@
             this.uiDataGridView2.TabIndex = 19;
             this.uiDataGridView2.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
-            // uiSymbolButton1
+            // uiSymbolBtnRoleAdd
             // 
-            this.uiSymbolButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiSymbolButton1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiSymbolButton1.Location = new System.Drawing.Point(462, 8);
-            this.uiSymbolButton1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiSymbolButton1.Name = "uiSymbolButton1";
-            this.uiSymbolButton1.Size = new System.Drawing.Size(73, 35);
-            this.uiSymbolButton1.Symbol = 62004;
-            this.uiSymbolButton1.TabIndex = 18;
-            this.uiSymbolButton1.Text = "新增";
-            this.uiSymbolButton1.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiSymbolButton1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.uiSymbolBtnRoleAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiSymbolBtnRoleAdd.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiSymbolBtnRoleAdd.Location = new System.Drawing.Point(462, 8);
+            this.uiSymbolBtnRoleAdd.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiSymbolBtnRoleAdd.Name = "uiSymbolBtnRoleAdd";
+            this.uiSymbolBtnRoleAdd.Size = new System.Drawing.Size(73, 35);
+            this.uiSymbolBtnRoleAdd.Symbol = 62004;
+            this.uiSymbolBtnRoleAdd.TabIndex = 18;
+            this.uiSymbolBtnRoleAdd.Text = "新增";
+            this.uiSymbolBtnRoleAdd.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiSymbolBtnRoleAdd.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.uiSymbolBtnRoleAdd.Click += new System.EventHandler(this.uiSymbolBtnRoleAdd_Click);
             // 
             // uiTextBox1
             // 
@@ -428,7 +429,7 @@
         private Sunny.UI.UITextBox uiTxtSearch;
         private Sunny.UI.UIDataGridView uiDataGridView1;
         private Sunny.UI.UIDataGridView uiDataGridView2;
-        private Sunny.UI.UISymbolButton uiSymbolButton1;
+        private Sunny.UI.UISymbolButton uiSymbolBtnRoleAdd;
         private Sunny.UI.UITextBox uiTextBox1;
         private Sunny.UI.UIButton uiBtnEditNode;
         private Sunny.UI.UIButton uiBtnCreateRoot;

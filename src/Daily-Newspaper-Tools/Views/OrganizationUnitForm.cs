@@ -609,5 +609,10 @@ namespace Daily_Newspaper_Tools.Views
                 }
             }
         }
+
+        private void uiSymbolBtnRoleAdd_Click(object sender, EventArgs e)
+        {
+            ShowInfoTip("功能尚在规划中，尽情期待");
+        }
     }
 }
