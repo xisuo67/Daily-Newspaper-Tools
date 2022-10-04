@@ -27,7 +27,7 @@ namespace ToolsHelper.HttpRequest
 
         public const string Name = @"Daily-Newspaper";
         public const string Copyright = @"Copyright © 2022-present xisuo67";
-        public const string Version = @"1.0.0";
+        public const string Version = @"0.0.9";
 
         public const string FullVersion = Version +
 #if SelfContained
@@ -65,13 +65,6 @@ namespace ToolsHelper.HttpRequest
                 {
                     LatestVersionUrl = updater.LatestVersionUrl;
                     NewVersionFound?.Invoke(this, EventArgs.Empty);
-                }
-                else
-                {
-                    if (notifyNoFound)
-                    {
-                        NewVersionNotFound?.Invoke(this, EventArgs.Empty);
-                    }
                 }
             }
             catch (Exception e)

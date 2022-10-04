@@ -7,9 +7,13 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ToolsHelper.HttpRequest;
@@ -18,13 +22,43 @@ namespace Daily_Newspaper_Tools
 {
     public partial class MainForm : UIAsideHeaderMainFrame
     {
+        private UpdateChecker updateChecker = new UpdateChecker();
         public MainForm()
         {
             InitializeComponent();
-
-            UpdateChecker updateChecker= new UpdateChecker();
+            updateChecker.NewVersionFound += updateChecker_NewVersionFound;
+            updateChecker.NewVersionFoundFailed += UpdateChecker_NewVersionFoundFailed;
             updateChecker.Check(true);
         }
+        #region 检查更新事件
+        private void updateChecker_NewVersionFound(object sender, EventArgs e)
+        {
+            if (updateChecker.Found)
+            {
+                string title = $"{UpdateChecker.Name} 更新提示";
+                string desc = $"点击下载新版本{UpdateChecker.Name} {updateChecker.LatestVersionNumber}";
+                UINotifierHelper.ShowNotifier(desc, InfoNotifierClick, UINotifierType.INFO, title, 10000);
+            }
+                
+        }
+        private void UpdateChecker_NewVersionFoundFailed(object sender, EventArgs e)
+        {
+            string title = $"{UpdateChecker.Name} 更新提示";
+            string desc = $"自动更新检查失败";
+            UINotifierHelper.ShowNotifier(desc, null, UINotifierType.INFO, title, 10000);
+        }
+
+        private void InfoNotifierClick(object sender, EventArgs e)
+        {
+            new Process
+            {
+                StartInfo = new ProcessStartInfo(updateChecker.LatestVersionUrl)
+                {
+                    UseShellExecute = true
+                }
+            }.Start();
+        }
+        #endregion
         private void InitMenu() {
             int pageIndex = 1000;
             TreeNode parent = Aside.CreateNode("工作管理", 61451, 24, pageIndex);
