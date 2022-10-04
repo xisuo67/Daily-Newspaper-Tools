@@ -36,10 +36,6 @@ namespace Daily_Newspaper_Tools
             parent = Aside.CreateNode("系统设置", 61818, 24, ++pageIndex);
             Aside.CreateChildNode(parent, AddPage(new EmailConfigForm(), ++pageIndex));
             Aside.CreateChildNode(parent, AddPage(new OrganizationUnitForm(), ++pageIndex));
-            //parent = Aside.CreateNode("个人设置", 61818, 24, ++pageIndex);
-            //Aside.CreateChildNode(parent, AddPage(new EmailConfigForm(), ++pageIndex));
-
-
             //选中第一个节点
             Aside.SelectPage(1001);
         }
