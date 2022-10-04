@@ -27,7 +27,7 @@ namespace ToolsHelper.HttpRequest
 
         public const string Name = @"Daily-Newspaper";
         public const string Copyright = @"Copyright © 2022-present xisuo67";
-        public const string Version = @"0.0.9";
+        public const string Version = @"1.0.1";
 
         public const string FullVersion = Version +
 #if SelfContained
