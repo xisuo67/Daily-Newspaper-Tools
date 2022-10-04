@@ -23,7 +23,6 @@ namespace ToolsHelper.HttpRequest
 
         public event EventHandler NewVersionFound;
         public event EventHandler NewVersionFoundFailed;
-        public event EventHandler NewVersionNotFound;
 
         public const string Name = @"Daily-Newspaper";
         public const string Copyright = @"Copyright © 2022-present xisuo67";
