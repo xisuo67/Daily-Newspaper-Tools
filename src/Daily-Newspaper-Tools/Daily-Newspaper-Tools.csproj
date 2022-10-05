@@ -152,6 +152,12 @@
     <Compile Include="Views\UserEditForm.Designer.cs">
       <DependentUpon>UserEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\WeChatLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\WeChatLogin.Designer.cs">
+      <DependentUpon>WeChatLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\WorkDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserEditForm.resx">
       <DependentUpon>UserEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\WeChatLogin.resx">
+      <DependentUpon>WeChatLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\WorkDetailsForm.resx">
       <DependentUpon>WorkDetailsForm.cs</DependentUpon>
