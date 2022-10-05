@@ -42,9 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\DefaultTypeResolver.cs" />
+    <Compile Include="Service\IService.cs" />
+    <Compile Include="Service\IServiceResolver.cs" />
+    <Compile Include="Service\LazyService.cs" />
+    <Compile Include="Service\LazyServiceFactory.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Service\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

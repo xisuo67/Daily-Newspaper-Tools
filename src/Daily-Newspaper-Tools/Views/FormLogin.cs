@@ -155,7 +155,7 @@ namespace Daily_Newspaper_Tools
 
         private void uiSymbolBtnWeChat_Click(object sender, EventArgs e)
         {
-            uiPanel1.Visible = false;
+           
         }
     }
 }
