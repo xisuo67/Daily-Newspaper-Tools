@@ -36,7 +36,7 @@
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(66, 68);
+            this.webBrowser1.Location = new System.Drawing.Point(48, 60);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(250, 250);
@@ -45,7 +45,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(54, 68);
+            this.pictureBox1.Location = new System.Drawing.Point(36, 60);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(273, 263);
             this.pictureBox1.TabIndex = 1;
@@ -55,7 +55,7 @@
             // 
             this.uiSymbolButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiSymbolButton1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiSymbolButton1.Location = new System.Drawing.Point(108, 355);
+            this.uiSymbolButton1.Location = new System.Drawing.Point(82, 347);
             this.uiSymbolButton1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolButton1.Name = "uiSymbolButton1";
             this.uiSymbolButton1.Size = new System.Drawing.Size(177, 35);
@@ -68,7 +68,7 @@
             // WeChatLogin
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(376, 415);
+            this.ClientSize = new System.Drawing.Size(343, 408);
             this.Controls.Add(this.uiSymbolButton1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.webBrowser1);
