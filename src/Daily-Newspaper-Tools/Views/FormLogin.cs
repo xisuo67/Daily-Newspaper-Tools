@@ -78,7 +78,7 @@ namespace Daily_Newspaper_Tools
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            uiToolTip1.SetToolTip(uiSymbolBtnWeChat, uiSymbolBtnWeChat.TipsText);
         }
         /// <summary>
         /// 登录
@@ -151,6 +151,11 @@ namespace Daily_Newspaper_Tools
                 }
                 
             }
+        }
+
+        private void uiSymbolBtnWeChat_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

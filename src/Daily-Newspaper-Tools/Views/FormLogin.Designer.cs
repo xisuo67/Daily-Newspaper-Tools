@@ -29,6 +29,7 @@ namespace Daily_Newspaper_Tools
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -46,7 +47,9 @@ namespace Daily_Newspaper_Tools
             this.uiTxtUserName = new Sunny.UI.UITextBox();
             this.btnregistered = new System.Windows.Forms.Button();
             this.uiLine1 = new Sunny.UI.UILine();
-            this.uiSymbolLabWeChatLogin = new Sunny.UI.UISymbolLabel();
+            this.uiSymbolBtnWeChat = new Sunny.UI.UISymbolButton();
+            this.uiPanel1 = new Sunny.UI.UIPanel();
+            this.uiToolTip1 = new Sunny.UI.UIToolTip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btncerrar)).BeginInit();
@@ -139,11 +142,12 @@ namespace Daily_Newspaper_Tools
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
-            this.tabPage1.Controls.Add(this.uiSymbolLabWeChatLogin);
-            this.tabPage1.Controls.Add(this.uiLine1);
+            this.tabPage1.Controls.Add(this.uiSymbolBtnWeChat);
             this.tabPage1.Controls.Add(this.uiTxtPassword);
+            this.tabPage1.Controls.Add(this.uiLine1);
             this.tabPage1.Controls.Add(this.uiTxtUser);
             this.tabPage1.Controls.Add(this.btnlogin);
+            this.tabPage1.Controls.Add(this.uiPanel1);
             this.tabPage1.Location = new System.Drawing.Point(0, 40);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Size = new System.Drawing.Size(482, 226);
@@ -293,7 +297,7 @@ namespace Daily_Newspaper_Tools
             this.uiLine1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiLine1.ForeColor = System.Drawing.Color.Gray;
             this.uiLine1.LineColor = System.Drawing.Color.Gray;
-            this.uiLine1.Location = new System.Drawing.Point(74, 159);
+            this.uiLine1.Location = new System.Drawing.Point(56, 158);
             this.uiLine1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiLine1.Name = "uiLine1";
             this.uiLine1.Size = new System.Drawing.Size(338, 29);
@@ -302,18 +306,55 @@ namespace Daily_Newspaper_Tools
             this.uiLine1.Text = "其他登录方式";
             this.uiLine1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
-            // uiSymbolLabWeChatLogin
+            // uiSymbolBtnWeChat
             // 
-            this.uiSymbolLabWeChatLogin.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiSymbolLabWeChatLogin.Location = new System.Drawing.Point(208, 194);
-            this.uiSymbolLabWeChatLogin.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiSymbolLabWeChatLogin.Name = "uiSymbolLabWeChatLogin";
-            this.uiSymbolLabWeChatLogin.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
-            this.uiSymbolLabWeChatLogin.Size = new System.Drawing.Size(30, 24);
-            this.uiSymbolLabWeChatLogin.Symbol = 161911;
-            this.uiSymbolLabWeChatLogin.SymbolColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.uiSymbolLabWeChatLogin.TabIndex = 7;
-            this.uiSymbolLabWeChatLogin.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.uiSymbolBtnWeChat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiSymbolBtnWeChat.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.uiSymbolBtnWeChat.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.uiSymbolBtnWeChat.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.uiSymbolBtnWeChat.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.uiSymbolBtnWeChat.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.uiSymbolBtnWeChat.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiSymbolBtnWeChat.Location = new System.Drawing.Point(197, 193);
+            this.uiSymbolBtnWeChat.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiSymbolBtnWeChat.Name = "uiSymbolBtnWeChat";
+            this.uiSymbolBtnWeChat.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.uiSymbolBtnWeChat.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.uiSymbolBtnWeChat.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.uiSymbolBtnWeChat.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.uiSymbolBtnWeChat.Size = new System.Drawing.Size(44, 26);
+            this.uiSymbolBtnWeChat.Style = Sunny.UI.UIStyle.Custom;
+            this.uiSymbolBtnWeChat.Symbol = 161911;
+            this.uiSymbolBtnWeChat.SymbolColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.uiSymbolBtnWeChat.TabIndex = 7;
+            this.uiSymbolBtnWeChat.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiSymbolBtnWeChat.TipsText = "企业微信登录";
+            this.uiSymbolBtnWeChat.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.uiSymbolBtnWeChat.Click += new System.EventHandler(this.uiSymbolBtnWeChat_Click);
+            // 
+            // uiPanel1
+            // 
+            this.uiPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uiPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.uiPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.uiPanel1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiPanel1.Location = new System.Drawing.Point(0, 0);
+            this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel1.Name = "uiPanel1";
+            this.uiPanel1.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.uiPanel1.Size = new System.Drawing.Size(482, 166);
+            this.uiPanel1.Style = Sunny.UI.UIStyle.Custom;
+            this.uiPanel1.TabIndex = 6;
+            this.uiPanel1.Text = "uiPanel1";
+            this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uiPanel1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiToolTip1
+            // 
+            this.uiToolTip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.uiToolTip1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            this.uiToolTip1.OwnerDraw = true;
             // 
             // FormLogin
             // 
@@ -342,7 +383,6 @@ namespace Daily_Newspaper_Tools
             ((System.ComponentModel.ISupportInitialize)(this.btnminimizar)).EndInit();
             this.uiTabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -367,7 +407,9 @@ namespace Daily_Newspaper_Tools
         private System.Windows.Forms.Button btnregistered;
         private Sunny.UI.UITextBox uiTxt;
         private Sunny.UI.UILine uiLine1;
-        private Sunny.UI.UISymbolLabel uiSymbolLabWeChatLogin;
+        private Sunny.UI.UISymbolButton uiSymbolBtnWeChat;
+        private Sunny.UI.UIPanel uiPanel1;
+        private Sunny.UI.UIToolTip uiToolTip1;
     }
 }
 
