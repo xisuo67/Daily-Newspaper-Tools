@@ -73,7 +73,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.webBrowser1);
             this.Name = "WeChatLogin";
-            this.Text = "企业微信登录";
+            this.Text = "扫码登录";
             this.ZoomScaleRect = new System.Drawing.Rectangle(15, 15, 800, 450);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
