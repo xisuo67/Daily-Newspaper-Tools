@@ -48,7 +48,6 @@ namespace Daily_Newspaper_Tools
             this.btnregistered = new System.Windows.Forms.Button();
             this.uiLine1 = new Sunny.UI.UILine();
             this.uiSymbolBtnWeChat = new Sunny.UI.UISymbolButton();
-            this.uiPanel1 = new Sunny.UI.UIPanel();
             this.uiToolTip1 = new Sunny.UI.UIToolTip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -147,7 +146,6 @@ namespace Daily_Newspaper_Tools
             this.tabPage1.Controls.Add(this.uiLine1);
             this.tabPage1.Controls.Add(this.uiTxtUser);
             this.tabPage1.Controls.Add(this.btnlogin);
-            this.tabPage1.Controls.Add(this.uiPanel1);
             this.tabPage1.Location = new System.Drawing.Point(0, 40);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Size = new System.Drawing.Size(482, 226);
@@ -332,24 +330,6 @@ namespace Daily_Newspaper_Tools
             this.uiSymbolBtnWeChat.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.uiSymbolBtnWeChat.Click += new System.EventHandler(this.uiSymbolBtnWeChat_Click);
             // 
-            // uiPanel1
-            // 
-            this.uiPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uiPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
-            this.uiPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
-            this.uiPanel1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiPanel1.Location = new System.Drawing.Point(0, 0);
-            this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
-            this.uiPanel1.Size = new System.Drawing.Size(482, 166);
-            this.uiPanel1.Style = Sunny.UI.UIStyle.Custom;
-            this.uiPanel1.TabIndex = 6;
-            this.uiPanel1.Text = "uiPanel1";
-            this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.uiPanel1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
             // uiToolTip1
             // 
             this.uiToolTip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
@@ -408,7 +388,6 @@ namespace Daily_Newspaper_Tools
         private Sunny.UI.UITextBox uiTxt;
         private Sunny.UI.UILine uiLine1;
         private Sunny.UI.UISymbolButton uiSymbolBtnWeChat;
-        private Sunny.UI.UIPanel uiPanel1;
         private Sunny.UI.UIToolTip uiToolTip1;
     }
 }
