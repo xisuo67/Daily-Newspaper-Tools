@@ -24,5 +24,7 @@ namespace DAL.Entity
         /// 部门名称
         /// </summary>
         public Guid? DepartmentId { get; set;  }
+
+        public string WeChatUserid { get; set; }
     }
 }
