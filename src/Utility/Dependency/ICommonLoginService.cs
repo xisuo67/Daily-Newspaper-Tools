@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Utility.DTO;
 
 namespace Utility.Dependency
 {
@@ -49,8 +50,8 @@ namespace Utility.Dependency
         /// <summary>
         /// 通过token获取用户ID
         /// </summary>
-        /// <param name="token"></param>
+        /// <param name="loginParam"></param>
         /// <returns></returns>
-        string FromTokenByUserId(string token);
+        string FromTokenByUserId(LoginParam loginParam);
     }
 }

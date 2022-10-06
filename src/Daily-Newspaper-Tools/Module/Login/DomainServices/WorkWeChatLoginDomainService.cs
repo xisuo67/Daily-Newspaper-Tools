@@ -1,4 +1,5 @@
 ﻿using Daily_Newspaper_Tools.Module.Login.DTO;
+using Daily_Newspaper_Tools.Module.Login.DTO.WorkWeChat;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using Utility.Dependency;
+using Utility.DTO;
 using Utility.Enums;
 using static System.Net.Mime.MediaTypeNames;
 //企业微信文档地址
@@ -69,9 +71,12 @@ namespace Daily_Newspaper_Tools.Module.Login.DomainServices
             return code;
         }
 
-        public string FromTokenByUserId(string token)
+        public string FromTokenByUserId(LoginParam loginParam)
         {
-            throw new NotImplementedException();
+            string urlUserInfo = $"https://qyapi.weixin.qq.com/cgi-bin/auth/getuserinfo?access_token={loginParam.Token}&code={loginParam.Code}";
+            string jsonText = GetJson(urlUserInfo);
+            UserInfo userInfo = JsonConvert.DeserializeObject<UserInfo>(jsonText);
+            return userInfo?.userid;
         }
 
         public string GetAttribute()
