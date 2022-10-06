@@ -90,6 +90,7 @@
   <ItemGroup>
     <Compile Include="Common\Login\LoginContext.cs" />
     <Compile Include="Common\Style\UIDPIScale.cs" />
+    <Compile Include="Module\Login\Enums\LoginEnum.cs" />
     <Compile Include="Views\ContactEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +237,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="image.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Module\Login\DTO\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.6.5.5\build\Fody.targets" Condition="Exists('..\packages\Fody.6.5.5\build\Fody.targets')" />
