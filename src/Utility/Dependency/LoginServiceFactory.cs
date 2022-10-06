@@ -31,7 +31,7 @@ namespace Utility.Dependency
         /// <typeparam name="T">键.</typeparam>
         /// <returns>实例.</returns>
         public static ICommonLoginService Create<T>()
-            where T : ICommonLoginService, new()
+            where T : class, ICommonLoginService, new()
         {
             var service = new LazyService<T>();
             return service.Instance;
@@ -53,7 +53,7 @@ namespace Utility.Dependency
         /// <param name="key">键</param>
         /// <exception cref="ArgumentException">xx key已被注册，请确认key不与已有的key重复</exception>
         public void Register<T>(string key)
-            where T : ICommonLoginService, new()
+            where T :class, ICommonLoginService, new()
         {
             if (TypeContainer.ContainsKey(key))
             {

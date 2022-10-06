@@ -17,7 +17,7 @@ namespace Core.Service
             return _serviceResolver;
         }
 
-        internal static T GetServiceInstance<T>() where T : class, IService, new()
+        internal static T GetServiceInstance<T>() where T :class, IService, new()
         {
             return _serviceResolver.Resolve<T>(typeof(T));
         }
