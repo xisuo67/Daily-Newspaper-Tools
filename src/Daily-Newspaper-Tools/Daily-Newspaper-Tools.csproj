@@ -97,7 +97,8 @@
     <Compile Include="Common\Style\UIDPIScale.cs" />
     <Compile Include="Module\Login\AppServices\ScanQrCodeLoginAppService.cs" />
     <Compile Include="Module\Login\DomainServices\WorkWeChatLoginDomainService.cs" />
-    <Compile Include="Module\Login\DTO\OAuthToken.cs" />
+    <Compile Include="Module\Login\DTO\WorkWeChat\OAuthToken.cs" />
+    <Compile Include="Module\Login\DTO\WorkWeChat\UserInfo.cs" />
     <Compile Include="Views\ContactEditForm.cs">
       <SubType>Form</SubType>
     </Compile>

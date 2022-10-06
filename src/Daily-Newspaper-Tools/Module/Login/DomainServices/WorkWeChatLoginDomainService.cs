@@ -11,6 +11,8 @@ using System.Web;
 using Utility.Dependency;
 using Utility.Enums;
 using static System.Net.Mime.MediaTypeNames;
+//企业微信文档地址
+//https://developer.work.weixin.qq.com/document/path/91039
 
 namespace Daily_Newspaper_Tools.Module.Login.DomainServices
 {
