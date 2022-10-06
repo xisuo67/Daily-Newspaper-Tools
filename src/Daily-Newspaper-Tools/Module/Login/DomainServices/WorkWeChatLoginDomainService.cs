@@ -76,7 +76,10 @@ namespace Daily_Newspaper_Tools.Module.Login.DomainServices
             string urlUserInfo = $"https://qyapi.weixin.qq.com/cgi-bin/auth/getuserinfo?access_token={loginParam.Token}&code={loginParam.Code}";
             string jsonText = GetJson(urlUserInfo);
             UserInfo userInfo = JsonConvert.DeserializeObject<UserInfo>(jsonText);
-            return userInfo?.userid;
+            if (userInfo.errcode!="0")
+                throw new Exception(userInfo.errcode);
+            else
+                return userInfo?.userid;
         }
 
         public string GetAttribute()
@@ -91,15 +94,18 @@ namespace Daily_Newspaper_Tools.Module.Login.DomainServices
 
         public string GetToken(string code)
         {
-            string token = string.Empty;
             //TODO:Token刷新机制后面迭代完成，目前不限制token刷新
             //获取token
             //https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=ID&corpsecret=SECRET
             string urlToken = $"https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid={corpid}&corpsecret={corpsecret}";
             string jsonText = GetJson(urlToken);
             var authToken = JsonConvert.DeserializeObject<OAuthToken>(jsonText);
-            token = authToken.access_token;
-            return token;
+            if (authToken.errcode!="0")
+            {
+                throw new Exception(authToken.errcode);
+            }
+            else
+                return authToken?.access_token;
         }
 
         /// <summary>  

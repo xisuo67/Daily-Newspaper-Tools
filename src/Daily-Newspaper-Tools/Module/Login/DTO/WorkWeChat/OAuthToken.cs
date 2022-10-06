@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Daily_Newspaper_Tools.Module.Login.DTO.WorkWeChat;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,16 +7,9 @@ using System.Threading.Tasks;
 
 namespace Daily_Newspaper_Tools.Module.Login.DTO
 {
-    public class OAuthToken
+    public class OAuthToken: ApiBaseResult
     {
-        /// <summary>
-        /// 出错返回码，为0表示成功，非0表示调用失败
-        /// </summary>
-        public string errcode { get; set; }
-        /// <summary>
-        /// 返回码提示语
-        /// </summary>
-        public string errmsg { get; set; }
+        
         /// <summary>
         /// 获取到的凭证，最长为512字节
         /// </summary>
