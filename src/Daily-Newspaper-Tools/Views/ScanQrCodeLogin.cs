@@ -12,21 +12,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utility.Dependency;
+using Utility.DTO;
+using Utility.Enums;
 
 namespace Daily_Newspaper_Tools.Views
 {
     public partial class ScanQrCodeLogin : UIForm
     {
+        private ICommonLoginService instance = null;
         ArrayList addressList = new ArrayList();
         string url =string.Empty;
-        public ScanQrCodeLogin()
+        public ScanQrCodeLogin(int loginEnum)
         {
             InitializeComponent();
+            string TypeKey = LoginEnum.GlobalKey(loginEnum);
+            this.instance = (ICommonLoginService)LoginServiceFactory.Instance.GetInstances(TypeKey);
         }
         #region 事件
         private void ScanQrCodeLogin_Load(object sender, EventArgs e)
         {
-            var instance = (ICommonLoginService)LoginServiceFactory.Instance.GetInstances(WorkWeChatLoginDomainService.TypeKey);
             try
             {
                 url = instance.GetWebBrowserUrl();
@@ -51,8 +55,10 @@ namespace Daily_Newspaper_Tools.Views
                 {
                     foreach (HtmlElement he in webBrowser1.Document.GetElementsByTagName("img"))
                     {
-                        string str = he.GetAttribute("className");
-                        if (str == "qrcode lightBorder")
+                        //获取第三方dom节点名称
+                        string str = he.GetAttribute(instance.GetAttribute());
+                        //取出二维码
+                        if (str == instance.GetQrcodeDomAttribute())
                         {
                             pictureBox1.ImageLocation = he.GetAttribute("src"); //获取微信生成的二维码图片,那个网页中只有两个图片,且二维码是第二张图片.
 
@@ -67,47 +73,32 @@ namespace Daily_Newspaper_Tools.Views
                 }
 
                 //微信最终获得的code
-                string code = "";
-                if (tempCode.Contains("code"))
-                {
-                    int iStart = tempCode.IndexOf("=");
-                    int iEnd = tempCode.IndexOf('&', iStart);
-                    if (iEnd < 0)
-                    {
-                        iEnd = tempCode.Length - iStart;
-                    }
-                    else
-                    {
-                        iEnd -= iStart;
-                    }
-                    code = tempCode.Substring(iStart + 1, iEnd - 1);
-                }
-                else
-                {
-                    return;
-                }
+                string code = instance.GetCodeByUrl(tempCode);
 
 
                 if (string.IsNullOrEmpty(code))
+                {
+                    ShowErrorTip("未能获取Code");
                     return;
-                //OAuth_Token token = new OAuth_Token();
-                //OAuth_Token Model = token.Get_token(code);  //获取access_token
-                //OAuthUser OAuthUser_Model = token.Get_UserInfo(Model.access_token, Model.openid);//获取用户信息    
+                }
+                try
+                {
+                    string token = instance.GetToken(code);
+                    LoginParam loginParam = new LoginParam()
+                    {
+                        Token = token,
+                        Code = code
+                    };
+                    var userId= instance.FromTokenByUserId(loginParam);
+                    //TODO:通过userId，与数据库用户比对，判断是否存在，存在则登录系统，不存在，先新增，再登录
 
-                //if (OAuthUser_Model.open_userid != null)
-                //{
-                //    //通过openID 查询用户表 新增 修改 （openID是用户微信唯一ID 可做关联）
-                //    //Dao dao = new Dao();
-                //    //string res = dao.AddWeChatUser(OAuthUser_Model);
-                //    //if (res == "1")
-                //    //{
-                //    //    //跳转主页
-                //    //}
-                //    //else if (res == "2")
-                //    //{
-                //    //    //跳转注册页面完善信息
-                //    //}
-                //}
+
+                }
+                catch (Exception ex)
+                {
+                    ShowErrorTip(ex.ToString());
+                    return;
+                }
             }
         }
 

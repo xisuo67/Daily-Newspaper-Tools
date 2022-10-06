@@ -15,6 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ToolsHelper.Extensions;
+using Utility.Enums;
 
 namespace Daily_Newspaper_Tools
 {
@@ -156,7 +157,7 @@ namespace Daily_Newspaper_Tools
 
         private void uiSymbolBtnWeChat_Click(object sender, EventArgs e)
         {
-            ScanQrCodeLogin scanQrCodeLogin = new ScanQrCodeLogin();
+            ScanQrCodeLogin scanQrCodeLogin = new ScanQrCodeLogin(LoginEnum.WorkWeChatLogin);
             scanQrCodeLogin.ShowDialog();
         }
     }

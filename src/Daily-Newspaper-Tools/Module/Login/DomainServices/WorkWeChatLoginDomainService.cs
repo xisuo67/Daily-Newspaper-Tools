@@ -79,7 +79,7 @@ namespace Daily_Newspaper_Tools.Module.Login.DomainServices
             if (userInfo.errcode!="0")
                 throw new Exception(userInfo.errcode);
             else
-                return userInfo?.userid;
+                return userInfo?.userid??userInfo?.OPENID;
         }
 
         public string GetAttribute()

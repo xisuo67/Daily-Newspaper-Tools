@@ -36,10 +36,10 @@
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(48, 60);
+            this.webBrowser1.Location = new System.Drawing.Point(61, 54);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(250, 250);
+            this.webBrowser1.Size = new System.Drawing.Size(117, 160);
             this.webBrowser1.TabIndex = 0;
             this.webBrowser1.Visible = false;
             this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
@@ -48,9 +48,9 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(34, 60);
+            this.pictureBox1.Location = new System.Drawing.Point(28, 54);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(273, 263);
+            this.pictureBox1.Size = new System.Drawing.Size(193, 176);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -59,7 +59,7 @@
             // 
             this.uiSymbolBtnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiSymbolBtnReturn.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiSymbolBtnReturn.Location = new System.Drawing.Point(82, 347);
+            this.uiSymbolBtnReturn.Location = new System.Drawing.Point(37, 248);
             this.uiSymbolBtnReturn.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolBtnReturn.Name = "uiSymbolBtnReturn";
             this.uiSymbolBtnReturn.Size = new System.Drawing.Size(177, 35);
@@ -73,7 +73,7 @@
             // ScanQrCodeLogin
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(343, 408);
+            this.ClientSize = new System.Drawing.Size(245, 299);
             this.Controls.Add(this.uiSymbolBtnReturn);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.webBrowser1);
