@@ -42,7 +42,30 @@ namespace Daily_Newspaper_Tools.Module.Login.DomainServices
 
             
         }
-        public string GetCodeByUrl { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        /// <summary>
+        /// 通过Url拿Code
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
+        public string GetCodeByUrl(string url)
+        {
+            string code = string.Empty;
+            if (url.Contains("code"))
+            {
+                int iStart = url.IndexOf("=");
+                int iEnd = url.IndexOf('&', iStart);
+                if (iEnd < 0)
+                {
+                    iEnd = url.Length - iStart;
+                }
+                else
+                {
+                    iEnd -= iStart;
+                }
+                code = url.Substring(iStart + 1, iEnd - 1);
+            }
+            return code;
+        }
 
         public string FromTokenByUserId(string token)
         {
@@ -59,7 +82,7 @@ namespace Daily_Newspaper_Tools.Module.Login.DomainServices
             return "qrcode lightBorder";
         }
 
-        public string GetToken()
+        public string GetToken(string code)
         {
             throw new NotImplementedException();
 

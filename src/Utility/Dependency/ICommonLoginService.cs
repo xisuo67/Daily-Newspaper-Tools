@@ -37,12 +37,15 @@ namespace Utility.Dependency
         /// <summary>
         /// 获取code
         /// </summary>
-        string GetCodeByUrl { get; set; }
-        /// <summary>
-        /// 获取Token
-        /// </summary>
+        /// <param name="url"></param>
         /// <returns></returns>
-        string GetToken();
+        string GetCodeByUrl(string url);
+        /// <summary>
+        /// 通过code获取Token
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        string GetToken(string code);
         /// <summary>
         /// 通过token获取用户ID
         /// </summary>
