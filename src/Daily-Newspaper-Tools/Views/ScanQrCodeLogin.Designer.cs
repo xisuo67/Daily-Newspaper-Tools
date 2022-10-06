@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScanQrCodeLogin));
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.uiSymbolBtnReturn = new Sunny.UI.UISymbolButton();
@@ -77,6 +78,8 @@
             this.Controls.Add(this.uiSymbolBtnReturn);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.webBrowser1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "ScanQrCodeLogin";
             this.Text = "扫码登录";
             this.ZoomScaleRect = new System.Drawing.Rectangle(15, 15, 800, 450);
