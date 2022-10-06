@@ -20,6 +20,11 @@ namespace Utility.Dependency
     public interface ICommonLoginService:IService
     {
         /// <summary>
+        /// 获取初始化加载url
+        /// </summary>
+        /// <returns></returns>
+        string GetWebBrowserUrl();
+        /// <summary>
         /// 获取第三方dom节点名字
         /// </summary>
         /// <returns></returns>

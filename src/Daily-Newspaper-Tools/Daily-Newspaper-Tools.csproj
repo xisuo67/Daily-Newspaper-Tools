@@ -65,6 +65,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.IO.Compression" />
@@ -76,6 +77,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -90,6 +92,8 @@
   <ItemGroup>
     <Compile Include="Common\Login\LoginContext.cs" />
     <Compile Include="Common\Style\UIDPIScale.cs" />
+    <Compile Include="Module\Login\AppServices\ScanQrCodeLoginAppService.cs" />
+    <Compile Include="Module\Login\DomainServices\WorkWeChatLoginDomainService.cs" />
     <Compile Include="Views\ContactEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,11 +156,11 @@
     <Compile Include="Views\UserEditForm.Designer.cs">
       <DependentUpon>UserEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\WeChatLogin.cs">
+    <Compile Include="Views\ScanQrCodeLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\WeChatLogin.Designer.cs">
-      <DependentUpon>WeChatLogin.cs</DependentUpon>
+    <Compile Include="Views\ScanQrCodeLogin.Designer.cs">
+      <DependentUpon>ScanQrCodeLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\WorkDetailsForm.cs">
       <SubType>Form</SubType>
@@ -204,8 +208,8 @@
     <EmbeddedResource Include="Views\UserEditForm.resx">
       <DependentUpon>UserEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\WeChatLogin.resx">
-      <DependentUpon>WeChatLogin.cs</DependentUpon>
+    <EmbeddedResource Include="Views\ScanQrCodeLogin.resx">
+      <DependentUpon>ScanQrCodeLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\WorkDetailsForm.resx">
       <DependentUpon>WorkDetailsForm.cs</DependentUpon>
@@ -237,13 +241,15 @@
       <Project>{e4d8607b-d75b-4824-a2ec-5b95b6736342}</Project>
       <Name>ToolsHelper</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Utility\Utility.csproj">
+      <Project>{aa51d7a9-3f18-4870-afdd-4ecc2b22f2cb}</Project>
+      <Name>Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="image.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Module\Login\AppServices\" />
-    <Folder Include="Module\Login\DomainServices\" />
     <Folder Include="Module\Login\DTO\" />
     <Folder Include="Module\Login\Interfaces\" />
   </ItemGroup>

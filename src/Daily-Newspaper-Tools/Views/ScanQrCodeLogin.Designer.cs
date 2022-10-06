@@ -1,6 +1,6 @@
 ﻿namespace Daily_Newspaper_Tools.Views
 {
-    partial class WeChatLogin
+    partial class ScanQrCodeLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.uiSymbolButton1 = new Sunny.UI.UISymbolButton();
+            this.uiSymbolBtnReturn = new Sunny.UI.UISymbolButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,39 +42,45 @@
             this.webBrowser1.Size = new System.Drawing.Size(250, 250);
             this.webBrowser1.TabIndex = 0;
             this.webBrowser1.Visible = false;
+            this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
+            this.webBrowser1.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.webBrowser1_Navigating);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(36, 60);
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(34, 60);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(273, 263);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // uiSymbolButton1
+            // uiSymbolBtnReturn
             // 
-            this.uiSymbolButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiSymbolButton1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiSymbolButton1.Location = new System.Drawing.Point(82, 347);
-            this.uiSymbolButton1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiSymbolButton1.Name = "uiSymbolButton1";
-            this.uiSymbolButton1.Size = new System.Drawing.Size(177, 35);
-            this.uiSymbolButton1.Symbol = 61714;
-            this.uiSymbolButton1.TabIndex = 2;
-            this.uiSymbolButton1.Text = "返回";
-            this.uiSymbolButton1.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiSymbolButton1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.uiSymbolBtnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiSymbolBtnReturn.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiSymbolBtnReturn.Location = new System.Drawing.Point(82, 347);
+            this.uiSymbolBtnReturn.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiSymbolBtnReturn.Name = "uiSymbolBtnReturn";
+            this.uiSymbolBtnReturn.Size = new System.Drawing.Size(177, 35);
+            this.uiSymbolBtnReturn.Symbol = 61714;
+            this.uiSymbolBtnReturn.TabIndex = 2;
+            this.uiSymbolBtnReturn.Text = "返回";
+            this.uiSymbolBtnReturn.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiSymbolBtnReturn.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.uiSymbolBtnReturn.Click += new System.EventHandler(this.uiSymbolBtnReturn_Click);
             // 
-            // WeChatLogin
+            // ScanQrCodeLogin
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(343, 408);
-            this.Controls.Add(this.uiSymbolButton1);
+            this.Controls.Add(this.uiSymbolBtnReturn);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.webBrowser1);
-            this.Name = "WeChatLogin";
+            this.Name = "ScanQrCodeLogin";
             this.Text = "扫码登录";
             this.ZoomScaleRect = new System.Drawing.Rectangle(15, 15, 800, 450);
+            this.Load += new System.EventHandler(this.ScanQrCodeLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -84,6 +90,6 @@
 
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private Sunny.UI.UISymbolButton uiSymbolButton1;
+        private Sunny.UI.UISymbolButton uiSymbolBtnReturn;
     }
 }
