@@ -226,6 +226,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{1213abb8-0141-4ee2-b2b2-454967a1b2f5}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{465204ca-b5cc-479d-a8f3-12deb42cd126}</Project>
       <Name>DAL</Name>
@@ -239,7 +243,10 @@
     <Content Include="image.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Module\Login\AppServices\" />
+    <Folder Include="Module\Login\DomainServices\" />
     <Folder Include="Module\Login\DTO\" />
+    <Folder Include="Module\Login\Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.6.5.5\build\Fody.targets" Condition="Exists('..\packages\Fody.6.5.5\build\Fody.targets')" />
