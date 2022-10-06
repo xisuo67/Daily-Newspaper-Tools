@@ -1,4 +1,5 @@
 ﻿using Daily_Newspaper_Tools.Common.Login;
+using Daily_Newspaper_Tools.Views;
 using DAL;
 using DAL.DTO;
 using DAL.Entity;
@@ -155,7 +156,8 @@ namespace Daily_Newspaper_Tools
 
         private void uiSymbolBtnWeChat_Click(object sender, EventArgs e)
         {
-           
+            ScanQrCodeLogin scanQrCodeLogin = new ScanQrCodeLogin();
+            scanQrCodeLogin.ShowDialog();
         }
     }
 }

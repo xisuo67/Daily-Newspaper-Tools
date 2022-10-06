@@ -10,12 +10,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Utility.Dependency;
 
 namespace Daily_Newspaper_Tools.Views
 {
     public partial class ScanQrCodeLogin : UIForm
     {
-        private readonly LazyService<WorkWeChatLoginDomainService> _service = new LazyService<WorkWeChatLoginDomainService>();
+
         public ScanQrCodeLogin()
         {
             InitializeComponent();
@@ -23,9 +24,20 @@ namespace Daily_Newspaper_Tools.Views
         #region 事件
         private void ScanQrCodeLogin_Load(object sender, EventArgs e)
         {
-            var url= _service.Instance.GetWebBrowserUrl();
-            //string url = $"https://open.work.weixin.qq.com/wwopen/sso/qrConnect?appid=wwd54b6d4fa4de4ac1&agentid=1000003&redirect_uri=http%3A%2F%2Fmyapp.com%3A4200%2F&state=200";
-            webBrowser1.Navigate(url);
+            var instance = (ICommonLoginService)LoginServiceFactory.Instance.GetInstances(WorkWeChatLoginDomainService.TypeKey);
+            try
+            {
+                var url = instance.GetWebBrowserUrl();
+                if (!string.IsNullOrEmpty(url))
+                    webBrowser1.Navigate(url);
+                else
+                    ShowErrorTip("无法获取二维码信息");
+            }
+            catch (Exception ex)
+            {
+                ShowErrorTip(ex.ToString());
+            }
+            
         }
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
