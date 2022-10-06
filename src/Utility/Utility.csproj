@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dependency\ICommonLoginService.cs" />
-    <Compile Include="Dependency\ILogin.cs" />
     <Compile Include="Dependency\LoginServiceFactory.cs" />
     <Compile Include="Enums\LoginEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
