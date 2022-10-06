@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,7 @@ namespace Utility.Dependency
     ///         var instance = (IWorkWeChatLogin)LoginServiceFactory.Instance.GetInstances(LoginEnum.GlobalKey(WorkWeChatLogin));
     /// </code>
     /// </summary>
-    public interface ICommonLoginService
+    public interface ICommonLoginService:IService
     {
     }
 }

@@ -9,7 +9,7 @@ namespace Core.Service
     /// <summary>
     /// 
     /// </summary>
-    public class LazyService<T> where T : class, IService, new()
+    public class LazyService<T> where T :  IService, new()
     {
         private T _instance;
         public T Instance
