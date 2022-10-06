@@ -53,6 +53,9 @@
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="SunnyUI, Version=3.2.4.0, Culture=neutral, PublicKeyToken=27d7d2e821d97aeb, processorArchitecture=MSIL">
       <HintPath>..\packages\SunnyUI.3.2.4\lib\net40\SunnyUI.dll</HintPath>
     </Reference>
@@ -94,6 +97,7 @@
     <Compile Include="Common\Style\UIDPIScale.cs" />
     <Compile Include="Module\Login\AppServices\ScanQrCodeLoginAppService.cs" />
     <Compile Include="Module\Login\DomainServices\WorkWeChatLoginDomainService.cs" />
+    <Compile Include="Module\Login\DTO\OAuthToken.cs" />
     <Compile Include="Views\ContactEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,7 +254,6 @@
     <Content Include="image.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Module\Login\DTO\" />
     <Folder Include="Module\Login\Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

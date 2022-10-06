@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Daily_Newspaper_Tools.Module.Login.DTO;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
@@ -20,15 +23,15 @@ namespace Daily_Newspaper_Tools.Module.Login.DomainServices
         /// 类型key，用于工厂注册
         /// </summary>
         public static readonly string TypeKey = LoginEnum.GlobalKey(LoginEnum.WorkWeChatLogin);
-
+        private readonly string redirectUrl = ConfigurationManager.AppSettings["redirect_uri"];
+        private readonly string corpid = ConfigurationManager.AppSettings["corpid"];
+        private readonly string agentid = ConfigurationManager.AppSettings["agentid"];
+        private readonly string corpsecret = ConfigurationManager.AppSettings["corpsecret"];
         public string GetWebBrowserUrl()
         {
-           var redirectUrl =  ConfigurationManager.AppSettings["redirect_uri"];
-            string corpid = ConfigurationManager.AppSettings["corpid"];
-            string agentid = ConfigurationManager.AppSettings["agentid"];
             if (!string.IsNullOrEmpty(redirectUrl) && !string.IsNullOrEmpty(corpid) && !string.IsNullOrEmpty(agentid))
             {
-                var encodeRedirectUrl= HttpUtility.UrlEncode(redirectUrl);
+                var encodeRedirectUrl = HttpUtility.UrlEncode(redirectUrl);
                 //TODO:redirectUrl编码后拼接为url，返回 http%3A%2F%2Fmyapp.com%3A4200%2F
                 //https://open.work.weixin.qq.com/wwopen/sso/qrConnect?appid=CORPID&agentid=AGENTID&redirect_uri=REDIRECT_URI&state=STATE
                 string url = $"https://open.work.weixin.qq.com/wwopen/sso/qrConnect?appid={corpid}&agentid={agentid}&redirect_uri={encodeRedirectUrl}&state=200";
@@ -38,9 +41,6 @@ namespace Daily_Newspaper_Tools.Module.Login.DomainServices
             {
                 throw new Exception("未能读取到配置信息，请按规定配置节点后，重新尝试");
             }
-
-
-            
         }
         /// <summary>
         /// 通过Url拿Code
@@ -84,9 +84,30 @@ namespace Daily_Newspaper_Tools.Module.Login.DomainServices
 
         public string GetToken(string code)
         {
-            throw new NotImplementedException();
+            string token = string.Empty;
+            //TODO:Token刷新机制后面迭代完成，目前不限制token刷新
+            //获取token
+            //https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=ID&corpsecret=SECRET
+            string urlToken = $"https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid={corpid}&corpsecret={corpsecret}";
+            string jsonText = GetJson(urlToken);
+            var authToken = JsonConvert.DeserializeObject<OAuthToken>(jsonText);
+            token = authToken.access_token;
+            return token;
+        }
 
-            //TODO:Token刷新机制
+        /// <summary>  
+        /// 生成Json格式  
+        /// </summary>  
+        /// <typeparam name="T"></typeparam>  
+        /// <param name="obj"></param>  
+        /// <returns></returns>  
+        private string GetJson(string url)
+        {
+            WebClient wc = new WebClient();
+            wc.Credentials = CredentialCache.DefaultCredentials;
+            wc.Encoding = Encoding.UTF8;
+            string result = wc.DownloadString(url);
+            return result;
         }
     }
 }
