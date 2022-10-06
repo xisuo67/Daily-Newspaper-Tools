@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Daily_Newspaper_Tools.Module.Login.Enums
+namespace Utility.Enums
 {
     /// <summary>
     /// 第三方登录
