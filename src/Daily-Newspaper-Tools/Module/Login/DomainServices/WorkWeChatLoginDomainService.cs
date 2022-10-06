@@ -51,17 +51,19 @@ namespace Daily_Newspaper_Tools.Module.Login.DomainServices
 
         public string GetAttribute()
         {
-            throw new NotImplementedException();
+            return "className";
         }
 
         public string GetQrcodeDomAttribute()
         {
-            throw new NotImplementedException();
+            return "qrcode lightBorder";
         }
 
         public string GetToken()
         {
             throw new NotImplementedException();
+
+            //TODO:Token刷新机制
         }
     }
 }
