@@ -45,6 +45,7 @@
     <Compile Include="Dependency\LoginServiceFactory.cs" />
     <Compile Include="DTO\LoginParam.cs" />
     <Compile Include="Enums\LoginEnum.cs" />
+    <Compile Include="Enums\OrganizationUnitEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
