@@ -59,6 +59,7 @@
     <Compile Include="DTO\WeekWorksDetailsDTO.cs" />
     <Compile Include="DTO\WeekWorksDTO.cs" />
     <Compile Include="EntityContext.cs" />
+    <Compile Include="Entity\AuthToken.cs" />
     <Compile Include="Entity\Contacts.cs" />
     <Compile Include="Entity\Department.cs" />
     <Compile Include="Entity\EmailConfig.cs" />

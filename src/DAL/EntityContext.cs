@@ -49,5 +49,7 @@ namespace DAL
         public DbSet<User> Users { get; set; }
 
         public DbSet<Department> Departments { get; set; }
+
+        public DbSet<AuthToken> AuthTokens { get; set; }
     }
 }
