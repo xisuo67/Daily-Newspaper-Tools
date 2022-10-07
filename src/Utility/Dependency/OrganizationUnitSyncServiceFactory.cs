@@ -78,3 +78,4 @@ namespace Utility.Dependency
                 $"key：{key}，没有找到对应的类型，请先注册，参考示例： LoginServiceFactory.Instance.Register<WorkWeChatDomainService>(LoginEnum.WorkWeChatLogin.ToString());");
         }
     }
+}

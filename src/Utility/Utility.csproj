@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Utility</RootNamespace>
     <AssemblyName>Utility</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,6 +45,7 @@
     <Compile Include="Dependency\ICommonLoginService.cs" />
     <Compile Include="Dependency\IOrganizationUnitSyncService.cs" />
     <Compile Include="Dependency\LoginServiceFactory.cs" />
+    <Compile Include="Dependency\OrganizationUnitSyncServiceFactory.cs" />
     <Compile Include="DTO\LoginParam.cs" />
     <Compile Include="Enums\LoginEnum.cs" />
     <Compile Include="Enums\OrganizationUnitEnum.cs" />
