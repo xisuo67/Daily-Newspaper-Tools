@@ -65,10 +65,12 @@
     <Compile Include="Entity\EmailConfig.cs" />
     <Compile Include="Entity\EmailTask.cs" />
     <Compile Include="Entity\EmailTaskConfig.cs" />
+    <Compile Include="Entity\ThirdPartyDepartmentMapping.cs" />
     <Compile Include="Entity\TodayWorkDetails.cs" />
     <Compile Include="Entity\TomorrowWorkDetails.cs" />
     <Compile Include="Entity\User.cs" />
     <Compile Include="Entity\Works.cs" />
+    <Compile Include="Enum\ThirdPartySystemEnum.cs" />
     <Compile Include="Migrations\202209230740417_init.cs" />
     <Compile Include="Migrations\202209230740417_init.designer.cs">
       <DependentUpon>202209230740417_init.cs</DependentUpon>
