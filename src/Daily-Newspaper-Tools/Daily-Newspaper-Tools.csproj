@@ -95,10 +95,6 @@
   <ItemGroup>
     <Compile Include="Common\Login\LoginContext.cs" />
     <Compile Include="Common\Style\UIDPIScale.cs" />
-    <Compile Include="Module\Login\DomainServices\WorkWeChatLoginDomainService.cs" />
-    <Compile Include="Module\Login\DTO\WorkWeChat\ApiBaseResult.cs" />
-    <Compile Include="Module\Login\DTO\WorkWeChat\OAuthToken.cs" />
-    <Compile Include="Module\Login\DTO\WorkWeChat\UserInfo.cs" />
     <Compile Include="Views\ContactEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +238,10 @@
       <Project>{465204ca-b5cc-479d-a8f3-12deb42cd126}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Module\Module.csproj">
+      <Project>{15368bda-5ef1-4b73-9461-ed8ea07d9bf9}</Project>
+      <Name>Module</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ToolsHelper\ToolsHelper.csproj">
       <Project>{e4d8607b-d75b-4824-a2ec-5b95b6736342}</Project>
       <Name>ToolsHelper</Name>
@@ -254,10 +254,7 @@
   <ItemGroup>
     <Content Include="image.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Module\Login\AppServices\" />
-    <Folder Include="Module\Login\Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.6.5.5\build\Fody.targets" Condition="Exists('..\packages\Fody.6.5.5\build\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

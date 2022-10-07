@@ -1,9 +1,13 @@
-﻿using System;
+﻿using Module.Login.DTO.WorkWeChat;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using Utility.Dependency;
 using Utility.DTO;
 using Utility.Enums;
@@ -13,7 +17,7 @@ namespace Module.Login.DomainServices
     /// <summary>
     /// 企业微信登录服务
     /// </summary>
-    internal class WorkWeChatLoginDomainService : ICommonLoginService
+    public class WorkWeChatLoginDomainService : ICommonLoginService
     {
         /// <summary>
         /// 类型key，用于工厂注册
