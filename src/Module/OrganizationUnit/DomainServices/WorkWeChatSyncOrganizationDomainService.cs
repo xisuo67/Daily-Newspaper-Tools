@@ -20,5 +20,10 @@ namespace Module.OrganizationUnit.DomainServices
         {
             throw new NotImplementedException();
         }
+
+        public List<User> GetOrganizationUsersSync()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

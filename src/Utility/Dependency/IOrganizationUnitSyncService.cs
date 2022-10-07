@@ -15,5 +15,11 @@ namespace Utility.Dependency
         /// </summary>
         /// <returns></returns>
         List<Department> GetOrganizationSync();
+
+        /// <summary>
+        /// 同步组织架构下所有用户数据
+        /// </summary>
+        /// <returns></returns>
+        List<User> GetOrganizationUsersSync();
     }
 }
