@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Utility.Dependency;
 
-namespace Daily_Newspaper_Tools.Module.OrganizationUnit.Interfaces
+namespace Module.OrganizationUnit.Interfaces
 {
     /// <summary>
     /// 组织架构接口
