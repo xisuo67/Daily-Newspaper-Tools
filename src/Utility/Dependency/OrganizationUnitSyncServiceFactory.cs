@@ -22,7 +22,7 @@ namespace Utility.Dependency
 
         static OrganizationUnitSyncServiceFactory()
         {
-            Instance = new LoginServiceFactory();
+            Instance = new OrganizationUnitSyncServiceFactory();
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace Utility.Dependency
         /// <value>
         /// The Singleton instance.
         /// </value>
-        public static LoginServiceFactory Instance { get; private set; }
+        public static OrganizationUnitSyncServiceFactory Instance { get; private set; }
 
 
         /// <summary>

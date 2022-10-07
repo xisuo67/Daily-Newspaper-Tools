@@ -79,11 +79,6 @@ namespace Module.OrganizationUnit.DomainServices
             throw new NotImplementedException();
         }
 
-        public List<Department> GetOrganizationSync()
-        {
-            throw new NotImplementedException();
-        }
-
         public string GetParentCode(string code)
         {
             throw new NotImplementedException();

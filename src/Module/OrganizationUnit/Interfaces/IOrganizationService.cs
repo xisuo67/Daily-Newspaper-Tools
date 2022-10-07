@@ -12,7 +12,7 @@ namespace Module.OrganizationUnit.Interfaces
     /// <summary>
     /// 组织架构接口
     /// </summary>
-    public interface IOrganizationService : IOrganizationUnitSyncService
+    public interface IOrganizationService
     {
         /// <summary>
         /// 转树结构

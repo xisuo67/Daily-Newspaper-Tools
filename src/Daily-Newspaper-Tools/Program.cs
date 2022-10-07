@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using Utility.Dependency;
 using Module.Login.DomainServices;
+using Module.OrganizationUnit.DomainServices;
 
 namespace Daily_Newspaper_Tools
 {
@@ -17,6 +18,8 @@ namespace Daily_Newspaper_Tools
             Application.SetCompatibleTextRenderingDefault(false);
             //注册企业微信扫码登录公共服务
             LoginServiceFactory.Instance.Register<WorkWeChatLoginDomainService>(WorkWeChatLoginDomainService.TypeKey);
+            //同步接口公共服务
+            OrganizationUnitSyncServiceFactory.Instance.Register<WorkWeChatSyncOrganizationDomainService>(WorkWeChatSyncOrganizationDomainService.TypeKey);
             Application.Run(new MainForm());
         }
     }
