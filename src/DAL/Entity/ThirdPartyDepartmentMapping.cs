@@ -1,6 +1,7 @@
 ﻿using DAL.Enum;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace DAL.Entity
         /// <summary>
         /// 日报系统部门表Id
         /// </summary>
+        [Key]
         public Guid DepartmentMappingId { get; set; }
 
         /// <summary>
