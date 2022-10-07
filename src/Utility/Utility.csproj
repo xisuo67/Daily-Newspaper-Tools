@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dependency\ICommonLoginService.cs" />
+    <Compile Include="Dependency\IOrganizationUnitSyncService.cs" />
     <Compile Include="Dependency\LoginServiceFactory.cs" />
     <Compile Include="DTO\LoginParam.cs" />
     <Compile Include="Enums\LoginEnum.cs" />
@@ -52,6 +53,10 @@
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{1213ABB8-0141-4EE2-B2B2-454967A1B2F5}</Project>
       <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{465204ca-b5cc-479d-a8f3-12deb42cd126}</Project>
+      <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
