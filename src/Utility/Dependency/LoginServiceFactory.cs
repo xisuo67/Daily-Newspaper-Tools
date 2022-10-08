@@ -67,7 +67,7 @@ namespace Utility.Dependency
         /// </summary>
         /// <param name="key">键.</param>
         /// <returns>实例.</returns>
-        /// <exception cref="KeyNotFoundException">key：{key}，没有找到对应的类型，请先注册，参考示例： SlxtServiceFactory.Instance.Register<SaleModiBuyerDomainService/>(SaleModiApplyTypeEnum.BuyerChange.ToString());</exception>
+        /// <exception cref="KeyNotFoundException">key：{key}，没有找到对应的类型，请先注册，参考示例： LoginServiceFactory.Instance.Register<WorkWeChatDomainService>(LoginEnum.WorkWeChatLogin.ToString());</exception>
         public ICommonLoginService GetInstances(string key)
         {
             if (TypeContainer.TryGetValue(key, out Func<ICommonLoginService> func))
