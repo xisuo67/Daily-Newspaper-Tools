@@ -88,7 +88,7 @@ namespace Module.Login.DomainServices
             return "qrcode lightBorder";
         }
 
-        public string GetToken(string code)
+        public string GetToken()
         {
             //TODO:Token刷新机制后面迭代完成，目前不限制token刷新
             //获取token

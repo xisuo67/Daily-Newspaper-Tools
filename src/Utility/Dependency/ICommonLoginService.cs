@@ -46,7 +46,7 @@ namespace Utility.Dependency
         /// </summary>
         /// <param name="code"></param>
         /// <returns></returns>
-        string GetToken(string code);
+        string GetToken();
         /// <summary>
         /// 通过token获取用户ID
         /// </summary>

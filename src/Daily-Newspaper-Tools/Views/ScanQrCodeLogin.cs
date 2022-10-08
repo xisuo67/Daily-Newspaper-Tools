@@ -85,7 +85,7 @@ namespace Daily_Newspaper_Tools.Views
                 }
                 try
                 {
-                    string token = instance.GetToken(code);
+                    string token = instance.GetToken();
                     LoginParam loginParam = new LoginParam()
                     {
                         Token = token,

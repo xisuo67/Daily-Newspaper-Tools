@@ -22,6 +22,8 @@ namespace Module.OrganizationUnit.DomainServices
 
             //接口地址：https://qyapi.weixin.qq.com/cgi-bin/department/list?access_token=ACCESS_TOKEN&id=ID
 
+            
+
            // 参数           必须    说明
            //access_token    是    调用接口凭证
            // id              否   部门id。获取指定部门及其下的子部门（以及子部门的子部门等等，递归）。 如果不填，默认获取全量组织架构
