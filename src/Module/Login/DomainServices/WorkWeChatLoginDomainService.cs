@@ -111,7 +111,7 @@ namespace Module.Login.DomainServices
                     else
                     {
 
-                        ctx.AuthTokens.SqlQuery("delete from AuthTokens");
+                        ctx.Database.ExecuteSqlCommand("delete from AuthTokens");
                         AuthToken token = new AuthToken()
                         {
                             Id=Guid.NewGuid(),

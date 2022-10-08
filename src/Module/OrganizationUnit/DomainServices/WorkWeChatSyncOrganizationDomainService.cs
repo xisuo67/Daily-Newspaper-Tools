@@ -1,4 +1,5 @@
 ﻿using Core.Service;
+using DAL;
 using DAL.Entity;
 using DAL.Enum;
 using Module.Login.DomainServices;
@@ -53,6 +54,34 @@ namespace Module.OrganizationUnit.DomainServices
                         order =item.order
                     };
                     departmentMappingList.Add(department);
+                }
+                //TODO：保留映射关系，目前至实现全删全插功能，后面根据映射关系动态调整部门信息；纳入后面迭代开发
+                List<Department> departmentList = new List<Department>();
+                departmentMappingList.ForEach(e =>
+                {
+                    Department department = new Department()
+                    {
+                        Id=e.DepartmentMappingId,
+                        Name=e.Name,
+                        ParentId=e.DepartmentMappingParentId,
+                        Code=e.order
+                    };
+                    departmentList.Add(department);
+                });
+                using (var ctx = new EntityContext())
+                {
+                    //全删全插
+                    ctx.Database.ExecuteSqlCommand("delete from ThirdPartyDepartmentMappings");
+                    ctx.ThirdPartyDepartmentMappings.AddRange(departmentMappingList);
+
+                    //删除所有部门
+                    ctx.Database.ExecuteSqlCommand("delete from Departments");
+                    ctx.Departments.AddRange(departmentList);
+
+                    //清空原用户关联部门id，自行调整（后面迭代自动调整）
+                    ctx.Database.ExecuteSqlCommand($"update Users set DepartmentId=NULL");
+                    ctx.SaveChanges();
+
                 }
 
             }
