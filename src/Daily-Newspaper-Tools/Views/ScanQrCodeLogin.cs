@@ -1,4 +1,7 @@
 ﻿using Core.Service;
+using Daily_Newspaper_Tools.Common.Login;
+using DAL;
+using DAL.DTO;
 using Sunny.UI;
 using System;
 using System.Collections;
@@ -90,8 +93,23 @@ namespace Daily_Newspaper_Tools.Views
                     };
                     var userId= instance.FromTokenByUserId(loginParam);
                     //TODO:通过userId，与数据库用户比对，判断是否存在，存在则登录系统，不存在，先新增，再登录
-                    //this.DialogResult = DialogResult.OK;
-                    //this.Close();
+
+                    using (var ctx = new EntityContext())
+                    {
+                        var userEntity = ctx.Users.FirstOrDefault(d => d.UserName == userId);
+                        if (userEntity != null)
+                        {
+                            UserDTO userDTO = new UserDTO();
+                            userDTO.MapperFrom(userEntity);
+                            LoginContext.Current = new LoginContext(userDTO);
+                            this.DialogResult = DialogResult.OK;
+                            this.Close();
+                        }
+                        else
+                        {
+                            ShowErrorTip("当前系统不存在该用户，无法登录");
+                        }
+                    }
 
                 }
                 catch (Exception ex)
