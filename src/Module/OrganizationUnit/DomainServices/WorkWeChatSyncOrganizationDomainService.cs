@@ -37,6 +37,21 @@ namespace Module.OrganizationUnit.DomainServices
             var workWeChatDepartments = JsonConvert.DeserializeObject<WorkWeChatDepartmentsDTO>(jsonText);
             if (workWeChatDepartments.errmsg!= "0")
             {
+                List<ThirdPartyDepartmentMapping> departmentMappingList = new List<ThirdPartyDepartmentMapping>();
+                foreach (var item in workWeChatDepartments.department)
+                {
+                   
+                    var department = new ThirdPartyDepartmentMapping()
+                    {
+                        DepartmentMappingId=Guid.NewGuid(),
+                        ThirdPartyId=item.id,
+                        Name=item.name,
+                        ThirdPartyParentId=item.parentid,
+                        DepartmentMappingParentId=Guid.NewGuid(),
+                        order=item.order
+                    };
+                    departmentMappingList.Add(department);
+                }
 
             }
            

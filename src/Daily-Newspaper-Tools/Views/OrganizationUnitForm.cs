@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using Core.Service;
 using DAL;
 using DAL.DTO;
 using DAL.Entity;
+using Module.OrganizationUnit.DomainServices;
 using Sunny.UI;
 using System;
 using System.Collections.Generic;
@@ -17,6 +19,7 @@ namespace Daily_Newspaper_Tools.Views
 {
     public partial class OrganizationUnitForm : UIPage
     {
+        private readonly LazyService<WorkWeChatSyncOrganizationDomainService> _workWeChatSyncOrganizationDomainService = new LazyService<WorkWeChatSyncOrganizationDomainService>();
         private List<Department> departments = new List<Department>();
         private Guid currentDeparentId= Guid.Empty;
         public OrganizationUnitForm()
@@ -613,6 +616,21 @@ namespace Daily_Newspaper_Tools.Views
         private void uiSymbolBtnRoleAdd_Click(object sender, EventArgs e)
         {
             ShowInfoTip("功能尚在规划中，尽情期待");
+        }
+
+        private void uiSymbolBtnSync_Click(object sender, EventArgs e)
+        {
+            uiSymbolBtnSync.ShowContextMenuStrip(uiContextMenuStrip2, 0, uiSymbolBtnSync.Height);
+        }
+
+        private void btn_UserSyncByWorkWeChat_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_OrganizationSyncByWorkWeChat_Click(object sender, EventArgs e)
+        {
+            _workWeChatSyncOrganizationDomainService.Instance.GetOrganizationSync();
         }
     }
 }
