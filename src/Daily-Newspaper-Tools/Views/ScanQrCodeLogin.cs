@@ -90,7 +90,8 @@ namespace Daily_Newspaper_Tools.Views
                     };
                     var userId= instance.FromTokenByUserId(loginParam);
                     //TODO:通过userId，与数据库用户比对，判断是否存在，存在则登录系统，不存在，先新增，再登录
-
+                    //this.DialogResult = DialogResult.OK;
+                    //this.Close();
 
                 }
                 catch (Exception ex)
@@ -110,7 +111,7 @@ namespace Daily_Newspaper_Tools.Views
 
         private void uiSymbolBtnReturn_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
         #endregion
 
