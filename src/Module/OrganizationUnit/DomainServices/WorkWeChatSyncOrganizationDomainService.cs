@@ -43,17 +43,39 @@ namespace Module.OrganizationUnit.DomainServices
                 List<ThirdPartyDepartmentMapping> departmentMappingList = new List<ThirdPartyDepartmentMapping>();
                 foreach (var item in workWeChatDepartments.department)
                 {
-                   
-                    var department = new ThirdPartyDepartmentMapping()
+                    ThirdPartyDepartmentMapping department = null;
+                    var parent= departmentMappingList.FirstOrDefault(e=>e.ThirdPartyId==item.parentid);
+                    if (parent!=null)
                     {
-                        DepartmentMappingId=Guid.NewGuid(),
-                        ThirdPartyId=item.id,
-                        Name=item.name,
-                        ThirdPartyParentId=item.parentid,
-                        DepartmentMappingParentId=Guid.NewGuid(),
-                        FromSystem= (ThirdPartySystemEnum)OrganizationUnitEnum.WorkWeChatSync,
-                        order =item.order
-                    };
+                        department = new ThirdPartyDepartmentMapping()
+                        {
+                            DepartmentMappingId = Guid.NewGuid(),
+                            ThirdPartyId = item.id,
+                            Name = item.name,
+                            ThirdPartyParentId = item.parentid,
+                            DepartmentMappingParentId = parent.DepartmentMappingId,
+                            FromSystem = (ThirdPartySystemEnum)OrganizationUnitEnum.WorkWeChatSync,
+                            order = item.order
+                        };
+                    }
+                    else
+                    {
+                         department = new ThirdPartyDepartmentMapping()
+                        {
+                            DepartmentMappingId = Guid.NewGuid(),
+                            ThirdPartyId = item.id,
+                            Name = item.name,
+                            ThirdPartyParentId = item.parentid,
+                        FromSystem = (ThirdPartySystemEnum)OrganizationUnitEnum.WorkWeChatSync,
+                            order = item.order
+                        };
+                        if (item.parentid!="0")
+                        {
+                            department.DepartmentMappingParentId = Guid.NewGuid();
+                        }
+
+                    }
+                    
                     departmentMappingList.Add(department);
                 }
                 //TODO：保留映射关系，目前至实现全删全插功能，后面根据映射关系动态调整部门信息；纳入后面迭代开发
