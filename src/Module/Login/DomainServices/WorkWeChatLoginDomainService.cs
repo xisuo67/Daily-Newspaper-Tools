@@ -1,4 +1,6 @@
-﻿using Module.Login.DTO.WorkWeChat;
+﻿using DAL;
+using DAL.Entity;
+using Module.Login.DTO.WorkWeChat;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -92,16 +94,44 @@ namespace Module.Login.DomainServices
         {
             //TODO:Token刷新机制后面迭代完成，目前不限制token刷新
             //获取token
-            //https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=ID&corpsecret=SECRET
-            string urlToken = $"https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid={corpid}&corpsecret={corpsecret}";
-            string jsonText = GetJson(urlToken);
-            var authToken = JsonConvert.DeserializeObject<OAuthToken>(jsonText);
-            if (authToken.errcode != "0")
+            using (var ctx = new EntityContext())
             {
-                throw new Exception(authToken.errcode);
+                var currentTime = DateTime.Now;
+                var entity= ctx.AuthTokens.FirstOrDefault(e=> currentTime <= e.ExpiresTime);
+                if (entity == null)
+                {
+                    //https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=ID&corpsecret=SECRET
+                    string urlToken = $"https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid={corpid}&corpsecret={corpsecret}";
+                    string jsonText = GetJson(urlToken);
+                    var authToken = JsonConvert.DeserializeObject<OAuthToken>(jsonText);
+                    if (authToken.errcode != "0")
+                    {
+                        throw new Exception(authToken.errcode);
+                    }
+                    else
+                    {
+
+                        ctx.AuthTokens.SqlQuery("delete from AuthTokens");
+                        AuthToken token = new AuthToken()
+                        {
+                            Id=Guid.NewGuid(),
+                            CreateTime=currentTime,
+                            ExpiresIn=authToken.expires_in,
+                            Token=authToken.access_token,
+                            ExpiresTime=currentTime.AddSeconds(authToken.expires_in),
+                        };
+                        ctx.AuthTokens.Add(token);
+                        ctx.SaveChanges();
+                        return authToken?.access_token;
+                    }
+                        
+                }
+                else
+                {
+                    return entity.Token;
+                }
             }
-            else
-                return authToken?.access_token;
+              
         }
 
         /// <summary>  
