@@ -52,6 +52,7 @@
     <Compile Include="Login\DTO\WorkWeChat\UserInfo.cs" />
     <Compile Include="OrganizationUnit\DomainServices\OrganizationUnitDomainService.cs" />
     <Compile Include="OrganizationUnit\DomainServices\WorkWeChatSyncOrganizationDomainService.cs" />
+    <Compile Include="OrganizationUnit\DTO\WorkWeChatDepartments.cs" />
     <Compile Include="OrganizationUnit\Interfaces\IOrganizationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -73,7 +74,6 @@
     <Folder Include="Login\AppServices\" />
     <Folder Include="Login\Interfaces\" />
     <Folder Include="OrganizationUnit\AppServices\" />
-    <Folder Include="OrganizationUnit\DTO\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
