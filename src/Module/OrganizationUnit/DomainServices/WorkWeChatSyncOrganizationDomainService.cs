@@ -38,14 +38,14 @@ namespace Module.OrganizationUnit.DomainServices
             string url = $"https://qyapi.weixin.qq.com/cgi-bin/department/list?access_token={token}";
             string jsonText = GetJson(url);
             var workWeChatDepartments = JsonConvert.DeserializeObject<WorkWeChatDepartmentsDTO>(jsonText);
-            if (workWeChatDepartments.errmsg!= "0")
+            if (workWeChatDepartments.errmsg != "0")
             {
                 List<ThirdPartyDepartmentMapping> departmentMappingList = new List<ThirdPartyDepartmentMapping>();
                 foreach (var item in workWeChatDepartments.department)
                 {
                     ThirdPartyDepartmentMapping department = null;
-                    var parent= departmentMappingList.FirstOrDefault(e=>e.ThirdPartyId==item.parentid);
-                    if (parent!=null)
+                    var parent = departmentMappingList.FirstOrDefault(e => e.ThirdPartyId == item.parentid);
+                    if (parent != null)
                     {
                         department = new ThirdPartyDepartmentMapping()
                         {
@@ -54,40 +54,38 @@ namespace Module.OrganizationUnit.DomainServices
                             Name = item.name,
                             ThirdPartyParentId = item.parentid,
                             DepartmentMappingParentId = parent.DepartmentMappingId,
+
                             FromSystem = (ThirdPartySystemEnum)OrganizationUnitEnum.WorkWeChatSync,
                             order = item.order
                         };
                     }
                     else
                     {
-                         department = new ThirdPartyDepartmentMapping()
+                        department = new ThirdPartyDepartmentMapping()
                         {
                             DepartmentMappingId = Guid.NewGuid(),
                             ThirdPartyId = item.id,
                             Name = item.name,
                             ThirdPartyParentId = item.parentid,
-                        FromSystem = (ThirdPartySystemEnum)OrganizationUnitEnum.WorkWeChatSync,
+                            DepartmentMappingParentId = item.parentid != "0" ? Guid.NewGuid() : Guid.Empty,
+                            FromSystem = (ThirdPartySystemEnum)OrganizationUnitEnum.WorkWeChatSync,
                             order = item.order
                         };
-                        if (item.parentid!="0")
-                        {
-                            department.DepartmentMappingParentId = Guid.NewGuid();
-                        }
 
                     }
-                    
+
                     departmentMappingList.Add(department);
                 }
                 //TODO：保留映射关系，目前至实现全删全插功能，后面根据映射关系动态调整部门信息；纳入后面迭代开发
-               
+
                 departmentMappingList.ForEach(e =>
                 {
                     Department department = new Department()
                     {
-                        Id=e.DepartmentMappingId,
-                        Name=e.Name,
-                        ParentId=e.DepartmentMappingParentId,
-                        Code=e.order
+                        Id = e.DepartmentMappingId,
+                        Name = e.Name,
+                        ParentId = e.DepartmentMappingParentId,
+                        Code = e.order
                     };
                     departmentList.Add(department);
                 });
