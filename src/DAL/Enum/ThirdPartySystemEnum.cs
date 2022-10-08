@@ -14,6 +14,6 @@ namespace DAL.Enum
         /// <summary>
         /// 企业微信
         /// </summary>
-        WorkWeChat=0,
+        WorkWeChat=1,
     }
 }

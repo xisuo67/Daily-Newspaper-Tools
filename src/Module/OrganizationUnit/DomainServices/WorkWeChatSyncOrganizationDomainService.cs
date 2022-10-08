@@ -1,5 +1,6 @@
 ﻿using Core.Service;
 using DAL.Entity;
+using DAL.Enum;
 using Module.Login.DomainServices;
 using Module.Login.DTO.WorkWeChat;
 using Module.OrganizationUnit.DTO;
@@ -48,7 +49,8 @@ namespace Module.OrganizationUnit.DomainServices
                         Name=item.name,
                         ThirdPartyParentId=item.parentid,
                         DepartmentMappingParentId=Guid.NewGuid(),
-                        order=item.order
+                        FromSystem= (ThirdPartySystemEnum)OrganizationUnitEnum.WorkWeChatSync,
+                        order =item.order
                     };
                     departmentMappingList.Add(department);
                 }
