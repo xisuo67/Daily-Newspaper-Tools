@@ -67,7 +67,7 @@ namespace Module.OrganizationUnit.DomainServices
                             ThirdPartyId = item.id,
                             Name = item.name,
                             ThirdPartyParentId = item.parentid,
-                            DepartmentMappingParentId = item.parentid != "0" ? Guid.NewGuid() : Guid.Empty,
+                            DepartmentMappingParentId = item.parentid != "0" ? Guid.NewGuid() : (Guid?)null,
                             FromSystem = (ThirdPartySystemEnum)OrganizationUnitEnum.WorkWeChatSync,
                             order = item.order
                         };
@@ -98,9 +98,9 @@ namespace Module.OrganizationUnit.DomainServices
                     //删除所有部门
                     ctx.Database.ExecuteSqlCommand("delete from Departments");
                     ctx.Departments.AddRange(departmentList);
-
-                    //清空原用户关联部门id，自行调整（后面迭代自动调整）
-                    ctx.Database.ExecuteSqlCommand($"update Users set DepartmentId=NULL");
+                    var entity= departmentMappingList.FirstOrDefault(e => e.ThirdPartyParentId == "0");
+                    //将原用户更新至最顶级部门，自行调整（后面迭代自动调整）
+                    ctx.Database.ExecuteSqlCommand($"update Users set DepartmentId='{entity?.DepartmentMappingId}'");
                     ctx.SaveChanges();
 
                 }
