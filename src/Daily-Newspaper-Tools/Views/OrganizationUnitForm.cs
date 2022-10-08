@@ -633,6 +633,8 @@ namespace Daily_Newspaper_Tools.Views
             if (ShowAskDialog("该操作将覆盖原有部门信息，是否继续？", true))
             {
                 _workWeChatSyncOrganizationDomainService.Instance.GetOrganizationSync();
+                this.InitDepartment();
+                this.InitGridData();
             }
         }
     }
