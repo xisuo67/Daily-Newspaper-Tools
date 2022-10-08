@@ -27,6 +27,7 @@ namespace Module.OrganizationUnit.DomainServices
         public static readonly string TypeKey = LoginEnum.GlobalKey(OrganizationUnitEnum.WorkWeChatSync);
         public List<Department> GetOrganizationSync()
         {
+            List<Department> departmentList = new List<Department>();
             //企业微信同步组织架构接口文档地址：https://developer.work.weixin.qq.com/document/path/90208
 
             //接口地址：https://qyapi.weixin.qq.com/cgi-bin/department/list?access_token=ACCESS_TOKEN&id=ID
@@ -56,7 +57,7 @@ namespace Module.OrganizationUnit.DomainServices
                     departmentMappingList.Add(department);
                 }
                 //TODO：保留映射关系，目前至实现全删全插功能，后面根据映射关系动态调整部门信息；纳入后面迭代开发
-                List<Department> departmentList = new List<Department>();
+               
                 departmentMappingList.ForEach(e =>
                 {
                     Department department = new Department()
@@ -83,12 +84,8 @@ namespace Module.OrganizationUnit.DomainServices
                     ctx.SaveChanges();
 
                 }
-
             }
-           
-
-
-            throw new NotImplementedException();
+            return departmentList;
         }
         /// <summary>  
         /// 生成Json格式  
