@@ -94,7 +94,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Login\LoginContext.cs" />
-    <Compile Include="Common\Style\UIDPIScale.cs" />
     <Compile Include="Views\ContactEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
