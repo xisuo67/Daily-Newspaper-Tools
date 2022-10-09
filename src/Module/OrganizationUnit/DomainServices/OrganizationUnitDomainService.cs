@@ -1,11 +1,12 @@
-﻿using DAL.Entity;
+﻿using DAL;
+using DAL.Entity;
 using Module.OrganizationUnit.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.UI.WebControls;
+using System.Windows.Forms;
 
 namespace Module.OrganizationUnit.DomainServices
 {
@@ -26,12 +27,31 @@ namespace Module.OrganizationUnit.DomainServices
 
         public List<Department> Children(List<Department> list, Guid? Id)
         {
-            throw new NotImplementedException();
+            var childList = list.Where(x => x.ParentId == Id).ToList();
+            return childList;
         }
 
         public List<TreeNode> ConvertToTree(List<Department> list, Guid? Id = null)
         {
-            throw new NotImplementedException();
+            var result = new List<TreeNode>();
+            var childList = Children(list, Id);
+            foreach (var item in childList)
+            {
+                var tree = new TreeNode
+                {
+                    Name = item.Id.ToString(),
+                    Text = item.Name,
+                    Tag = item.Id.ToString(),
+                };
+                var childs = ConvertToTree(list, item.Id);
+                foreach (var items in childs)
+                {
+                    tree.Nodes.Add(items);
+                }
+                result.Add(tree);
+            }
+
+            return result;
         }
 
         public string CreateCode(params int[] numbers)
@@ -68,10 +88,16 @@ namespace Module.OrganizationUnit.DomainServices
         {
             throw new NotImplementedException();
         }
-
+        /// <summary>
+        /// 获取部门所有数据
+        /// </summary>
+        /// <returns></returns>
         public List<Department> GetList()
         {
-            throw new NotImplementedException();
+            using (var ctx = new EntityContext())
+            {
+                return ctx.Departments.OrderBy(e => e.Name).ToList();
+            }
         }
 
         public string GetNextChildCode(Guid? parentId)

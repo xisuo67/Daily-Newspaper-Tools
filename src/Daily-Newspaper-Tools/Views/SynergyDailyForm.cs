@@ -32,7 +32,12 @@ namespace Daily_Newspaper_Tools.Views
         }
 
         #region 初始化
-
+        /// <summary>
+        /// 初始化部门
+        /// </summary>
+        private void InitDepartment() { 
+        
+        }
         /// <summary>
         /// 初始化listbox
         /// </summary>
