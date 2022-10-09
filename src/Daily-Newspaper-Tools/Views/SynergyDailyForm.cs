@@ -1,6 +1,9 @@
-﻿using DAL;
+﻿using Core.Service;
+using Daily_Newspaper_Tools.Common.Login;
+using DAL;
 using DAL.DTO;
 using DAL.Entity;
+using Module.OrganizationUnit.DomainServices;
 using Sunny.UI;
 using System;
 using System.Collections.Generic;
@@ -23,20 +26,29 @@ namespace Daily_Newspaper_Tools.Views
     public partial class SynergyDailyForm : UIPage
     {
         private Guid? CurrentClickUserId = null;
+        private readonly LazyService<OrganizationUnitDomainService> _organizationUnitDomainService=new LazyService<OrganizationUnitDomainService>();
         public SynergyDailyForm()
         {
             InitializeComponent();
             DateTime dt = DateTime.Now;  //获取系统当前时间
             uiDatePicker1.Value = dt;
             InitListBox();
+            InitDepartment();
         }
 
         #region 初始化
         /// <summary>
         /// 初始化部门
         /// </summary>
-        private void InitDepartment() { 
-        
+        private void InitDepartment() {
+            var departments = _organizationUnitDomainService.Instance.GetList();
+            var trees = _organizationUnitDomainService.Instance.ConvertToTree(departments);
+            uiCmbTreeDepartment.Nodes.Clear();
+
+            uiCmbTreeDepartment.Nodes.AddRange(trees.ToArray());
+
+            var departmentName = departments.FirstOrDefault(e => e.Id == LoginContext.Current.UserInfo.DepartmentId)?.Name;
+            uiCmbTreeDepartment.Text = departmentName;
         }
         /// <summary>
         /// 初始化listbox
@@ -116,7 +128,7 @@ namespace Daily_Newspaper_Tools.Views
         public static Bitmap CreateHead(string text)
         {
             Bitmap bitmap = new Bitmap(50, 50);
-            var font = new Font("文泉驿正黑", 12, FontStyle.Bold);
+            var font = new Font("文泉驿正黑", 8, FontStyle.Bold);
             Graphics g = Graphics.FromImage(bitmap);
             g.Clear(Color.Transparent);
             g.SmoothingMode = SmoothingMode.AntiAlias;
@@ -191,7 +203,7 @@ namespace Daily_Newspaper_Tools.Views
                     bound.Height);
                 Rectangle textRec = new Rectangle(
                     imgRec.Right,
-                    bound.Y,
+                    bound.Y+15,
                     bound.Width - imgRec.Right,
                     bound.Height);
                 if (image != null)
@@ -205,9 +217,10 @@ namespace Daily_Newspaper_Tools.Views
                         image.Height,
                         GraphicsUnit.Pixel);
                     ////绘制字体
-                    //StringFormat stringFormat = new StringFormat();
-                    //stringFormat.Alignment = StringAlignment.Near;
-                    //e.Graphics.DrawString(item.Name, e.Font, new SolidBrush(Color.Black), textRec, stringFormat);
+                    StringFormat stringFormat = new StringFormat();
+                    stringFormat.Alignment = StringAlignment.Near;
+                    
+                    e.Graphics.DrawString(item.Name, e.Font, new SolidBrush(Color.Black), textRec, stringFormat);
                 }
             }
 

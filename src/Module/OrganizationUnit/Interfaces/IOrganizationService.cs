@@ -1,4 +1,5 @@
-﻿using DAL.Entity;
+﻿using Core.Service;
+using DAL.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace Module.OrganizationUnit.Interfaces
     /// <summary>
     /// 组织架构接口
     /// </summary>
-    public interface IOrganizationService
+    public interface IOrganizationService:IService
     {
         /// <summary>
         /// 转树结构
