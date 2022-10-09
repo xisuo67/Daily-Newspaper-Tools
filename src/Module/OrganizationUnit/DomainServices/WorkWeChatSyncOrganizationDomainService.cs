@@ -98,7 +98,7 @@ namespace Module.OrganizationUnit.DomainServices
                     //删除所有部门
                     ctx.Database.ExecuteSqlCommand("delete from Departments");
                     ctx.Departments.AddRange(departmentList);
-                    var entity= departmentMappingList.FirstOrDefault(e => e.ThirdPartyParentId == "0");
+                    var entity = departmentMappingList.FirstOrDefault(e => e.ThirdPartyParentId == "0");
                     //将原用户更新至最顶级部门，自行调整（后面迭代自动调整）
                     ctx.Database.ExecuteSqlCommand($"update Users set DepartmentId='{entity?.DepartmentMappingId}'");
                     ctx.SaveChanges();
@@ -126,21 +126,27 @@ namespace Module.OrganizationUnit.DomainServices
             List<User> users = new List<User>();
             //同步企业微信人员信息，接口文档地址：
             //接口地址：https://qyapi.weixin.qq.com/cgi-bin/user/simplelist?access_token=ACCESS_TOKEN&department_id=DEPARTMENT_ID&fetch_child=1/0(1递归获取，0只获取本部门)
-            string token= _workWeChatLoginDomainService.Instance.GetToken();
+            string token = _workWeChatLoginDomainService.Instance.GetToken();
             string url = $"https://qyapi.weixin.qq.com/cgi-bin/user/simplelist?access_token={token}&department_id=0&fetch_child=1";
             string jsonText = GetJson(url);
             var workWeChatUsers = JsonConvert.DeserializeObject<WorkWeChatUsers>(jsonText);
-            if (workWeChatUsers.errcode!="0")
+            if (workWeChatUsers.errcode != "0")
             {
+                List<ThirdPartyDepartmentMapping> departmentMappingList = new List<ThirdPartyDepartmentMapping>();
+                using (var ctx = new EntityContext())
+                {
+                    departmentMappingList = ctx.ThirdPartyDepartmentMappings.ToList();
+                }
                 foreach (var item in workWeChatUsers.userlist)
                 {
+                    var entity=departmentMappingList.FirstOrDefault(e=>e.ThirdPartyId==item.department.First());
                     users.Add(new User()
                     {
-                        UserName=item.userid,
-                        WeChatUserid=item.userid,
-                        UserId=Guid.NewGuid(),
-                        //DepartmentId
-                        Name=item.name,
+                        UserName = item.userid,
+                        WeChatUserid = item.userid,
+                        UserId = Guid.NewGuid(),
+                        DepartmentId=entity.DepartmentMappingId,
+                        Name = item.name,
                     });
                 }
             }
