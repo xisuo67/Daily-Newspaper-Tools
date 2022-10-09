@@ -100,6 +100,7 @@ namespace Daily_Newspaper_Tools.Views
                         UserDTO userDTO = new UserDTO();
                         userDTO.MapperFrom(userEntity);
                         LoginContext.Current = new LoginContext(userDTO);
+                        ShowSuccessTip("登录成功");
                         this.DialogResult = DialogResult.OK;
                         this.Close();
                     }
@@ -107,7 +108,6 @@ namespace Daily_Newspaper_Tools.Views
                     {
                         ShowErrorTip("当前系统不存在该用户，无法登录");
                     }
-
                 }
                 catch (Exception ex)
                 {
