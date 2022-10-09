@@ -123,10 +123,28 @@ namespace Module.OrganizationUnit.DomainServices
         }
         public List<User> GetOrganizationUsersSync()
         {
+            List<User> users = new List<User>();
             //同步企业微信人员信息，接口文档地址：
-
             //接口地址：https://qyapi.weixin.qq.com/cgi-bin/user/simplelist?access_token=ACCESS_TOKEN&department_id=DEPARTMENT_ID&fetch_child=1/0(1递归获取，0只获取本部门)
-            throw new NotImplementedException();
+            string token= _workWeChatLoginDomainService.Instance.GetToken();
+            string url = $"https://qyapi.weixin.qq.com/cgi-bin/user/simplelist?access_token={token}&department_id=0&fetch_child=1";
+            string jsonText = GetJson(url);
+            var workWeChatUsers = JsonConvert.DeserializeObject<WorkWeChatUsers>(jsonText);
+            if (workWeChatUsers.errcode!="0")
+            {
+                foreach (var item in workWeChatUsers.userlist)
+                {
+                    users.Add(new User()
+                    {
+                        UserName=item.userid,
+                        WeChatUserid=item.userid,
+                        UserId=Guid.NewGuid(),
+                        //DepartmentId
+                        Name=item.name,
+                    });
+                }
+            }
+            return users;
         }
     }
 }
