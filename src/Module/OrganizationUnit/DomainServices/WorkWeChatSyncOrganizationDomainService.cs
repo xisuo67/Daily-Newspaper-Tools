@@ -133,24 +133,45 @@ namespace Module.OrganizationUnit.DomainServices
             if (workWeChatUsers.errcode == "0")
             {
                 List<ThirdPartyDepartmentMapping> departmentMappingList = new List<ThirdPartyDepartmentMapping>();
+                //TODO:后面迭代根据用户名去重添加
                 using (var ctx = new EntityContext())
                 {
                     departmentMappingList = ctx.ThirdPartyDepartmentMappings.ToList();
-                }
-                foreach (var item in workWeChatUsers.userlist)
-                {
-                    var entity=departmentMappingList.FirstOrDefault(e=>e.ThirdPartyId==item.department.First());
-                    users.Add(new User()
+                    foreach (var item in workWeChatUsers.userlist)
                     {
-                        UserName = item.userid,
-                        WeChatUserid = item.userid,
-                        UserId = Guid.NewGuid(),
-                        DepartmentId=entity.DepartmentMappingId,
-                        Name = item.name,
-                    });
+                        var entity = departmentMappingList.FirstOrDefault(e => e.ThirdPartyId == item.department.First());
+                        users.Add(new User()
+                        {
+                            UserName = item.userid,
+                            WeChatUserid = item.userid,
+                            UserId = Guid.NewGuid(),
+                            DepartmentId = entity.DepartmentMappingId,
+                            Name = item.name,
+                        });
+                    }
+                    ctx.Users.AddRange(users);
+                    ctx.SaveChanges();
                 }
             }
             return users;
+        }
+        /// <summary>
+        /// 同步用户前校验
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public bool VerifyBeforeSyncUser()
+        {
+            var result = false;
+            using (var ctx = new EntityContext())
+            {
+               var list= ctx.ThirdPartyDepartmentMappings.Where(e=>e.FromSystem== (ThirdPartySystemEnum)OrganizationUnitEnum.WorkWeChatSync);
+                if (list.Count()>0)
+                {
+                    result = true;
+                }
+            }
+            return result;
         }
     }
 }

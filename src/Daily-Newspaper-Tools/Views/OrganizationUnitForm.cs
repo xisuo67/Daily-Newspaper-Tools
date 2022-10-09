@@ -625,9 +625,19 @@ namespace Daily_Newspaper_Tools.Views
 
         private void btn_UserSyncByWorkWeChat_Click(object sender, EventArgs e)
         {
-            if (ShowAskDialog("该操作将从企业微信中同步用户信息，是否继续？"))
+            var result = _workWeChatSyncOrganizationDomainService.Instance.VerifyBeforeSyncUser();
+            if (result)
             {
-                _workWeChatSyncOrganizationDomainService.Instance.GetOrganizationUsersSync();
+                if (ShowAskDialog("该操作将从企业微信中同步用户信息，是否继续？"))
+                {
+                    _workWeChatSyncOrganizationDomainService.Instance.GetOrganizationUsersSync();
+                    ShowSuccessTip("同步成功");
+                    this.InitGridData();
+                }
+            }
+            else
+            {
+                ShowErrorTip("从企业微信同步用户前，请先同步部门信息");
             }
         }
 
@@ -636,6 +646,7 @@ namespace Daily_Newspaper_Tools.Views
             if (ShowAskDialog("该操作将覆盖原有部门信息，是否继续？", true))
             {
                 _workWeChatSyncOrganizationDomainService.Instance.GetOrganizationSync();
+                ShowSuccessTip("同步成功");
                 this.InitDepartment();
                 this.InitGridData();
             }

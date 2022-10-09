@@ -21,5 +21,11 @@ namespace Utility.Dependency
         /// </summary>
         /// <returns></returns>
         List<User> GetOrganizationUsersSync();
+
+        /// <summary>
+        /// 同步用户前校验
+        /// </summary>
+        /// <returns></returns>
+        bool VerifyBeforeSyncUser();
     }
 }
