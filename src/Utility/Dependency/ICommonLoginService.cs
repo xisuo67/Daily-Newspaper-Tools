@@ -1,4 +1,5 @@
 ﻿using Core.Service;
+using DAL.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,5 +54,13 @@ namespace Utility.Dependency
         /// <param name="loginParam"></param>
         /// <returns></returns>
         string FromTokenByUserId(LoginParam loginParam);
+
+
+        /// <summary>
+        /// 根据扫码登录获取到userid，查询数据库信息
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        User GetUserInfoByDb(string userId);
     }
 }

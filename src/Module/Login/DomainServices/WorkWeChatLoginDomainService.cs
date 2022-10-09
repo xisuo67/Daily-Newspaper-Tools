@@ -29,6 +29,8 @@ namespace Module.Login.DomainServices
         private readonly string corpid = ConfigurationManager.AppSettings["corpid"];
         private readonly string agentid = ConfigurationManager.AppSettings["agentid"];
         private readonly string corpsecret = ConfigurationManager.AppSettings["corpsecret"];
+
+
         public string GetWebBrowserUrl()
         {
             if (!string.IsNullOrEmpty(redirectUrl) && !string.IsNullOrEmpty(corpid) && !string.IsNullOrEmpty(agentid))
@@ -147,6 +149,16 @@ namespace Module.Login.DomainServices
             wc.Encoding = Encoding.UTF8;
             string result = wc.DownloadString(url);
             return result;
+        }
+
+        public User GetUserInfoByDb(string userId)
+        {
+            User userEntity = null;
+            using (var ctx = new EntityContext())
+            {
+                 userEntity = ctx.Users.FirstOrDefault(d => d.WeChatUserid == userId);
+            }
+            return userEntity;
         }
     }
 }
