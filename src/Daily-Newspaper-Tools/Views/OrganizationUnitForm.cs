@@ -625,7 +625,10 @@ namespace Daily_Newspaper_Tools.Views
 
         private void btn_UserSyncByWorkWeChat_Click(object sender, EventArgs e)
         {
-
+            if (ShowAskDialog("该操作将从企业微信中同步用户信息，是否继续？"))
+            {
+                _workWeChatSyncOrganizationDomainService.Instance.GetOrganizationUsersSync();
+            }
         }
 
         private void btn_OrganizationSyncByWorkWeChat_Click(object sender, EventArgs e)
