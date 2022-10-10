@@ -246,35 +246,15 @@ namespace Daily_Newspaper_Tools.Views
         }
         #endregion
 
-
-        private void uiCmbTreeDepartment_MouseDown(object sender, MouseEventArgs e)
-        {
-            var CurrentNode = uiCmbTreeDepartment.SelectedNode;
-
-            if (e.Button == MouseButtons.Left) //左键联动成员数据
-            {
-                if (CurrentNode != null)
-                {
-                    Guid id = Guid.Empty;
-                    Guid.TryParse(CurrentNode.Tag.ToString(), out id);
-                    this.InitListBox(id);
-                }
-            }
-        }
-
         private void uiCmbTreeDepartment_NodeSelected(object sender, TreeNode node)
         {
-
-        }
-
-        private void uiCmbTreeDepartment_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void uiCmbTreeDepartment_NodesSelected(object sender, TreeNodeCollection nodes)
-        {
-
+            var CurrentNode = node;
+            if (CurrentNode != null)
+            {
+                Guid id = Guid.Empty;
+                Guid.TryParse(CurrentNode.Tag.ToString(), out id);
+                this.InitListBox(id);
+            }
         }
     }
 }
