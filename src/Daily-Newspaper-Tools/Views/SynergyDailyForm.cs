@@ -32,15 +32,16 @@ namespace Daily_Newspaper_Tools.Views
             InitializeComponent();
             DateTime dt = DateTime.Now;  //获取系统当前时间
             uiDatePicker1.Value = dt;
-            InitListBox();
-            InitDepartment();
+            var departmentID= InitDepartment();
+            InitListBox(departmentID);
+            
         }
 
         #region 初始化
         /// <summary>
         /// 初始化部门
         /// </summary>
-        private void InitDepartment() {
+        private Guid? InitDepartment() {
             var departments = _organizationUnitDomainService.Instance.GetList();
             var trees = _organizationUnitDomainService.Instance.ConvertToTree(departments);
             uiCmbTreeDepartment.Nodes.Clear();
@@ -49,16 +50,17 @@ namespace Daily_Newspaper_Tools.Views
 
             var departmentName = departments.FirstOrDefault(e => e.Id == LoginContext.Current.UserInfo.DepartmentId)?.Name;
             uiCmbTreeDepartment.Text = departmentName;
+            return LoginContext.Current.UserInfo.DepartmentId;
         }
         /// <summary>
         /// 初始化listbox
         /// </summary>
-        private void InitListBox()
+        private void InitListBox(Guid? departmentID)
         {
             List<UserDTO> userList = new List<UserDTO>();
             using (var ctx = new EntityContext())
             {
-                userList = ctx.Users.Select(e => (new UserDTO
+                userList = ctx.Users.Where(e=>e.DepartmentId==departmentID).Select(e => (new UserDTO
                 {
                     UserId = e.UserId,
                     Name = string.IsNullOrEmpty(e.Name) ? e.UserName : e.Name,
@@ -234,6 +236,7 @@ namespace Daily_Newspaper_Tools.Views
         {
             var listbox = (Sunny.UI.UIListBox)sender;
             var itemData = listbox.SelectedItem as UserDTO;
+            if(itemData!=null)
             this.CurrentClickUserId = itemData.UserId;
             this.InitNewspaperData();
         }
@@ -242,5 +245,31 @@ namespace Daily_Newspaper_Tools.Views
             this.InitNewspaperData();
         }
         #endregion
+
+
+        private void uiCmbTreeDepartment_MouseDown(object sender, MouseEventArgs e)
+        {
+            var CurrentNode = uiCmbTreeDepartment.SelectedNode;
+
+            if (e.Button == MouseButtons.Left) //左键联动成员数据
+            {
+                if (CurrentNode != null)
+                {
+                    Guid id = Guid.Empty;
+                    Guid.TryParse(CurrentNode.Tag.ToString(), out id);
+                    this.InitListBox(id);
+                }
+            }
+        }
+
+        private void uiCmbTreeDepartment_NodeSelected(object sender, TreeNode node)
+        {
+
+        }
+
+        private void uiCmbTreeDepartment_NodesSelected(object sender, TreeNodeCollection nodes)
+        {
+
+        }
     }
 }

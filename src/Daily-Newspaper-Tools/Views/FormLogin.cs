@@ -81,6 +81,9 @@ namespace Daily_Newspaper_Tools
         private void Form1_Load(object sender, EventArgs e)
         {
             uiToolTip1.SetToolTip(uiSymbolBtnWeChat, uiSymbolBtnWeChat.TipsText);
+            uiTxtPassword.TextBox.UseSystemPasswordChar = true;
+            uiTxtPass.TextBox.UseSystemPasswordChar = true;
+            uiTxt.TextBox.UseSystemPasswordChar = true;
         }
         /// <summary>
         /// 登录
