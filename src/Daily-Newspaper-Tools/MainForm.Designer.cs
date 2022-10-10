@@ -33,14 +33,18 @@ namespace Daily_Newspaper_Tools
             this.uiAvatar = new Sunny.UI.UIAvatar();
             this.uiContextMenuStrip1 = new Sunny.UI.UIContextMenuStrip();
             this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uiPanel1 = new Sunny.UI.UIPanel();
+            this.uiPanel2 = new Sunny.UI.UIPanel();
             this.Header.SuspendLayout();
             this.uiContextMenuStrip1.SuspendLayout();
+            this.uiPanel1.SuspendLayout();
+            this.uiPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // Header
             // 
             this.Header.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Header.Controls.Add(this.uiAvatar);
+            this.Header.Controls.Add(this.uiPanel1);
             this.Header.FillColor = System.Drawing.Color.WhiteSmoke;
             this.Header.ForeColor = System.Drawing.Color.White;
             this.Header.Location = new System.Drawing.Point(204, 35);
@@ -62,7 +66,7 @@ namespace Daily_Newspaper_Tools
             this.uiAvatar.AvatarSize = 55;
             this.uiAvatar.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiAvatar.Icon = Sunny.UI.UIAvatar.UIIcon.Text;
-            this.uiAvatar.Location = new System.Drawing.Point(845, 9);
+            this.uiAvatar.Location = new System.Drawing.Point(17, 6);
             this.uiAvatar.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiAvatar.Name = "uiAvatar";
             this.uiAvatar.Size = new System.Drawing.Size(60, 60);
@@ -79,15 +83,47 @@ namespace Daily_Newspaper_Tools
             this.uiContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.设置ToolStripMenuItem});
             this.uiContextMenuStrip1.Name = "uiContextMenuStrip1";
-            this.uiContextMenuStrip1.Size = new System.Drawing.Size(181, 52);
+            this.uiContextMenuStrip1.Size = new System.Drawing.Size(113, 30);
             this.uiContextMenuStrip1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // 设置ToolStripMenuItem
             // 
             this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
-            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(112, 26);
             this.设置ToolStripMenuItem.Text = "设置";
             this.设置ToolStripMenuItem.Click += new System.EventHandler(this.设置ToolStripMenuItem_Click);
+            // 
+            // uiPanel1
+            // 
+            this.uiPanel1.Controls.Add(this.uiPanel2);
+            this.uiPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiPanel1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiPanel1.Location = new System.Drawing.Point(0, 0);
+            this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel1.Name = "uiPanel1";
+            this.uiPanel1.RectColor = System.Drawing.Color.Empty;
+            this.uiPanel1.Size = new System.Drawing.Size(918, 72);
+            this.uiPanel1.Style = Sunny.UI.UIStyle.Custom;
+            this.uiPanel1.TabIndex = 0;
+            this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uiPanel1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiPanel2
+            // 
+            this.uiPanel2.Controls.Add(this.uiAvatar);
+            this.uiPanel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.uiPanel2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiPanel2.Location = new System.Drawing.Point(838, 0);
+            this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel2.Name = "uiPanel2";
+            this.uiPanel2.RectColor = System.Drawing.Color.Empty;
+            this.uiPanel2.Size = new System.Drawing.Size(80, 72);
+            this.uiPanel2.Style = Sunny.UI.UIStyle.Custom;
+            this.uiPanel2.TabIndex = 0;
+            this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uiPanel2.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // MainForm
             // 
@@ -102,6 +138,8 @@ namespace Daily_Newspaper_Tools
             this.Controls.SetChildIndex(this.Header, 0);
             this.Header.ResumeLayout(false);
             this.uiContextMenuStrip1.ResumeLayout(false);
+            this.uiPanel1.ResumeLayout(false);
+            this.uiPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -111,5 +149,7 @@ namespace Daily_Newspaper_Tools
         private Sunny.UI.UIAvatar uiAvatar;
         private Sunny.UI.UIContextMenuStrip uiContextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
+        private Sunny.UI.UIPanel uiPanel1;
+        private Sunny.UI.UIPanel uiPanel2;
     }
 }
