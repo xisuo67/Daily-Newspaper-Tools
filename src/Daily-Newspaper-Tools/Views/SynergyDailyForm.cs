@@ -43,7 +43,7 @@ namespace Daily_Newspaper_Tools.Views
         /// </summary>
         private Guid? InitDepartment() {
             var departments = _organizationUnitDomainService.Instance.GetList();
-            var trees = _organizationUnitDomainService.Instance.ConvertToTree(departments);
+            var trees = _organizationUnitDomainService.Instance.GetDeparentmentHasNoTree(departments);
             uiCmbTreeDepartment.Nodes.Clear();
 
             uiCmbTreeDepartment.Nodes.AddRange(trees.ToArray());
@@ -263,6 +263,11 @@ namespace Daily_Newspaper_Tools.Views
         }
 
         private void uiCmbTreeDepartment_NodeSelected(object sender, TreeNode node)
+        {
+
+        }
+
+        private void uiCmbTreeDepartment_TextChanged(object sender, EventArgs e)
         {
 
         }

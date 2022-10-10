@@ -24,7 +24,21 @@ namespace Module.OrganizationUnit.DomainServices
         {
             throw new NotImplementedException();
         }
-
+        public List<TreeNode> GetDeparentmentHasNoTree(List<Department> list)
+        {
+            var result = new List<TreeNode>();
+            foreach (var item in list)
+            {
+                var tree = new TreeNode
+                {
+                    Name = item.Id.ToString(),
+                    Text = item.Name,
+                    Tag = item.Id.ToString(),
+                };
+                result.Add(tree);
+            }
+            return result;
+        }
         public List<Department> Children(List<Department> list, Guid? Id)
         {
             var childList = list.Where(x => x.ParentId == Id).ToList();
@@ -79,6 +93,8 @@ namespace Module.OrganizationUnit.DomainServices
             throw new NotImplementedException();
         }
 
+
+
         public Department GetLastChildOrNull(Guid? parentId)
         {
             throw new NotImplementedException();
@@ -96,7 +112,7 @@ namespace Module.OrganizationUnit.DomainServices
         {
             using (var ctx = new EntityContext())
             {
-                return ctx.Departments.OrderBy(e => e.Name).ToList();
+                return ctx.Departments.OrderBy(e => e.Code).ToList();
             }
         }
 

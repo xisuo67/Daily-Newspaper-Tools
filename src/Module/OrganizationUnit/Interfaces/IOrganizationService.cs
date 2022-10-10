@@ -23,7 +23,12 @@ namespace Module.OrganizationUnit.Interfaces
         /// <returns></returns>
         List<TreeNode> ConvertToTree(List<Department> list,Guid? Id = null);
 
-
+        /// <summary>
+        /// 获取组织架构，不含树结构
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
+        List<TreeNode> GetDeparentmentHasNoTree(List<Department> list);
         /// <summary>
         /// 转树结构子集
         /// </summary>
