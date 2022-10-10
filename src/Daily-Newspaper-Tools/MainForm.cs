@@ -117,5 +117,16 @@ namespace Daily_Newspaper_Tools
                 frm.Dispose();
             }
         }
+
+        private void uiHeaderButton12_Click(object sender, EventArgs e)
+        {
+            new Process
+            {
+                StartInfo = new ProcessStartInfo("https://github.com/xisuo67/Daily-Newspaper-Tools")
+                {
+                    UseShellExecute = true
+                }
+            }.Start();
+        }
     }
 }

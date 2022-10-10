@@ -35,6 +35,7 @@ namespace Daily_Newspaper_Tools
             this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uiPanel1 = new Sunny.UI.UIPanel();
             this.uiPanel2 = new Sunny.UI.UIPanel();
+            this.uiHeaderButton12 = new Sunny.UI.UIHeaderButton();
             this.Header.SuspendLayout();
             this.uiContextMenuStrip1.SuspendLayout();
             this.uiPanel1.SuspendLayout();
@@ -95,6 +96,7 @@ namespace Daily_Newspaper_Tools
             // 
             // uiPanel1
             // 
+            this.uiPanel1.Controls.Add(this.uiHeaderButton12);
             this.uiPanel1.Controls.Add(this.uiPanel2);
             this.uiPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiPanel1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -125,6 +127,35 @@ namespace Daily_Newspaper_Tools
             this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.uiPanel2.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
+            // uiHeaderButton12
+            // 
+            this.uiHeaderButton12.CircleColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.uiHeaderButton12.CircleHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.uiHeaderButton12.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiHeaderButton12.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.uiHeaderButton12.FillDisableColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.uiHeaderButton12.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.uiHeaderButton12.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.uiHeaderButton12.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.uiHeaderButton12.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiHeaderButton12.Location = new System.Drawing.Point(711, 4);
+            this.uiHeaderButton12.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiHeaderButton12.Name = "uiHeaderButton12";
+            this.uiHeaderButton12.Padding = new System.Windows.Forms.Padding(0, 8, 0, 3);
+            this.uiHeaderButton12.Radius = 0;
+            this.uiHeaderButton12.RadiusSides = Sunny.UI.UICornerRadiusSides.None;
+            this.uiHeaderButton12.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
+            this.uiHeaderButton12.Size = new System.Drawing.Size(97, 65);
+            this.uiHeaderButton12.Style = Sunny.UI.UIStyle.Custom;
+            this.uiHeaderButton12.Symbol = 61595;
+            this.uiHeaderButton12.SymbolColor = System.Drawing.Color.Black;
+            this.uiHeaderButton12.SymbolOffset = new System.Drawing.Point(1, 2);
+            this.uiHeaderButton12.SymbolSize = 41;
+            this.uiHeaderButton12.TabIndex = 6;
+            this.uiHeaderButton12.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiHeaderButton12.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.uiHeaderButton12.Click += new System.EventHandler(this.uiHeaderButton12_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -151,5 +182,6 @@ namespace Daily_Newspaper_Tools
         private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
         private Sunny.UI.UIPanel uiPanel1;
         private Sunny.UI.UIPanel uiPanel2;
+        private Sunny.UI.UIHeaderButton uiHeaderButton12;
     }
 }
