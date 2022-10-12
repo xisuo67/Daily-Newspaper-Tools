@@ -53,5 +53,9 @@ namespace DAL
         public DbSet<AuthToken> AuthTokens { get; set; }
 
         public DbSet<ThirdPartyDepartmentMapping> ThirdPartyDepartmentMappings { get; set; }
+
+        public DbSet<Roles> Roles { get; set; }
+
+        public DbSet<UserRoles> UserRoles { get; set; }
     }
 }
