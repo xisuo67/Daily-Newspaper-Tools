@@ -121,13 +121,13 @@ namespace Daily_Newspaper_Tools.Views
             if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
             {
                 Point curPosition = e.Location;//当前鼠标在当前单元格中的坐标
-                if (this.uiDataGridView1.Columns[e.ColumnIndex].HeaderText == "操作")
+                if (this.uiDataGridView2.Columns[e.ColumnIndex].HeaderText == "操作")
                 {
-                    Graphics g = this.uiDataGridView1.CreateGraphics();
+                    Graphics g = this.uiDataGridView2.CreateGraphics();
                     Font myFont = new Font("宋体", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
                     SizeF sizeRun = g.MeasureString("编辑", myFont);
                     SizeF sizeDel = g.MeasureString("删除", myFont);
-                    SizeF sizeAuth = e.Graphics.MeasureString("授权", myFont);
+                    SizeF sizeAuth = g.MeasureString("授权", myFont);
                     float fRun = sizeRun.Width / (sizeRun.Width + sizeDel.Width);
                     float fDel = sizeDel.Width / (sizeRun.Width + sizeDel.Width);
                     float fAuth = sizeAuth.Width / (sizeRun.Width + sizeDel.Width);
@@ -191,7 +191,7 @@ namespace Daily_Newspaper_Tools.Views
         {
             if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
             {
-                if (this.uiDataGridView1.Columns[e.ColumnIndex].HeaderText == "操作")
+                if (this.uiDataGridView2.Columns[e.ColumnIndex].HeaderText == "操作")
                 {
                     e.PaintBackground(e.CellBounds, false);//重绘边框
                     //设置要写入字体的大小
