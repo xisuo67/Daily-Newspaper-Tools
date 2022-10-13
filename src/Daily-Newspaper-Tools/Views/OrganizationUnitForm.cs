@@ -156,7 +156,14 @@ namespace Daily_Newspaper_Tools.Views
             uiDataGridView1.AddColumn("登录账号", "UserName");
             uiDataGridView1.AddColumn("所属部门", "DepartmentName");
             uiDataGridView1.AddColumn("操作", "", 50);
+
+            uiDataGridView2.AddColumn("Id", "Id");
+            uiDataGridView2.Columns[0].Visible = false;
+            uiDataGridView2.AddColumn("角色名称", "Name");
+            uiDataGridView2.AddColumn("操作", "", 50);
+
             this.InitGridData();
+            this.InitRoleDatas();
         }
         /// <summary>
         /// 删除节点
@@ -319,6 +326,27 @@ namespace Daily_Newspaper_Tools.Views
         }
         #endregion
         #region 初始化列表及数据
+        /// <summary>
+        /// 初始化角色数据
+        /// </summary>
+        /// <param name="searchParam"></param>
+        private void InitRoleDatas(string searchParam = null)
+        {
+            uiDataGridView2.Init();
+            List<Roles> roles = new List<Roles>();
+            using (var ctx = new EntityContext())
+            {
+                if (string.IsNullOrEmpty(searchParam))
+                {
+                    roles = ctx.Roles.ToList();
+                }
+                else
+                {
+                    roles = ctx.Roles.Where(e => e.Name.Contains(searchParam)).ToList();
+                }
+            }
+            uiDataGridView2.DataSource = roles;
+        }
         /// <summary>
         /// 初始化列表数据
         /// </summary>
