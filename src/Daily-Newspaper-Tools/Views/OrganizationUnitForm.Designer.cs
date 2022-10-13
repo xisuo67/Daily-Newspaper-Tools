@@ -355,6 +355,7 @@
             this.uiDataGridView2.Style = Sunny.UI.UIStyle.Custom;
             this.uiDataGridView2.TabIndex = 19;
             this.uiDataGridView2.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.uiDataGridView2.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.uiDataGridView2_CellMouseClick);
             this.uiDataGridView2.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.uiDataGridView2_CellPainting);
             // 
             // uiSymbolBtnRoleAdd

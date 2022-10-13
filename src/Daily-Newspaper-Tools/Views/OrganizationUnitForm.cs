@@ -116,7 +116,48 @@ namespace Daily_Newspaper_Tools.Views
                 }
             }
         }
+        private void uiDataGridView2_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
+            {
+                Point curPosition = e.Location;//当前鼠标在当前单元格中的坐标
+                if (this.uiDataGridView1.Columns[e.ColumnIndex].HeaderText == "操作")
+                {
+                    Graphics g = this.uiDataGridView1.CreateGraphics();
+                    Font myFont = new Font("宋体", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+                    SizeF sizeRun = g.MeasureString("编辑", myFont);
+                    SizeF sizeDel = g.MeasureString("删除", myFont);
+                    SizeF sizeAuth = e.Graphics.MeasureString("授权", myFont);
+                    float fRun = sizeRun.Width / (sizeRun.Width + sizeDel.Width);
+                    float fDel = sizeDel.Width / (sizeRun.Width + sizeDel.Width);
+                    float fAuth = sizeAuth.Width / (sizeRun.Width + sizeDel.Width);
 
+
+                    Rectangle rectTotal = new Rectangle(0, 0, this.uiDataGridView1.Columns[e.ColumnIndex].Width, this.uiDataGridView1.Rows[e.RowIndex].Height);
+                    RectangleF rectRun = new RectangleF(rectTotal.Left, rectTotal.Top, rectTotal.Width * fRun, rectTotal.Height);
+                    RectangleF rectDel = new RectangleF(rectRun.Right, rectTotal.Top, rectTotal.Width * fDel, rectTotal.Height);
+
+                    RectangleF rectAuth = new RectangleF(rectDel.Right, rectTotal.Top, rectTotal.Width * fAuth, rectTotal.Height);
+                    //判断当前鼠标在哪个“按钮”范围内
+                    Guid id = Guid.Empty;
+                    var idString = this.uiDataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    Guid.TryParse(idString, out id);
+                    if (rectRun.Contains(curPosition))
+                    {
+                        //this.Edit(id);//编辑
+                    }
+                    else if (rectDel.Contains(curPosition))
+                    {
+                        //TODO:删除
+                        //this.Del(id);
+                    }
+                    else if (rectAuth.Contains(curPosition))
+                    {
+                        //TODO:授权
+                    }
+                }
+            }
+        }
         private void uiDataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
