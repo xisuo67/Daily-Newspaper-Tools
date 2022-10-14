@@ -17,5 +17,7 @@ namespace Daily_Newspaper_Tools.Views
         {
             InitializeComponent();
         }
+
+
     }
 }
