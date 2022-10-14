@@ -144,6 +144,12 @@
     <Compile Include="Views\OrganizationUnitForm.Designer.cs">
       <DependentUpon>OrganizationUnitForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\RolesEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RolesEditForm.Designer.cs">
+      <DependentUpon>RolesEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\SynergyDailyForm.cs">
       <SubType>Form</SubType>
     </Compile>
