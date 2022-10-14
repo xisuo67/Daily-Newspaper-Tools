@@ -1,4 +1,5 @@
-﻿using Sunny.UI;
+﻿using DAL.Entity;
+using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,28 @@ namespace Daily_Newspaper_Tools.Views
             InitializeComponent();
         }
 
+        protected override bool CheckData()
+        {
+            return CheckEmpty(uiTxtName, "请输入姓名");
+        }
 
+        private Roles roles;
+        public Roles Roles
+        {
+            get
+            {
+                if (roles == null)
+                {
+                    roles = new Roles();
+                }
+                roles.Name = uiTxtName.Text.Trim();
+                return roles;
+            }
+            set
+            {
+                roles = value;
+                uiTxtName.Text = value.Name;
+            }
+        }
     }
 }
