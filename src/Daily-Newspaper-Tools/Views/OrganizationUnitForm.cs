@@ -716,7 +716,23 @@ namespace Daily_Newspaper_Tools.Views
 
         private void uiSymbolBtnRoleAdd_Click(object sender, EventArgs e)
         {
-            ShowInfoTip("功能尚在规划中，尽情期待");
+            //ShowInfoTip("功能尚在规划中，尽情期待");
+            RolesEditForm frm = new RolesEditForm();
+            using (var ctx = new EntityContext())
+            {
+                Roles roles = new Roles() { Id=Guid.NewGuid()};
+                frm.Roles = roles;
+                frm.Render();
+                frm.ShowDialog();
+                if (frm.IsOK)
+                {
+                    ctx.Entry(frm.Roles).State = System.Data.Entity.EntityState.Added;
+                    ctx.SaveChanges();
+                    ShowSuccessTip("保存成功");
+                    this.InitRoleDatas();
+                }
+                frm.Dispose();
+            }
         }
 
         private void uiSymbolBtnSync_Click(object sender, EventArgs e)
