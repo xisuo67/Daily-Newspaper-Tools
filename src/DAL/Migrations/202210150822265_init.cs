@@ -8,6 +8,18 @@
         public override void Up()
         {
             CreateTable(
+                "dbo.AuthTokens",
+                c => new
+                    {
+                        Id = c.Guid(nullable: false),
+                        Token = c.String(),
+                        CreateTime = c.DateTime(nullable: false),
+                        ExpiresIn = c.Int(nullable: false),
+                        ExpiresTime = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.Contacts",
                 c => new
                     {
@@ -15,6 +27,17 @@
                         UserId = c.Guid(nullable: false),
                         Name = c.String(),
                         Email = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Departments",
+                c => new
+                    {
+                        Id = c.Guid(nullable: false),
+                        Name = c.String(),
+                        Code = c.String(),
+                        ParentId = c.Guid(),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -55,6 +78,29 @@
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
+                "dbo.Roles",
+                c => new
+                    {
+                        Id = c.Guid(nullable: false),
+                        Name = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.ThirdPartyDepartmentMappings",
+                c => new
+                    {
+                        DepartmentMappingId = c.Guid(nullable: false),
+                        ThirdPartyId = c.String(),
+                        Name = c.String(),
+                        order = c.String(),
+                        DepartmentMappingParentId = c.Guid(),
+                        ThirdPartyParentId = c.String(),
+                        FromSystem = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.DepartmentMappingId);
+            
+            CreateTable(
                 "dbo.TodayWorkDetails",
                 c => new
                     {
@@ -79,12 +125,25 @@
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
+                "dbo.UserRoles",
+                c => new
+                    {
+                        Id = c.Guid(nullable: false),
+                        UserId = c.Guid(nullable: false),
+                        RoleId = c.Guid(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.Users",
                 c => new
                     {
                         UserId = c.Guid(nullable: false),
                         UserName = c.String(),
                         Password = c.String(),
+                        Name = c.String(),
+                        DepartmentId = c.Guid(),
+                        WeChatUserid = c.String(),
                     })
                 .PrimaryKey(t => t.UserId);
             
@@ -104,12 +163,17 @@
         {
             DropTable("dbo.Works");
             DropTable("dbo.Users");
+            DropTable("dbo.UserRoles");
             DropTable("dbo.TomorrowWorkDetails");
             DropTable("dbo.TodayWorkDetails");
+            DropTable("dbo.ThirdPartyDepartmentMappings");
+            DropTable("dbo.Roles");
             DropTable("dbo.EmailTasks");
             DropTable("dbo.EmailTaskConfigs");
             DropTable("dbo.EmailConfigs");
+            DropTable("dbo.Departments");
             DropTable("dbo.Contacts");
+            DropTable("dbo.AuthTokens");
         }
     }
 }
