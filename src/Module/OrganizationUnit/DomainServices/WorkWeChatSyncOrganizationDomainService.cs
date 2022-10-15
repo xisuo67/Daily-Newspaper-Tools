@@ -38,7 +38,7 @@ namespace Module.OrganizationUnit.DomainServices
             string url = $"https://qyapi.weixin.qq.com/cgi-bin/department/list?access_token={token}";
             string jsonText = GetJson(url);
             var workWeChatDepartments = JsonConvert.DeserializeObject<WorkWeChatDepartmentsDTO>(jsonText);
-            if (workWeChatDepartments.errmsg != "0")
+            if (workWeChatDepartments.errmsg == "0")
             {
                 List<ThirdPartyDepartmentMapping> departmentMappingList = new List<ThirdPartyDepartmentMapping>();
                 foreach (var item in workWeChatDepartments.department)
@@ -100,7 +100,10 @@ namespace Module.OrganizationUnit.DomainServices
                     ctx.Departments.AddRange(departmentList);
                     var entity = departmentMappingList.FirstOrDefault(e => e.ThirdPartyParentId == "0");
                     //将原用户更新至最顶级部门，自行调整（后面迭代自动调整）
-                    ctx.Database.ExecuteSqlCommand($"update Users set DepartmentId='{entity?.DepartmentMappingId}'");
+                    if (entity?.DepartmentMappingId!=null)
+                    {
+                        ctx.Database.ExecuteSqlCommand($"update Users set DepartmentId='{entity?.DepartmentMappingId}'");
+                    }
                     ctx.SaveChanges();
 
                 }
