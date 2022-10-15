@@ -38,7 +38,7 @@ namespace Module.OrganizationUnit.DomainServices
             string url = $"https://qyapi.weixin.qq.com/cgi-bin/department/list?access_token={token}";
             string jsonText = GetJson(url);
             var workWeChatDepartments = JsonConvert.DeserializeObject<WorkWeChatDepartmentsDTO>(jsonText);
-            if (workWeChatDepartments.errmsg == "0")
+            if (workWeChatDepartments.errcode == "0")
             {
                 List<ThirdPartyDepartmentMapping> departmentMappingList = new List<ThirdPartyDepartmentMapping>();
                 foreach (var item in workWeChatDepartments.department)
@@ -107,6 +107,10 @@ namespace Module.OrganizationUnit.DomainServices
                     ctx.SaveChanges();
 
                 }
+            }
+            else
+            {
+                throw new Exception(workWeChatDepartments.errmsg);
             }
             return departmentList;
         }

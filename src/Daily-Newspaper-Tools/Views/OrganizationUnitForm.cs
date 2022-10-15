@@ -762,10 +762,19 @@ namespace Daily_Newspaper_Tools.Views
         {
             if (ShowAskDialog("该操作将覆盖原有部门信息，是否继续？", true))
             {
-                _workWeChatSyncOrganizationDomainService.Instance.GetOrganizationSync();
-                ShowSuccessTip("同步成功");
-                this.InitDepartment();
-                this.InitGridData();
+                try
+                {
+                    _workWeChatSyncOrganizationDomainService.Instance.GetOrganizationSync();
+                    ShowSuccessTip("同步成功");
+                    this.InitDepartment();
+                    this.InitGridData();
+                }
+                catch (Exception ex)
+                {
+                    ShowErrorTip(ex.ToString(),10000);
+                }
+               
+                
             }
         }
 
