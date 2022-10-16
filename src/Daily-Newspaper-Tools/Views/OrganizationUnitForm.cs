@@ -133,14 +133,14 @@ namespace Daily_Newspaper_Tools.Views
                     float fAuth = sizeAuth.Width / (sizeRun.Width + sizeDel.Width + sizeAuth.Width);
 
 
-                    Rectangle rectTotal = new Rectangle(0, 0, this.uiDataGridView1.Columns[e.ColumnIndex].Width, this.uiDataGridView1.Rows[e.RowIndex].Height);
+                    Rectangle rectTotal = new Rectangle(0, 0, this.uiDataGridView2.Columns[e.ColumnIndex].Width, this.uiDataGridView2.Rows[e.RowIndex].Height);
                     RectangleF rectRun = new RectangleF(rectTotal.Left, rectTotal.Top, rectTotal.Width * fRun, rectTotal.Height);
                     RectangleF rectDel = new RectangleF(rectRun.Right, rectTotal.Top, rectTotal.Width * fDel, rectTotal.Height);
 
                     RectangleF rectAuth = new RectangleF(rectDel.Right, rectTotal.Top, rectTotal.Width * fAuth, rectTotal.Height);
                     //判断当前鼠标在哪个“按钮”范围内
                     Guid id = Guid.Empty;
-                    var idString = this.uiDataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    var idString = this.uiDataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
                     Guid.TryParse(idString, out id);
                     if (rectRun.Contains(curPosition))
                     {
