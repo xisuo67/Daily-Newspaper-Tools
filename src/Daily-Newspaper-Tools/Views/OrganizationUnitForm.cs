@@ -128,9 +128,9 @@ namespace Daily_Newspaper_Tools.Views
                     SizeF sizeRun = g.MeasureString("编辑", myFont);
                     SizeF sizeDel = g.MeasureString("删除", myFont);
                     SizeF sizeAuth = g.MeasureString("授权", myFont);
-                    float fRun = sizeRun.Width / (sizeRun.Width + sizeDel.Width);
-                    float fDel = sizeDel.Width / (sizeRun.Width + sizeDel.Width);
-                    float fAuth = sizeAuth.Width / (sizeRun.Width + sizeDel.Width);
+                    float fRun = sizeRun.Width / (sizeRun.Width + sizeDel.Width + sizeAuth.Width);
+                    float fDel = sizeDel.Width / (sizeRun.Width + sizeDel.Width + sizeAuth.Width);
+                    float fAuth = sizeAuth.Width / (sizeRun.Width + sizeDel.Width + sizeAuth.Width);
 
 
                     Rectangle rectTotal = new Rectangle(0, 0, this.uiDataGridView1.Columns[e.ColumnIndex].Width, this.uiDataGridView1.Rows[e.RowIndex].Height);
@@ -199,9 +199,9 @@ namespace Daily_Newspaper_Tools.Views
                     SizeF sizeRun = e.Graphics.MeasureString("编辑", myFont);
                     SizeF sizeDel = e.Graphics.MeasureString("删除", myFont);
                     SizeF sizeAuth = e.Graphics.MeasureString("授权", myFont);
-                    float fRun = sizeRun.Width / (sizeRun.Width + sizeDel.Width);
-                    float fDel = sizeDel.Width / (sizeRun.Width + sizeDel.Width);
-                    float fAuth = sizeAuth.Width / (sizeRun.Width + sizeDel.Width);
+                    float fRun = sizeRun.Width / (sizeRun.Width + sizeDel.Width+ sizeAuth.Width);
+                    float fDel = sizeDel.Width / (sizeRun.Width + sizeDel.Width+ sizeAuth.Width);
+                    float fAuth = sizeAuth.Width / (sizeRun.Width + sizeDel.Width+ sizeAuth.Width);
                     //设置每个“按钮的边界”
                     RectangleF rectRun = new RectangleF(e.CellBounds.Left, e.CellBounds.Top, e.CellBounds.Width * fRun, e.CellBounds.Height);
                     RectangleF rectDel = new RectangleF(rectRun.Right, e.CellBounds.Top, e.CellBounds.Width * fDel, e.CellBounds.Height);
