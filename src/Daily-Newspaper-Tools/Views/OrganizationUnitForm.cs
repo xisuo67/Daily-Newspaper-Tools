@@ -66,6 +66,24 @@ namespace Daily_Newspaper_Tools.Views
                 this.InitGridData();
             }
         }
+
+        /// <summary>
+        /// 角色编辑
+        /// </summary>
+        /// <param name="Id"></param>
+        private void RolesEdit(Guid Id)
+        { 
+        
+        }
+        /// <summary>
+        /// 删除角色
+        /// </summary>
+        /// <param name="Id"></param>
+
+        private void RolesDel(Guid Id)
+        { 
+            
+        }
         #endregion
         #region 事件
 
