@@ -104,8 +104,16 @@ namespace Daily_Newspaper_Tools.Views
         /// <param name="Id"></param>
 
         private void RolesDel(Guid Id)
-        { 
-            
+        {
+            using (var ctx = new EntityContext())
+            {
+                var roles = ctx.Roles.FirstOrDefault(e => e.Id == id);
+                ctx.Roles.Remove(roles);
+                //TODO:删除用户后，需要同时删除日报，迭代后期在做
+                ctx.SaveChanges();
+                this.ShowSuccessTip("删除成功");
+                this.InitRoleDatas();
+            }
         }
         #endregion
         #region 事件
