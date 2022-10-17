@@ -73,8 +73,30 @@ namespace Daily_Newspaper_Tools.Views
         /// </summary>
         /// <param name="Id"></param>
         private void RolesEdit(Guid Id)
-        { 
-        
+        {
+            RolesEditForm frm = new RolesEditForm();
+            using (var ctx = new EntityContext())
+            {
+                Roles roles = ctx.Roles.FirstOrDefault(e=>e.Id==Id);
+                if (roles!=null)
+                {
+                    frm.Roles = roles;
+                    frm.Render();
+                    frm.ShowDialog();
+                    if (frm.IsOK)
+                    {
+                        ctx.Entry(frm.Roles).State = System.Data.Entity.EntityState.Added;
+                        ctx.SaveChanges();
+                        ShowSuccessTip("保存成功");
+                    }
+                }
+                else
+                {
+                    ShowErrorTip("未能查询到当前角色信息，请重新尝试");
+                }
+                this.InitRoleDatas();
+                frm.Dispose();
+            }
         }
         /// <summary>
         /// 删除角色
@@ -715,7 +737,6 @@ namespace Daily_Newspaper_Tools.Views
 
         private void uiSymbolBtnRoleAdd_Click(object sender, EventArgs e)
         {
-            //ShowInfoTip("功能尚在规划中，尽情期待");
             RolesEditForm frm = new RolesEditForm();
             using (var ctx = new EntityContext())
             {
