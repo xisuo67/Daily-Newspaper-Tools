@@ -20,6 +20,7 @@ namespace Daily_Newspaper_Tools.Views
     public partial class OrganizationUnitForm : UIPage
     {
         private readonly LazyService<WorkWeChatSyncOrganizationDomainService> _workWeChatSyncOrganizationDomainService = new LazyService<WorkWeChatSyncOrganizationDomainService>();
+        private readonly LazyService<OrganizationUnitDomainService> _organizationUnitDomainService=new LazyService<OrganizationUnitDomainService>();
         private List<Department> departments = new List<Department>();
         private Guid currentDeparentId= Guid.Empty;
         public OrganizationUnitForm()
@@ -491,7 +492,7 @@ namespace Daily_Newspaper_Tools.Views
             using (var ctx = new EntityContext())
             {
                 this.departments = ctx.Departments.ToList();
-                var trees = ConvertToTree(departments);
+                var trees = _organizationUnitDomainService.Instance.ConvertToTree(departments);
                 uiTreeView1.Nodes.Clear();
 
                 uiTreeView1.Nodes.AddRange(trees.ToArray());
@@ -499,38 +500,7 @@ namespace Daily_Newspaper_Tools.Views
                 uiTreeView1.ExpandAll();
             }
         }
-        private List<TreeNode> ConvertToTree(
-            List<Department> list,
-            Guid? Id = null)
-        {
-            var result = new List<TreeNode>();
-            var childList = Children(list, Id);
-            foreach (var item in childList)
-            {
-                var tree = new TreeNode
-                {
-                    Name = item.Id.ToString(),
-                    Text = item.Name,
-                    Tag = item.Id.ToString(),
-                };
-                var childs = ConvertToTree(list, item.Id);
-                foreach (var items in childs)
-                {
-                    tree.Nodes.Add(items);
-                }
-                result.Add(tree);
-            }
-
-            return result;
-        }
-
-        private List<Department> Children(
-            List<Department> list,
-            Guid? Id)
-        {
-            var childList = list.Where(x => x.ParentId == Id).ToList();
-            return childList;
-        }
+        
 
         #endregion
         #region 私有方法
