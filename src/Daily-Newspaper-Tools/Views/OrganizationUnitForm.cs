@@ -229,12 +229,12 @@ namespace Daily_Newspaper_Tools.Views
                     Guid.TryParse(idString, out id);
                     if (rectRun.Contains(curPosition))
                     {
-                        //this.Edit(id);//编辑
+                        this.RolesEdit(id);//编辑用户
                     }
                     else if (rectDel.Contains(curPosition))
                     {
                         //TODO:删除
-                        //this.Del(id);
+                        this.RolesDel(id);
                     }
                     else if (rectAuth.Contains(curPosition))
                     {
