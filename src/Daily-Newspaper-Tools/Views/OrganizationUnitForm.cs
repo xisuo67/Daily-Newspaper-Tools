@@ -107,7 +107,7 @@ namespace Daily_Newspaper_Tools.Views
         {
             using (var ctx = new EntityContext())
             {
-                var roles = ctx.Roles.FirstOrDefault(e => e.Id == id);
+                var roles = ctx.Roles.FirstOrDefault(e => e.Id == Id);
                 ctx.Roles.Remove(roles);
                 //TODO:删除用户后，需要同时删除日报，迭代后期在做
                 ctx.SaveChanges();
