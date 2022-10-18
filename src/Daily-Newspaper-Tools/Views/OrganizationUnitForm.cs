@@ -239,6 +239,7 @@ namespace Daily_Newspaper_Tools.Views
                     else if (rectAuth.Contains(curPosition))
                     {
                         //TODO:授权
+
                     }
                 }
             }
