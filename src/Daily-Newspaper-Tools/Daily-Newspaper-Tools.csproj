@@ -220,6 +220,9 @@
     <EmbeddedResource Include="Views\SynergyDailyForm.resx">
       <DependentUpon>SynergyDailyForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserAuthForm.resx">
+      <DependentUpon>UserAuthForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\UserEditForm.resx">
       <DependentUpon>UserEditForm.cs</DependentUpon>
     </EmbeddedResource>
