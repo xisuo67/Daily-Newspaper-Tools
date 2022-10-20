@@ -34,16 +34,16 @@
             // 
             // pnlBtm
             // 
-            this.pnlBtm.Location = new System.Drawing.Point(1, 572);
-            this.pnlBtm.Size = new System.Drawing.Size(478, 55);
+            this.pnlBtm.Location = new System.Drawing.Point(1, 517);
+            this.pnlBtm.Size = new System.Drawing.Size(475, 55);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(350, 12);
+            this.btnCancel.Location = new System.Drawing.Point(347, 12);
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(235, 12);
+            this.btnOK.Location = new System.Drawing.Point(232, 12);
             // 
             // uiTreeView1
             // 
@@ -55,7 +55,7 @@
             this.uiTreeView1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiTreeView1.Name = "uiTreeView1";
             this.uiTreeView1.ShowText = false;
-            this.uiTreeView1.Size = new System.Drawing.Size(470, 557);
+            this.uiTreeView1.Size = new System.Drawing.Size(470, 505);
             this.uiTreeView1.TabIndex = 2;
             this.uiTreeView1.Text = "uiTreeView1";
             this.uiTreeView1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -65,7 +65,7 @@
             // 
             this.AllowShowTitle = false;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(480, 630);
+            this.ClientSize = new System.Drawing.Size(477, 575);
             this.Controls.Add(this.uiTreeView1);
             this.Name = "UserAuthForm";
             this.Padding = new System.Windows.Forms.Padding(1, 0, 1, 3);
