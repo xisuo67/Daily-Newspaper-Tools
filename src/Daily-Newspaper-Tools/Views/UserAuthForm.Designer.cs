@@ -34,7 +34,7 @@
             // 
             // pnlBtm
             // 
-            this.pnlBtm.Location = new System.Drawing.Point(1, 572);
+            this.pnlBtm.Location = new System.Drawing.Point(1, 567);
             this.pnlBtm.Size = new System.Drawing.Size(478, 55);
             // 
             // btnCancel
@@ -65,7 +65,7 @@
             // 
             this.AllowShowTitle = false;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(480, 630);
+            this.ClientSize = new System.Drawing.Size(480, 625);
             this.Controls.Add(this.uiTreeView1);
             this.Name = "UserAuthForm";
             this.Padding = new System.Windows.Forms.Padding(1, 0, 1, 3);
