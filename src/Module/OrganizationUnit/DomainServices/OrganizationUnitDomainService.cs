@@ -20,6 +20,16 @@ namespace Module.OrganizationUnit.DomainServices
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// 获取部门下所有用户信息
+        /// </summary>
+        /// <returns></returns>
+        public List<TreeNode> GetDepartmentUser()
+        {
+            List<TreeNode> treeNodes = new List<TreeNode>();
+
+            return treeNodes;
+        }
         public string CalculateNextCode(string code)
         {
             throw new NotImplementedException();

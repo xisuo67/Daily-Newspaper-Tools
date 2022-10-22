@@ -24,6 +24,12 @@ namespace Module.OrganizationUnit.Interfaces
         List<TreeNode> ConvertToTree(List<Department> list,Guid? Id = null);
 
         /// <summary>
+        /// 获取部门下所有用户信息
+        /// </summary>
+        /// <returns></returns>
+        List<TreeNode> GetDepartmentUser();
+        
+        /// <summary>
         /// 获取组织架构，不含树结构
         /// </summary>
         /// <param name="list"></param>
