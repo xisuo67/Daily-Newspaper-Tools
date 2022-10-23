@@ -27,7 +27,11 @@ namespace Module.OrganizationUnit.DomainServices
         public List<TreeNode> GetDepartmentUser()
         {
             List<TreeNode> treeNodes = new List<TreeNode>();
-
+            using (var ctx = new EntityContext())
+            {
+                var departments = ctx.Departments.ToList();
+                var users = ctx.Users.ToList();
+            }
             return treeNodes;
         }
         public string CalculateNextCode(string code)
