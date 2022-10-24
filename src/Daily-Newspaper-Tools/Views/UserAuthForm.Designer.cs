@@ -28,59 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.uiTreeView1 = new Sunny.UI.UITreeView();
             this.pnlBtm.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlBtm
             // 
             this.pnlBtm.Location = new System.Drawing.Point(1, 517);
-            this.pnlBtm.Size = new System.Drawing.Size(475, 55);
+            this.pnlBtm.Size = new System.Drawing.Size(1009, 55);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(347, 12);
+            this.btnCancel.Location = new System.Drawing.Point(881, 12);
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(232, 12);
-            // 
-            // uiTreeView1
-            // 
-            this.uiTreeView1.FillColor = System.Drawing.Color.White;
-            this.uiTreeView1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiTreeView1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.uiTreeView1.Location = new System.Drawing.Point(5, 5);
-            this.uiTreeView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiTreeView1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiTreeView1.Name = "uiTreeView1";
-            this.uiTreeView1.ShowText = false;
-            this.uiTreeView1.Size = new System.Drawing.Size(470, 505);
-            this.uiTreeView1.TabIndex = 2;
-            this.uiTreeView1.Text = "uiTreeView1";
-            this.uiTreeView1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.uiTreeView1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.btnOK.Location = new System.Drawing.Point(766, 12);
             // 
             // UserAuthForm
             // 
             this.AllowShowTitle = false;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(477, 575);
-            this.Controls.Add(this.uiTreeView1);
+            this.ClientSize = new System.Drawing.Size(1011, 575);
             this.Name = "UserAuthForm";
             this.Padding = new System.Windows.Forms.Padding(1, 0, 1, 3);
             this.ShowTitle = false;
             this.Text = "UserAuthForm";
             this.ZoomScaleRect = new System.Drawing.Rectangle(15, 15, 800, 450);
-            this.Controls.SetChildIndex(this.pnlBtm, 0);
-            this.Controls.SetChildIndex(this.uiTreeView1, 0);
             this.pnlBtm.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Sunny.UI.UITreeView uiTreeView1;
     }
 }
