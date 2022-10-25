@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Dependency\ICommonLoginService.cs" />
     <Compile Include="Dependency\IOrganizationUnitSyncService.cs" />
+    <Compile Include="Dependency\IPermissionsService.cs" />
     <Compile Include="Dependency\LoginServiceFactory.cs" />
     <Compile Include="Dependency\OrganizationUnitSyncServiceFactory.cs" />
     <Compile Include="DTO\LoginParam.cs" />

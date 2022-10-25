@@ -66,6 +66,7 @@
     <Compile Include="OrganizationUnit\DTO\WorkWeChatDepartments.cs" />
     <Compile Include="OrganizationUnit\DTO\WorkWeChatUsers.cs" />
     <Compile Include="OrganizationUnit\Interfaces\IOrganizationService.cs" />
+    <Compile Include="Permission\Interfaces\IPermission.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -86,6 +87,7 @@
     <Folder Include="Login\AppServices\" />
     <Folder Include="Login\Interfaces\" />
     <Folder Include="OrganizationUnit\AppServices\" />
+    <Folder Include="Permission\DomainServices\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
