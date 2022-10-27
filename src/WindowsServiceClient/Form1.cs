@@ -22,6 +22,12 @@ namespace WindowsServiceClient
         }
         string serviceFilePath = $"{Application.StartupPath}\\AutoSendWeekly.exe";
         string serviceName = "AutoSendWeeklyService";
+        #region 窗体事件
+        /// <summary>
+        /// 事件：安装服务
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -112,6 +118,8 @@ namespace WindowsServiceClient
                 MessageBox.Show($"卸载服务失败：{ex.ToString()}");
             }
         }
+        #endregion
+
         #region 服务私有方法
         /// <summary>
         /// 判断服务是否存在
