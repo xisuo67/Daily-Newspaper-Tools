@@ -38,20 +38,79 @@ namespace WindowsServiceClient
                 MessageBox.Show($"安装服务失败：{ex.ToString()}");
             }
         }
-
+        /// <summary>
+        /// 事件：启动服务
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (this.IsServiceExisted(serviceName))
+                {
+                    this.ServiceStart(serviceName);
+                    MessageBox.Show($"【{serviceName}】服务启动成功");
+                }
+                else
+                {
+                    MessageBox.Show($"未能找到名称为【{serviceName}】的服务");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"启动服务失败：{ex.ToString()}");
+            }
         }
-
+        /// <summary>
+        /// 事件：停止服务
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (this.IsServiceExisted(serviceName))
+                {
+                    this.ServiceStop(serviceName);
+                    MessageBox.Show($"【{serviceName}】停止服务成功");
+                }
+                else
+                {
+                    MessageBox.Show($"未能找到名称为【{serviceName}】的服务");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"停止服务失败：{ex.ToString()}");
+            }
         }
-
+        /// <summary>
+        /// 事件：卸载服务
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (this.IsServiceExisted(serviceName))
+                {
+                    this.ServiceStop(serviceName);
+                    this.UninstallService(serviceFilePath);
+                    MessageBox.Show($"【{serviceName}】卸载服务成功");
+                }
+                else
+                {
+                    MessageBox.Show($"未能找到名称为【{serviceName}】的服务");
+                }
+            }
+            catch (Exception ex)
+            {
 
+                MessageBox.Show($"卸载服务失败：{ex.ToString()}");
+            }
         }
         #region 服务私有方法
         /// <summary>
