@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00 WindowsServices", "00 Wi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsServiceClient", "WindowsServiceClient\WindowsServiceClient.csproj", "{7AD9B4FE-7DE0-4FFD-B57F-D760F1DDBACE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoService", "AutoService\AutoService.csproj", "{C4617F32-26F5-4263-BD8F-CE439DE47F40}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,12 +55,17 @@ Global
 		{7AD9B4FE-7DE0-4FFD-B57F-D760F1DDBACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AD9B4FE-7DE0-4FFD-B57F-D760F1DDBACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AD9B4FE-7DE0-4FFD-B57F-D760F1DDBACE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4617F32-26F5-4263-BD8F-CE439DE47F40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4617F32-26F5-4263-BD8F-CE439DE47F40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4617F32-26F5-4263-BD8F-CE439DE47F40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4617F32-26F5-4263-BD8F-CE439DE47F40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7AD9B4FE-7DE0-4FFD-B57F-D760F1DDBACE} = {53585DD4-AE1F-4A8D-B348-5706F85675D1}
+		{C4617F32-26F5-4263-BD8F-CE439DE47F40} = {53585DD4-AE1F-4A8D-B348-5706F85675D1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {69FA82D1-6954-435B-A600-13480FFD5307}
