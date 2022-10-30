@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace AutoServices
 {
-    public partial class Service1 : ServiceBase
+    public partial class AutoSendService : ServiceBase
     {
-        public Service1()
+        public AutoSendService()
         {
             InitializeComponent();
         }

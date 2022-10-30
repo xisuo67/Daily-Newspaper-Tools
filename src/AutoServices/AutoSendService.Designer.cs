@@ -1,6 +1,6 @@
 ﻿namespace AutoServices
 {
-    partial class Service1
+    partial class AutoSendService
     {
         /// <summary> 
         /// 必需的设计器变量。
