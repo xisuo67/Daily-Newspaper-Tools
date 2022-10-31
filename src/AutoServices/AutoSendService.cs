@@ -28,5 +28,27 @@ namespace AutoServices
         protected override void OnStop()
         {
         }
+
+        /// <summary>
+        /// 写信息日志
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="message"></param>
+        private void WriteInfo(string title, string message)
+        {
+
+            if (!Directory.Exists(newLogPath))
+            {
+                Directory.CreateDirectory(newLogPath);
+            }
+
+            fileName = Path.Combine(newLogPath, DateTime.Now.ToString("yyyy-MM-dd") + ".txt");
+            string msg = DateTime.Now + "\t" + title + "\t" + message;
+            msg += "\r\n";
+            lock (obj)
+            {
+                File.AppendAllText(fileName, msg);
+            }
+        }
     }
 }
