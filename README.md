@@ -1,4 +1,4 @@
-## 简介
+## 简介 
 这是一款简单而又实用的日报管理工具，你能想到的功能基本上全都有了。功能持续迭代中，如果你有好的想法也可以通过 [Issue](https://github.com/xisuo67/Daily-Newspaper-Tools/issues) 告诉我。
 
 这款日报工具整体控件采用[SunnyUI](https://github.com/yhuse/SunnyUI)，有兴趣的朋友可以点击传送门自行研究，登录界面使用的是[RJ Code Advance](https://github.com/RJCodeAdvance/Login-Plano-Moderno-Transparente-Placeholder-WinForm-C-Sharp) 老哥的开源项目。
